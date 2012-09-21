@@ -30,8 +30,7 @@ ul#boxes li {
 p#boxeswide  {
 	font-family: Georgia;
 	font-size: 1.33em;
-	padding: 2.5em 0;
+	padding: 1em 0;
 	color: #000;
-	background-color: #ccc;
 	text-align: left;
 }
