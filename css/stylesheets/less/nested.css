@@ -3,7 +3,7 @@
 @import '../demo.css';
 body {
   width: 100%;
-  *zoom: 1;
+  
 }
 body:before,
 body:after {
@@ -36,7 +36,7 @@ header#top {
   display: block;
   width: 102.77777777777777%;
   margin: 0 -1.3888888888888888%;
-  *zoom: 1;
+ 
 }
 #maincolumn ul#boxes:before,
 #maincolumn ul#boxes:after {
@@ -57,7 +57,7 @@ header#top {
   display: block;
   width: 102.77777777777777%;
   margin: 0 -1.3888888888888888%;
-  *zoom: 1;
+ 
 }
 #maincolumn ul#boxeswide:before,
 #maincolumn ul#boxeswide:after {
