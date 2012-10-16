@@ -1,0 +1,78 @@
+<?php
+
+class users_controller extends base_controller {
+
+	public function __construct() {
+		parent::__construct();
+	} 
+	
+	/*-------------------------------------------------------------------------------------------------
+	Access via http://yourapp.com/index/index/
+	-------------------------------------------------------------------------------------------------*/
+	public function singup(){
+
+		echo "display the singup page";	
+	}
+
+	public function login(){
+		echo "display the login page";
+	}
+
+	public function logout(){
+		echo "display the logout page";
+	}
+
+	public function profile($user_name){
+		if($user_name == NULL){
+			echo "You did not specify a user";
+		}
+		else{
+			#setup view
+			$this->template->content = View::instance("v_users_profile");
+			$this->template->title = "profile for ".$user_name;
+			#using master template and view users fragment
+			#name of view folder controller and method
+
+			$client_files = Array("/css/users.css", "/js/users.js");
+
+			#setup client files using Utils library
+			$this->template->client->files = Utils::load_client_files($client_array);
+
+			$this->template->content->user_name = $user_name;
+			#render the view
+			echo $this->template;
+
+			#echo "this is the profile of".$user_name "and her favorite color is" $favorite_color; 
+			#echo "access as localhost/users/profile/susan"; 
+			#echo "will be passing userid in actual app"; 
+		}
+
+	}
+
+	public function index() {
+
+		echo "welcome to the users department";
+		
+		# Any method that loads a view will commonly start with this
+		# First, set the content of the template with a view file
+			$this->template->content = View::instance('v_index_index');
+			
+		# Now set the <title> tag
+			$this->template->title = "Hello World";
+	
+		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
+			$client_files = Array(
+						""
+	                    );
+	    
+	    	$this->template->client_files = Utils::load_client_files($client_files);   
+	      		
+		# Render the view
+			echo $this->template;
+
+	}
+	
+	
+	
+		
+} // end class
