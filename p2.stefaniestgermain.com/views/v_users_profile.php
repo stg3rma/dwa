@@ -1,2 +1,5 @@
-<h1>Profile</h1>
-<h2><?=$user_name; ?></h2>
+<h1>This is the profile of <?=$user->first_name?></h1>
+
+<? 
+	echo $follower_comments;
+?>
