@@ -121,6 +121,8 @@ class users_controller extends base_controller {
 			
 		}
 		else {
+
+		
 				
 	
 		$this->template->content = View::instance("v_users_profile");

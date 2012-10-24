@@ -1,7 +1,7 @@
-<form method='POST' action='/comments/p_comment'>
+<form method='POST' action='/posts/p_add'>
 
-	Comment<br>
-	<input type='text' name='comment'>
+	<strong>New Post:</strong><br>
+	<textarea name='content'></textarea>
 	<br><br>
 	
 	Category<br>
