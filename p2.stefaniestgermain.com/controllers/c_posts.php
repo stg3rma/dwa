@@ -5,10 +5,10 @@ class posts_controller extends base_controller {
 	public function __construct() {
 		parent::__construct();
 
-	#Make sure user is loggined in if they want to use anything in this controller
-	if(!$this->user){
-		die("Members only. <a href='/users/login'>Login</a>");
-	}
+		#Make sure user is loggined in if they want to use anything in this controller
+		if(!$this->user){
+			die("Members only. <a href='/users/login'>Please Login</a>");
+		}
 	}
 
 	public function add() {
@@ -46,26 +46,56 @@ class posts_controller extends base_controller {
 		$this->template->title = "Posts";
 
 		#Build the query
-		$q = "SELECT * FROM posts JOIN users USING (user_id)";
-
+		#$q = "SELECT * FROM posts JOIN users USING (user_id)";
 		#Run the query grabbing all the posts and joining in the users
+		#$posts = DB::instance(DB_NAME)->select_rows($q);
+		
+		#Build a query of the users this user is following - we are only interested
+		#in their posts
+		$q = "SELECT * FROM users_users WHERE user_id = ".$this->user->user_id;
+		
+		#Execute our query storing the results in a variable $connections
+		$connections = DB::instance(DB_NAME)->select_rows($q);
+
+		#In ord to query for the posts we need, we're going to need a string of user ids
+		#separated by commas. To create this, loop through our connections array
+		$connections_string = "";
+		foreach($connections as $connection){
+			$connections_string .= $connection['user_id_followed'].",";
+		}
+
+		#Remove the final comma
+		$connections_string = substr($connections_string, 0, -1);
+
+		#Connections string example: 10, 7, 8 (where the numbers fare user_ids 
+		#of who this user is following)
+
+		#Now let's build our query to grab the posts
+		$q = "SELECT *
+			FROM posts
+			JOIN users USING (user_id)
+			WHERE posts.user_id IN (".$connections_string.")"; 
+			#This is where we use string of user_ids we created
+
+		#Run our query and store results in the variable $posts
 		$posts = DB::instance(DB_NAME)->select_rows($q);
 
 		#Pass the data to the view
 		$this->template->content->posts = $posts;
 
-		#Render the view
+ 		#Render the view
 		echo $this->template;
 	}
 
 	public function users(){
+
 
 		#Set up the view
 		$this->template->content = View::instance("v_posts_users");
 		$this->template->title = "Users";
 
 		#Build our query to get all the users
-		$q = "SELECT * FROM users";
+		$q = "SELECT * FROM users"; #SAS add where to excluded logged in user
 
 		#Execute the query to get all the users. Store the result array in the variable $users
 		$users = DB::instance(DB_NAME)->select_rows($q);
@@ -74,18 +104,47 @@ class posts_controller extends base_controller {
 		$q = "SELECT * FROM users_users WHERE user_id = ".$this->user->user_id;
 
 		#Execute this query with the select_array method
-		#select_array will return our results in an array and use the users_id_followed
+		#select_array will return our results in an array and use the user_id_followed
 		#field as the index. This will come in handy when we get into the view. Store our
 		#results (an array) in the variable $connections
 
-		$connections = DB::instance(DB_NAME)->select_array($q,'users_id_followed');
+		$connections = DB::instance(DB_NAME)->select_array($q,'user_id_followed');
 
 		#Pass data (users and connections) to the view
 		$this->template->content->users = $users;
 		$this->template->content->connections = $connections;
 
+		#Render the view
+		echo $this->template;
+
 	}
 
-	
+	public function follow($user_id_followed){
+
+		#Prepare our data array to be inserted
+		$data = Array(
+			"created" =>Time::now(), 
+			"modified" => Time::now(),
+			"user_id" => $this->user->user_id, 
+			"user_id_followed" => $user_id_followed 
+			);
+
+		#Do the insert
+		DB::instance(DB_NAME)->insert('users_users', $data);
+
+		#Send them back
+		Router::redirect("/posts/users");
+
+	}
+
+		public function unfollow($user_id_followed){
+			$where_condition = 'WHERE user_id = '.$this->user->user_id.' AND 
+			user_id_followed = '.$user_id_followed;
+			DB::instance(DB_NAME)->delete('users_users', $where_condition);
+
+			#Send them back
+			Router::redirect("/posts/users");
+		
+	}
 		
 } # end of the class

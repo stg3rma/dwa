@@ -4,13 +4,13 @@
 	<textarea name='content'></textarea>
 	<br><br>
 	
-	Category<br>
+<!-- 	Category<br>
 	<input select='text' name='category_id'>
 	<br><br>
 
 	Private<br>
 	<input type='radio' name='private' value='1'>
-	<br><br>
+	<br><br> -->
 	
 	
 	<input type='submit' value='Submit'>
