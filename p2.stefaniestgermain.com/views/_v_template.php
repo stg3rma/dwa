@@ -22,7 +22,7 @@
 <body class="gradient-example" id="v-gradient">	
 	<div class="two-col">
 	<div id="header">
-      <a href='/'><img src="/images/logo.gif" /></a>
+      <a href='/'><img src="/images/logo.gif" alt="P2 microblog logo"/></a>
     </div>
 	<div id="topnav" >
 		<!-- Menu for users who are logged in -->
@@ -48,7 +48,7 @@
 		<?=$content;?> 
 	</div><!--end content -->
   <div id="footer">
-   <a href='/'><img src="/images/footer.gif" /></a>
+   <a href='/'><img src="/images/footer.gif" alt="P2 microblog footer"/></a>
   </div>
 
 </div><!--end two col -->

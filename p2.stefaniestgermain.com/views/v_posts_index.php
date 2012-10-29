@@ -4,7 +4,7 @@
   <? foreach($posts as $post): ?>
     <article class="comment">
       <a class="comment-img" href="#non">
-        <img src="http://lorempixum.com/50/50/people/1" alt="" width="50" height="50">
+        <img src="/images/placeholder.jpg" alt="" width="50" height="50">
       </a>
       <div class="comment-body">
         <div class="text">
