@@ -19,11 +19,14 @@ class index_controller extends base_controller {
 			$this->template->title = "Hello World";
 	
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
-			$client_files = Array(
-						""
-	                    );
+		$client_files = Array(
+			"/stylesheets/screen.css", 
+			"/stylesheets/print.css", 
+  			"/stylesheets/ie.css",
+	    );
 	    
-	    	$this->template->client_files = Utils::load_client_files($client_files);   
+	    $this->template->client_files = Utils::load_client_files($client_files); 		
+  
 	      		
 		# Render the view
 			echo $this->template;

@@ -16,6 +16,16 @@ class profile_controller extends base_controller {
 		# Setup view
 			$this->template->content = View::instance('v_profile_addImage');
 			$this->template->title   = "Add an image to your profile";
+
+		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
+		$client_files = Array(
+			"/stylesheets/screen.css", 
+			"/stylesheets/print.css", 
+  			"/stylesheets/ie.css",
+	    );
+	    
+	    $this->template->client_files = Utils::load_client_files($client_files); 		
+
 			
 		# Render template
 			echo $this->template;
@@ -24,17 +34,19 @@ class profile_controller extends base_controller {
 	
 	public function p_addImage(){
 	
-		echo $_POST;
+		
 		# Associate this image with this user
-		$_POST['user_id'] = $this->user->user_id;
+		$user_id = $this->user->user_id;
 
 		#Unix timestamp of when this post was created/modified
 		$_POST['created'] = Time::now(); 
 		$_POST['modified'] = Time::now(); 
-
+		$upload_dir = 'uploads';
+		$allowed_files = '.jpg';
 		#Upload the image
 		#$file_obj = '';
-		$filename = Upload::upload($file_obj, $upload_dir, $allowed_files, $new_file_name = NULL);
+		$file_obj = $this->$_FILES;
+		Upload::upload($file_obj, $upload_dir, $allowed_files, $new_file_name = NULL);
 
 		# Insert this post into the database
 		
@@ -47,11 +59,14 @@ class profile_controller extends base_controller {
 
 	public function index(){
 
+		$imgObj = new Image(APP_PATH."uploads/Chrysanthemum.jpg");	
+		echo $imgObj->exists(TRUE);
+		#$this->image.open_image($imgObj);
+
+	public function updateProfile()
+	$imgObj.create_initial_avatar($user_id);
 }
 
-	
-
-	
 
 		
 } # end of the class

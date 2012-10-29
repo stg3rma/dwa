@@ -16,6 +16,16 @@ class posts_controller extends base_controller {
 		# Setup view
 			$this->template->content = View::instance('v_posts_add');
 			$this->template->title   = "Add a new post";
+
+		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
+		$client_files = Array(
+			"/stylesheets/screen.css", 
+			"/stylesheets/print.css", 
+  			"/stylesheets/ie.css",
+	    );
+	    
+	    $this->template->client_files = Utils::load_client_files($client_files); 		
+
 			
 		# Render template
 			echo $this->template;
@@ -71,8 +81,7 @@ class posts_controller extends base_controller {
 		#of who this user is following)
 
 		#Now let's build our query to grab the posts
-		$q = "SELECT *
-			FROM posts
+		$q = "SELECT * from posts
 			JOIN users USING (user_id)
 			WHERE posts.user_id IN (".$connections_string.")"; 
 			#This is where we use string of user_ids we created
@@ -82,6 +91,16 @@ class posts_controller extends base_controller {
 
 		#Pass the data to the view
 		$this->template->content->posts = $posts;
+
+		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
+		$client_files = Array(
+			"/stylesheets/screen.css", 
+			"/stylesheets/print.css", 
+  			"/stylesheets/ie.css",
+	    );
+	    
+	    $this->template->client_files = Utils::load_client_files($client_files); 		
+
 
  		#Render the view
 		echo $this->template;
@@ -95,7 +114,7 @@ class posts_controller extends base_controller {
 		$this->template->title = "Users";
 
 		#Build our query to get all the users
-		$q = "SELECT * FROM users"; #SAS add where to excluded logged in user
+		$q = "SELECT * FROM users where user_id != ".$this->user->user_id; #SAS add where to excluded logged in user
 
 		#Execute the query to get all the users. Store the result array in the variable $users
 		$users = DB::instance(DB_NAME)->select_rows($q);
@@ -113,6 +132,16 @@ class posts_controller extends base_controller {
 		#Pass data (users and connections) to the view
 		$this->template->content->users = $users;
 		$this->template->content->connections = $connections;
+
+		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
+		$client_files = Array(
+			"/stylesheets/screen.css", 
+			"/stylesheets/print.css", 
+  			"/stylesheets/ie.css",
+	    );
+	    
+	    $this->template->client_files = Utils::load_client_files($client_files); 		
+
 
 		#Render the view
 		echo $this->template;

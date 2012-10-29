@@ -7,6 +7,13 @@
 	Password<br>
 	<input type='password' name='password'>
 	<br><br>
+
+	<? if($error): ?>
+		<div class='error'>
+			Login failed. Please double check your email and password.
+		</div>
+		<br>
+	<? endif; ?>
 	
 	<input type='submit'>
 

@@ -1,0 +1,729 @@
+@charset "utf-8";
+/* line 4, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* line 18, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+.bp-reset-element, body, h1, h2, h3, h4, h5, h6, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, blockquote, q, th, td, caption, table,
+div, span, object, iframe, p,
+pre, a, abbr, acronym, address,
+code, del, dfn, em, img,
+dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend,
+caption, tbody, tfoot, thead, tr {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 21, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+blockquote, q {
+  quotes: "" "";
+}
+/* line 67, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+}
+
+/* line 22, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+th, td, caption {
+  float: none !important;
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 23, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+/* line 24, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 14, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.tweet {
+  border: 1px solid #a1a1a1;
+  padding: 10px 40px;
+  background: #eeeeee;
+  width: 300px;
+  border-radius: 10px;
+  -moz-border-radius: 25px;
+  /* Firefox 3.6 and earlier */
+  box-shadow: 3px 3px 15px #cccccc;
+}
+
+/* line 29, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+html {
+  min-height: 100%;
+}
+
+/* line 33, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+body {
+  background-color: #cdeb8e;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFCDEB8E', endColorstr='#FFA5C956');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cdeb8e), color-stop(100%, #a5c956));
+  background-image: -webkit-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background-image: -moz-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background-image: -o-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background-image: linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+}
+/* line 76, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_fancy-type.scss */
+body p + p {
+  text-indent: 2em;
+  margin-top: -1.5em;
+  /* Don't want this in forms. */
+}
+/* line 86, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_fancy-type.scss */
+form body p + p {
+  text-indent: 0;
+}
+/* line 78, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_fancy-type.scss */
+body p.incr,
+body .incr p {
+  font-size: 0.83333em;
+  line-height: 1.44em;
+  margin-bottom: 1.5em;
+}
+/* line 13, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_fancy-type.scss */
+body .caps {
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  font-size: 1.2em;
+  line-height: 1%;
+  font-weight: bold;
+  padding: 0 2px;
+}
+/* line 14, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_fancy-type.scss */
+body .dquo {
+  margin-left: -0.5em;
+}
+/* line 15, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_fancy-type.scss */
+body .alt {
+  color: #666666;
+  font-family: "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", Georgia, serif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/* line 49, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+#header {
+  background-image: url("logo.gif") no-repeat;
+}
+
+/* line 59, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.two-col {
+  width: 950px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+  border-radius: 10px;
+  -moz-border-radius: 25px;
+  /* Firefox 3.6 and earlier */
+  box-shadow: 3px 3px 15px #cccccc;
+  background-color: #cccccc;
+}
+/* line 65, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.two-col #header, .two-col #topnav, .two-col #footer {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 1490px;
+  background-color: #adc;
+}
+/* line 147, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html .two-col #header, * html .two-col #topnav, * html .two-col #footer {
+  overflow-x: hidden;
+}
+/* line 68, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.two-col #sidebar {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 190px;
+  background-color: #eeeccc;
+}
+/* line 147, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html .two-col #sidebar {
+  overflow-x: hidden;
+}
+/* line 71, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.two-col #content {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 990px;
+  background-color: #dddddd;
+}
+/* line 147, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html .two-col #content {
+  overflow-x: hidden;
+}
+
+/* from http://jsfiddle.net/necolas/vhZds/
+
+article, aside, figure, footer, header, hgroup,
+menu, nav, section { display: block; } */
+/* line 82, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comment {
+  overflow: hidden;
+  padding: 0 0 1em;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 1em;
+  *zoom: 1;
+}
+
+/* line 90, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comment-img {
+  float: left;
+  margin-right: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* line 97, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comment-img img {
+  display: block;
+}
+
+/* line 101, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comment-body {
+  overflow: hidden;
+}
+
+/* line 105, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comment .text {
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  background: #fff;
+}
+
+/* line 112, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comment .text p:last-child {
+  margin: 0;
+}
+
+/* line 116, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comment .attribution {
+  margin: 0.5em 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Decoration */
+/* line 125, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comments,
+.comment {
+  position: relative;
+}
+
+/* line 131, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comments:before,
+.comment:before,
+.comment .text:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 65px;
+}
+
+/* line 141, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_base.scss */
+.comment .text:before {
+  top: 18px;
+  left: 65px;
+  width: 9px;
+  height: 9px;
+  border-width: 0 0 1px 1px;
+  border-style: solid;
+  border-color: #e5e5e5;
+  background: #fff;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+
+/* line 9, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_page.scss */
+body.bp {
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #333333;
+  font-size: 75%;
+}
+/* line 51, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp h1, body.bp h2, body.bp h3, body.bp h4, body.bp h5, body.bp h6 {
+  font-weight: normal;
+  color: #222222;
+}
+/* line 52, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp h1 img, body.bp h2 img, body.bp h3 img, body.bp h4 img, body.bp h5 img, body.bp h6 img {
+  margin: 0;
+}
+/* line 53, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp h1 {
+  font-size: 3em;
+  line-height: 1;
+  margin-bottom: 0.50em;
+}
+/* line 54, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp h2 {
+  font-size: 2em;
+  margin-bottom: 0.75em;
+}
+/* line 55, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp h3 {
+  font-size: 1.5em;
+  line-height: 1;
+  margin-bottom: 1.00em;
+}
+/* line 56, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp h4 {
+  font-size: 1.2em;
+  line-height: 1.25;
+  margin-bottom: 1.25em;
+}
+/* line 57, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp h5 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 1.50em;
+}
+/* line 58, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp h6 {
+  font-size: 1em;
+  font-weight: bold;
+}
+/* line 59, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp p {
+  margin: 0 0 1.5em;
+}
+/* line 60, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp p .left {
+  display: inline;
+  float: left;
+  margin: 1.5em 1.5em 1.5em 0;
+  padding: 0;
+}
+/* line 61, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp p .right {
+  display: inline;
+  float: right;
+  margin: 1.5em 0 1.5em 1.5em;
+  padding: 0;
+}
+/* line 62, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp a {
+  text-decoration: underline;
+  color: #0066cc;
+}
+/* line 18, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+body.bp a:visited {
+  color: #004c99;
+}
+/* line 21, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+body.bp a:focus {
+  color: #0099ff;
+}
+/* line 24, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+body.bp a:hover {
+  color: #0099ff;
+}
+/* line 27, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+body.bp a:active {
+  color: #bf00ff;
+}
+/* line 63, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp blockquote {
+  margin: 1.5em;
+  color: #666666;
+  font-style: italic;
+}
+/* line 64, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp strong, body.bp dfn {
+  font-weight: bold;
+}
+/* line 65, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp em, body.bp dfn {
+  font-style: italic;
+}
+/* line 66, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp sup, body.bp sub {
+  line-height: 0;
+}
+/* line 67, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp abbr, body.bp acronym {
+  border-bottom: 1px dotted #666666;
+}
+/* line 68, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp address {
+  margin: 0 0 1.5em;
+  font-style: italic;
+}
+/* line 69, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp del {
+  color: #666666;
+}
+/* line 70, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp pre {
+  margin: 1.5em 0;
+  white-space: pre;
+}
+/* line 71, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp pre, body.bp code, body.bp tt {
+  font: 1em "andale mono", "lucida console", monospace;
+  line-height: 1.5;
+}
+/* line 72, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp li ul, body.bp li ol {
+  margin: 0;
+}
+/* line 73, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp ul, body.bp ol {
+  margin: 0 1.5em 1.5em 0;
+  padding-left: 1.5em;
+}
+/* line 74, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp ul {
+  list-style-type: disc;
+}
+/* line 75, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp ol {
+  list-style-type: decimal;
+}
+/* line 76, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp dl {
+  margin: 0 0 1.5em 0;
+}
+/* line 77, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp dl dt {
+  font-weight: bold;
+}
+/* line 78, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp dd {
+  margin-left: 1.5em;
+}
+/* line 79, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp table {
+  margin-bottom: 1.4em;
+  width: 100%;
+}
+/* line 80, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp th {
+  font-weight: bold;
+}
+/* line 81, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp thead th {
+  background: #c3d9ff;
+}
+/* line 82, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp th, body.bp td, body.bp caption {
+  padding: 4px 10px 4px 5px;
+}
+/* line 85, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp table.striped tr:nth-child(even) td,
+body.bp table tr.even td {
+  background: #e5ecf9;
+}
+/* line 86, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp tfoot {
+  font-style: italic;
+}
+/* line 87, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp caption {
+  background: #eeeeee;
+}
+/* line 88, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp .quiet {
+  color: #666666;
+}
+/* line 89, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
+body.bp .loud {
+  color: #111111;
+}
+/* line 9, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+body.bp .clear {
+  clear: both;
+}
+/* line 12, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+body.bp .nowrap {
+  white-space: nowrap;
+}
+/* line 16, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+body.bp .clearfix {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 18, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+body.bp .small {
+  font-size: 0.8em;
+  margin-bottom: 1.875em;
+  line-height: 1.875em;
+}
+/* line 22, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+body.bp .large {
+  font-size: 1.2em;
+  line-height: 2.5em;
+  margin-bottom: 1.25em;
+}
+/* line 26, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+body.bp .first {
+  margin-left: 0;
+  padding-left: 0;
+}
+/* line 29, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+body.bp .last {
+  margin-right: 0;
+  padding-right: 0;
+}
+/* line 32, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+body.bp .top {
+  margin-top: 0;
+  padding-top: 0;
+}
+/* line 35, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
+body.bp .bottom {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+/* line 25, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_debug.scss */
+body.bp .showgrid {
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 1500 50%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(100, 100, 225, 0.25)), color-stop(2.66667%, rgba(100, 100, 225, 0.25)), color-stop(2.66667%, rgba(0, 0, 0, 0)), color-stop(3.33333%, rgba(0, 0, 0, 0)), color-stop(3.33333%, rgba(100, 100, 225, 0.25)), color-stop(6%, rgba(100, 100, 225, 0.25)), color-stop(6%, rgba(0, 0, 0, 0)), color-stop(6.66667%, rgba(0, 0, 0, 0)), color-stop(6.66667%, rgba(100, 100, 225, 0.25)), color-stop(9.33333%, rgba(100, 100, 225, 0.25)), color-stop(9.33333%, rgba(0, 0, 0, 0)), color-stop(10%, rgba(0, 0, 0, 0)), color-stop(10%, rgba(100, 100, 225, 0.25)), color-stop(12.66667%, rgba(100, 100, 225, 0.25)), color-stop(12.66667%, rgba(0, 0, 0, 0)), color-stop(13.33333%, rgba(0, 0, 0, 0)), color-stop(13.33333%, rgba(100, 100, 225, 0.25)), color-stop(16%, rgba(100, 100, 225, 0.25)), color-stop(16%, rgba(0, 0, 0, 0)), color-stop(16.66667%, rgba(0, 0, 0, 0)), color-stop(16.66667%, rgba(100, 100, 225, 0.25)), color-stop(19.33333%, rgba(100, 100, 225, 0.25)), color-stop(19.33333%, rgba(0, 0, 0, 0)), color-stop(20%, rgba(0, 0, 0, 0)), color-stop(20%, rgba(100, 100, 225, 0.25)), color-stop(22.66667%, rgba(100, 100, 225, 0.25)), color-stop(22.66667%, rgba(0, 0, 0, 0)), color-stop(23.33333%, rgba(0, 0, 0, 0)), color-stop(23.33333%, rgba(100, 100, 225, 0.25)), color-stop(26%, rgba(100, 100, 225, 0.25)), color-stop(26%, rgba(0, 0, 0, 0)), color-stop(26.66667%, rgba(0, 0, 0, 0)), color-stop(26.66667%, rgba(100, 100, 225, 0.25)), color-stop(29.33333%, rgba(100, 100, 225, 0.25)), color-stop(29.33333%, rgba(0, 0, 0, 0)), color-stop(30%, rgba(0, 0, 0, 0)), color-stop(30%, rgba(100, 100, 225, 0.25)), color-stop(32.66667%, rgba(100, 100, 225, 0.25)), color-stop(32.66667%, rgba(0, 0, 0, 0)), color-stop(33.33333%, rgba(0, 0, 0, 0)), color-stop(33.33333%, rgba(100, 100, 225, 0.25)), color-stop(36%, rgba(100, 100, 225, 0.25)), color-stop(36%, rgba(0, 0, 0, 0)), color-stop(36.66667%, rgba(0, 0, 0, 0)), color-stop(36.66667%, rgba(100, 100, 225, 0.25)), color-stop(39.33333%, rgba(100, 100, 225, 0.25)), color-stop(39.33333%, rgba(0, 0, 0, 0)), color-stop(40%, rgba(0, 0, 0, 0)), color-stop(40%, rgba(100, 100, 225, 0.25)), color-stop(42.66667%, rgba(100, 100, 225, 0.25)), color-stop(42.66667%, rgba(0, 0, 0, 0)), color-stop(43.33333%, rgba(0, 0, 0, 0)), color-stop(43.33333%, rgba(100, 100, 225, 0.25)), color-stop(46%, rgba(100, 100, 225, 0.25)), color-stop(46%, rgba(0, 0, 0, 0)), color-stop(46.66667%, rgba(0, 0, 0, 0)), color-stop(46.66667%, rgba(100, 100, 225, 0.25)), color-stop(49.33333%, rgba(100, 100, 225, 0.25)), color-stop(49.33333%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(100, 100, 225, 0.25)), color-stop(52.66667%, rgba(100, 100, 225, 0.25)), color-stop(52.66667%, rgba(0, 0, 0, 0)), color-stop(53.33333%, rgba(0, 0, 0, 0)), color-stop(53.33333%, rgba(100, 100, 225, 0.25)), color-stop(56.0%, rgba(100, 100, 225, 0.25)), color-stop(56.0%, rgba(0, 0, 0, 0)), color-stop(56.66667%, rgba(0, 0, 0, 0)), color-stop(56.66667%, rgba(100, 100, 225, 0.25)), color-stop(59.33333%, rgba(100, 100, 225, 0.25)), color-stop(59.33333%, rgba(0, 0, 0, 0)), color-stop(60%, rgba(0, 0, 0, 0)), color-stop(60%, rgba(100, 100, 225, 0.25)), color-stop(62.66667%, rgba(100, 100, 225, 0.25)), color-stop(62.66667%, rgba(0, 0, 0, 0)), color-stop(63.33333%, rgba(0, 0, 0, 0)), color-stop(63.33333%, rgba(100, 100, 225, 0.25)), color-stop(66%, rgba(100, 100, 225, 0.25)), color-stop(66%, rgba(0, 0, 0, 0)), color-stop(66.66667%, rgba(0, 0, 0, 0)), color-stop(66.66667%, rgba(100, 100, 225, 0.25)), color-stop(69.33333%, rgba(100, 100, 225, 0.25)), color-stop(69.33333%, rgba(0, 0, 0, 0)), color-stop(70%, rgba(0, 0, 0, 0)), color-stop(70%, rgba(100, 100, 225, 0.25)), color-stop(72.66667%, rgba(100, 100, 225, 0.25)), color-stop(72.66667%, rgba(0, 0, 0, 0)), color-stop(73.33333%, rgba(0, 0, 0, 0)), color-stop(73.33333%, rgba(100, 100, 225, 0.25)), color-stop(76%, rgba(100, 100, 225, 0.25)), color-stop(76%, rgba(0, 0, 0, 0)), color-stop(76.66667%, rgba(0, 0, 0, 0)), color-stop(76.66667%, rgba(100, 100, 225, 0.25)), color-stop(79.33333%, rgba(100, 100, 225, 0.25)), color-stop(79.33333%, rgba(0, 0, 0, 0)), color-stop(80%, rgba(0, 0, 0, 0)), color-stop(80%, rgba(100, 100, 225, 0.25)), color-stop(82.66667%, rgba(100, 100, 225, 0.25)), color-stop(82.66667%, rgba(0, 0, 0, 0)), color-stop(83.33333%, rgba(0, 0, 0, 0)), color-stop(83.33333%, rgba(100, 100, 225, 0.25)), color-stop(86%, rgba(100, 100, 225, 0.25)), color-stop(86%, rgba(0, 0, 0, 0)), color-stop(86.66667%, rgba(0, 0, 0, 0)), color-stop(86.66667%, rgba(100, 100, 225, 0.25)), color-stop(89.33333%, rgba(100, 100, 225, 0.25)), color-stop(89.33333%, rgba(0, 0, 0, 0)), color-stop(90%, rgba(0, 0, 0, 0)), color-stop(90%, rgba(100, 100, 225, 0.25)), color-stop(92.66667%, rgba(100, 100, 225, 0.25)), color-stop(92.66667%, rgba(0, 0, 0, 0)), color-stop(93.33333%, rgba(0, 0, 0, 0)), color-stop(93.33333%, rgba(100, 100, 225, 0.25)), color-stop(96%, rgba(100, 100, 225, 0.25)), color-stop(96%, rgba(0, 0, 0, 0)), color-stop(96.66667%, rgba(0, 0, 0, 0)), color-stop(96.66667%, rgba(100, 100, 225, 0.25)), color-stop(99.33333%, rgba(100, 100, 225, 0.25)), color-stop(99.33333%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0px, rgba(100, 100, 225, 0.25) 0px, rgba(100, 100, 225, 0.25) 40px, rgba(0, 0, 0, 0) 40px, rgba(0, 0, 0, 0) 50px, rgba(100, 100, 225, 0.25) 50px, rgba(100, 100, 225, 0.25) 90px, rgba(0, 0, 0, 0) 90px, rgba(0, 0, 0, 0) 100px, rgba(100, 100, 225, 0.25) 100px, rgba(100, 100, 225, 0.25) 140px, rgba(0, 0, 0, 0) 140px, rgba(0, 0, 0, 0) 150px, rgba(100, 100, 225, 0.25) 150px, rgba(100, 100, 225, 0.25) 190px, rgba(0, 0, 0, 0) 190px, rgba(0, 0, 0, 0) 200px, rgba(100, 100, 225, 0.25) 200px, rgba(100, 100, 225, 0.25) 240px, rgba(0, 0, 0, 0) 240px, rgba(0, 0, 0, 0) 250px, rgba(100, 100, 225, 0.25) 250px, rgba(100, 100, 225, 0.25) 290px, rgba(0, 0, 0, 0) 290px, rgba(0, 0, 0, 0) 300px, rgba(100, 100, 225, 0.25) 300px, rgba(100, 100, 225, 0.25) 340px, rgba(0, 0, 0, 0) 340px, rgba(0, 0, 0, 0) 350px, rgba(100, 100, 225, 0.25) 350px, rgba(100, 100, 225, 0.25) 390px, rgba(0, 0, 0, 0) 390px, rgba(0, 0, 0, 0) 400px, rgba(100, 100, 225, 0.25) 400px, rgba(100, 100, 225, 0.25) 440px, rgba(0, 0, 0, 0) 440px, rgba(0, 0, 0, 0) 450px, rgba(100, 100, 225, 0.25) 450px, rgba(100, 100, 225, 0.25) 490px, rgba(0, 0, 0, 0) 490px, rgba(0, 0, 0, 0) 500px, rgba(100, 100, 225, 0.25) 500px, rgba(100, 100, 225, 0.25) 540px, rgba(0, 0, 0, 0) 540px, rgba(0, 0, 0, 0) 550px, rgba(100, 100, 225, 0.25) 550px, rgba(100, 100, 225, 0.25) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 600px, rgba(100, 100, 225, 0.25) 600px, rgba(100, 100, 225, 0.25) 640px, rgba(0, 0, 0, 0) 640px, rgba(0, 0, 0, 0) 650px, rgba(100, 100, 225, 0.25) 650px, rgba(100, 100, 225, 0.25) 690px, rgba(0, 0, 0, 0) 690px, rgba(0, 0, 0, 0) 700px, rgba(100, 100, 225, 0.25) 700px, rgba(100, 100, 225, 0.25) 740px, rgba(0, 0, 0, 0) 740px, rgba(0, 0, 0, 0) 750px, rgba(100, 100, 225, 0.25) 750px, rgba(100, 100, 225, 0.25) 790px, rgba(0, 0, 0, 0) 790px, rgba(0, 0, 0, 0) 800px, rgba(100, 100, 225, 0.25) 800px, rgba(100, 100, 225, 0.25) 840px, rgba(0, 0, 0, 0) 840px, rgba(0, 0, 0, 0) 850px, rgba(100, 100, 225, 0.25) 850px, rgba(100, 100, 225, 0.25) 890px, rgba(0, 0, 0, 0) 890px, rgba(0, 0, 0, 0) 900px, rgba(100, 100, 225, 0.25) 900px, rgba(100, 100, 225, 0.25) 940px, rgba(0, 0, 0, 0) 940px, rgba(0, 0, 0, 0) 950px, rgba(100, 100, 225, 0.25) 950px, rgba(100, 100, 225, 0.25) 990px, rgba(0, 0, 0, 0) 990px, rgba(0, 0, 0, 0) 1000px, rgba(100, 100, 225, 0.25) 1000px, rgba(100, 100, 225, 0.25) 1040px, rgba(0, 0, 0, 0) 1040px, rgba(0, 0, 0, 0) 1050px, rgba(100, 100, 225, 0.25) 1050px, rgba(100, 100, 225, 0.25) 1090px, rgba(0, 0, 0, 0) 1090px, rgba(0, 0, 0, 0) 1100px, rgba(100, 100, 225, 0.25) 1100px, rgba(100, 100, 225, 0.25) 1140px, rgba(0, 0, 0, 0) 1140px, rgba(0, 0, 0, 0) 1150px, rgba(100, 100, 225, 0.25) 1150px, rgba(100, 100, 225, 0.25) 1190px, rgba(0, 0, 0, 0) 1190px, rgba(0, 0, 0, 0) 1200px, rgba(100, 100, 225, 0.25) 1200px, rgba(100, 100, 225, 0.25) 1240px, rgba(0, 0, 0, 0) 1240px, rgba(0, 0, 0, 0) 1250px, rgba(100, 100, 225, 0.25) 1250px, rgba(100, 100, 225, 0.25) 1290px, rgba(0, 0, 0, 0) 1290px, rgba(0, 0, 0, 0) 1300px, rgba(100, 100, 225, 0.25) 1300px, rgba(100, 100, 225, 0.25) 1340px, rgba(0, 0, 0, 0) 1340px, rgba(0, 0, 0, 0) 1350px, rgba(100, 100, 225, 0.25) 1350px, rgba(100, 100, 225, 0.25) 1390px, rgba(0, 0, 0, 0) 1390px, rgba(0, 0, 0, 0) 1400px, rgba(100, 100, 225, 0.25) 1400px, rgba(100, 100, 225, 0.25) 1440px, rgba(0, 0, 0, 0) 1440px, rgba(0, 0, 0, 0) 1450px, rgba(100, 100, 225, 0.25) 1450px, rgba(100, 100, 225, 0.25) 1490px, rgba(0, 0, 0, 0) 1490px, rgba(0, 0, 0, 0) 1500px);
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0px, rgba(100, 100, 225, 0.25) 0px, rgba(100, 100, 225, 0.25) 40px, rgba(0, 0, 0, 0) 40px, rgba(0, 0, 0, 0) 50px, rgba(100, 100, 225, 0.25) 50px, rgba(100, 100, 225, 0.25) 90px, rgba(0, 0, 0, 0) 90px, rgba(0, 0, 0, 0) 100px, rgba(100, 100, 225, 0.25) 100px, rgba(100, 100, 225, 0.25) 140px, rgba(0, 0, 0, 0) 140px, rgba(0, 0, 0, 0) 150px, rgba(100, 100, 225, 0.25) 150px, rgba(100, 100, 225, 0.25) 190px, rgba(0, 0, 0, 0) 190px, rgba(0, 0, 0, 0) 200px, rgba(100, 100, 225, 0.25) 200px, rgba(100, 100, 225, 0.25) 240px, rgba(0, 0, 0, 0) 240px, rgba(0, 0, 0, 0) 250px, rgba(100, 100, 225, 0.25) 250px, rgba(100, 100, 225, 0.25) 290px, rgba(0, 0, 0, 0) 290px, rgba(0, 0, 0, 0) 300px, rgba(100, 100, 225, 0.25) 300px, rgba(100, 100, 225, 0.25) 340px, rgba(0, 0, 0, 0) 340px, rgba(0, 0, 0, 0) 350px, rgba(100, 100, 225, 0.25) 350px, rgba(100, 100, 225, 0.25) 390px, rgba(0, 0, 0, 0) 390px, rgba(0, 0, 0, 0) 400px, rgba(100, 100, 225, 0.25) 400px, rgba(100, 100, 225, 0.25) 440px, rgba(0, 0, 0, 0) 440px, rgba(0, 0, 0, 0) 450px, rgba(100, 100, 225, 0.25) 450px, rgba(100, 100, 225, 0.25) 490px, rgba(0, 0, 0, 0) 490px, rgba(0, 0, 0, 0) 500px, rgba(100, 100, 225, 0.25) 500px, rgba(100, 100, 225, 0.25) 540px, rgba(0, 0, 0, 0) 540px, rgba(0, 0, 0, 0) 550px, rgba(100, 100, 225, 0.25) 550px, rgba(100, 100, 225, 0.25) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 600px, rgba(100, 100, 225, 0.25) 600px, rgba(100, 100, 225, 0.25) 640px, rgba(0, 0, 0, 0) 640px, rgba(0, 0, 0, 0) 650px, rgba(100, 100, 225, 0.25) 650px, rgba(100, 100, 225, 0.25) 690px, rgba(0, 0, 0, 0) 690px, rgba(0, 0, 0, 0) 700px, rgba(100, 100, 225, 0.25) 700px, rgba(100, 100, 225, 0.25) 740px, rgba(0, 0, 0, 0) 740px, rgba(0, 0, 0, 0) 750px, rgba(100, 100, 225, 0.25) 750px, rgba(100, 100, 225, 0.25) 790px, rgba(0, 0, 0, 0) 790px, rgba(0, 0, 0, 0) 800px, rgba(100, 100, 225, 0.25) 800px, rgba(100, 100, 225, 0.25) 840px, rgba(0, 0, 0, 0) 840px, rgba(0, 0, 0, 0) 850px, rgba(100, 100, 225, 0.25) 850px, rgba(100, 100, 225, 0.25) 890px, rgba(0, 0, 0, 0) 890px, rgba(0, 0, 0, 0) 900px, rgba(100, 100, 225, 0.25) 900px, rgba(100, 100, 225, 0.25) 940px, rgba(0, 0, 0, 0) 940px, rgba(0, 0, 0, 0) 950px, rgba(100, 100, 225, 0.25) 950px, rgba(100, 100, 225, 0.25) 990px, rgba(0, 0, 0, 0) 990px, rgba(0, 0, 0, 0) 1000px, rgba(100, 100, 225, 0.25) 1000px, rgba(100, 100, 225, 0.25) 1040px, rgba(0, 0, 0, 0) 1040px, rgba(0, 0, 0, 0) 1050px, rgba(100, 100, 225, 0.25) 1050px, rgba(100, 100, 225, 0.25) 1090px, rgba(0, 0, 0, 0) 1090px, rgba(0, 0, 0, 0) 1100px, rgba(100, 100, 225, 0.25) 1100px, rgba(100, 100, 225, 0.25) 1140px, rgba(0, 0, 0, 0) 1140px, rgba(0, 0, 0, 0) 1150px, rgba(100, 100, 225, 0.25) 1150px, rgba(100, 100, 225, 0.25) 1190px, rgba(0, 0, 0, 0) 1190px, rgba(0, 0, 0, 0) 1200px, rgba(100, 100, 225, 0.25) 1200px, rgba(100, 100, 225, 0.25) 1240px, rgba(0, 0, 0, 0) 1240px, rgba(0, 0, 0, 0) 1250px, rgba(100, 100, 225, 0.25) 1250px, rgba(100, 100, 225, 0.25) 1290px, rgba(0, 0, 0, 0) 1290px, rgba(0, 0, 0, 0) 1300px, rgba(100, 100, 225, 0.25) 1300px, rgba(100, 100, 225, 0.25) 1340px, rgba(0, 0, 0, 0) 1340px, rgba(0, 0, 0, 0) 1350px, rgba(100, 100, 225, 0.25) 1350px, rgba(100, 100, 225, 0.25) 1390px, rgba(0, 0, 0, 0) 1390px, rgba(0, 0, 0, 0) 1400px, rgba(100, 100, 225, 0.25) 1400px, rgba(100, 100, 225, 0.25) 1440px, rgba(0, 0, 0, 0) 1440px, rgba(0, 0, 0, 0) 1450px, rgba(100, 100, 225, 0.25) 1450px, rgba(100, 100, 225, 0.25) 1490px, rgba(0, 0, 0, 0) 1490px, rgba(0, 0, 0, 0) 1500px);
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -o-linear-gradient(left, rgba(0, 0, 0, 0) 0px, rgba(100, 100, 225, 0.25) 0px, rgba(100, 100, 225, 0.25) 40px, rgba(0, 0, 0, 0) 40px, rgba(0, 0, 0, 0) 50px, rgba(100, 100, 225, 0.25) 50px, rgba(100, 100, 225, 0.25) 90px, rgba(0, 0, 0, 0) 90px, rgba(0, 0, 0, 0) 100px, rgba(100, 100, 225, 0.25) 100px, rgba(100, 100, 225, 0.25) 140px, rgba(0, 0, 0, 0) 140px, rgba(0, 0, 0, 0) 150px, rgba(100, 100, 225, 0.25) 150px, rgba(100, 100, 225, 0.25) 190px, rgba(0, 0, 0, 0) 190px, rgba(0, 0, 0, 0) 200px, rgba(100, 100, 225, 0.25) 200px, rgba(100, 100, 225, 0.25) 240px, rgba(0, 0, 0, 0) 240px, rgba(0, 0, 0, 0) 250px, rgba(100, 100, 225, 0.25) 250px, rgba(100, 100, 225, 0.25) 290px, rgba(0, 0, 0, 0) 290px, rgba(0, 0, 0, 0) 300px, rgba(100, 100, 225, 0.25) 300px, rgba(100, 100, 225, 0.25) 340px, rgba(0, 0, 0, 0) 340px, rgba(0, 0, 0, 0) 350px, rgba(100, 100, 225, 0.25) 350px, rgba(100, 100, 225, 0.25) 390px, rgba(0, 0, 0, 0) 390px, rgba(0, 0, 0, 0) 400px, rgba(100, 100, 225, 0.25) 400px, rgba(100, 100, 225, 0.25) 440px, rgba(0, 0, 0, 0) 440px, rgba(0, 0, 0, 0) 450px, rgba(100, 100, 225, 0.25) 450px, rgba(100, 100, 225, 0.25) 490px, rgba(0, 0, 0, 0) 490px, rgba(0, 0, 0, 0) 500px, rgba(100, 100, 225, 0.25) 500px, rgba(100, 100, 225, 0.25) 540px, rgba(0, 0, 0, 0) 540px, rgba(0, 0, 0, 0) 550px, rgba(100, 100, 225, 0.25) 550px, rgba(100, 100, 225, 0.25) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 600px, rgba(100, 100, 225, 0.25) 600px, rgba(100, 100, 225, 0.25) 640px, rgba(0, 0, 0, 0) 640px, rgba(0, 0, 0, 0) 650px, rgba(100, 100, 225, 0.25) 650px, rgba(100, 100, 225, 0.25) 690px, rgba(0, 0, 0, 0) 690px, rgba(0, 0, 0, 0) 700px, rgba(100, 100, 225, 0.25) 700px, rgba(100, 100, 225, 0.25) 740px, rgba(0, 0, 0, 0) 740px, rgba(0, 0, 0, 0) 750px, rgba(100, 100, 225, 0.25) 750px, rgba(100, 100, 225, 0.25) 790px, rgba(0, 0, 0, 0) 790px, rgba(0, 0, 0, 0) 800px, rgba(100, 100, 225, 0.25) 800px, rgba(100, 100, 225, 0.25) 840px, rgba(0, 0, 0, 0) 840px, rgba(0, 0, 0, 0) 850px, rgba(100, 100, 225, 0.25) 850px, rgba(100, 100, 225, 0.25) 890px, rgba(0, 0, 0, 0) 890px, rgba(0, 0, 0, 0) 900px, rgba(100, 100, 225, 0.25) 900px, rgba(100, 100, 225, 0.25) 940px, rgba(0, 0, 0, 0) 940px, rgba(0, 0, 0, 0) 950px, rgba(100, 100, 225, 0.25) 950px, rgba(100, 100, 225, 0.25) 990px, rgba(0, 0, 0, 0) 990px, rgba(0, 0, 0, 0) 1000px, rgba(100, 100, 225, 0.25) 1000px, rgba(100, 100, 225, 0.25) 1040px, rgba(0, 0, 0, 0) 1040px, rgba(0, 0, 0, 0) 1050px, rgba(100, 100, 225, 0.25) 1050px, rgba(100, 100, 225, 0.25) 1090px, rgba(0, 0, 0, 0) 1090px, rgba(0, 0, 0, 0) 1100px, rgba(100, 100, 225, 0.25) 1100px, rgba(100, 100, 225, 0.25) 1140px, rgba(0, 0, 0, 0) 1140px, rgba(0, 0, 0, 0) 1150px, rgba(100, 100, 225, 0.25) 1150px, rgba(100, 100, 225, 0.25) 1190px, rgba(0, 0, 0, 0) 1190px, rgba(0, 0, 0, 0) 1200px, rgba(100, 100, 225, 0.25) 1200px, rgba(100, 100, 225, 0.25) 1240px, rgba(0, 0, 0, 0) 1240px, rgba(0, 0, 0, 0) 1250px, rgba(100, 100, 225, 0.25) 1250px, rgba(100, 100, 225, 0.25) 1290px, rgba(0, 0, 0, 0) 1290px, rgba(0, 0, 0, 0) 1300px, rgba(100, 100, 225, 0.25) 1300px, rgba(100, 100, 225, 0.25) 1340px, rgba(0, 0, 0, 0) 1340px, rgba(0, 0, 0, 0) 1350px, rgba(100, 100, 225, 0.25) 1350px, rgba(100, 100, 225, 0.25) 1390px, rgba(0, 0, 0, 0) 1390px, rgba(0, 0, 0, 0) 1400px, rgba(100, 100, 225, 0.25) 1400px, rgba(100, 100, 225, 0.25) 1440px, rgba(0, 0, 0, 0) 1440px, rgba(0, 0, 0, 0) 1450px, rgba(100, 100, 225, 0.25) 1450px, rgba(100, 100, 225, 0.25) 1490px, rgba(0, 0, 0, 0) 1490px, rgba(0, 0, 0, 0) 1500px);
+  background-image: linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), linear-gradient(left, rgba(0, 0, 0, 0) 0px, rgba(100, 100, 225, 0.25) 0px, rgba(100, 100, 225, 0.25) 40px, rgba(0, 0, 0, 0) 40px, rgba(0, 0, 0, 0) 50px, rgba(100, 100, 225, 0.25) 50px, rgba(100, 100, 225, 0.25) 90px, rgba(0, 0, 0, 0) 90px, rgba(0, 0, 0, 0) 100px, rgba(100, 100, 225, 0.25) 100px, rgba(100, 100, 225, 0.25) 140px, rgba(0, 0, 0, 0) 140px, rgba(0, 0, 0, 0) 150px, rgba(100, 100, 225, 0.25) 150px, rgba(100, 100, 225, 0.25) 190px, rgba(0, 0, 0, 0) 190px, rgba(0, 0, 0, 0) 200px, rgba(100, 100, 225, 0.25) 200px, rgba(100, 100, 225, 0.25) 240px, rgba(0, 0, 0, 0) 240px, rgba(0, 0, 0, 0) 250px, rgba(100, 100, 225, 0.25) 250px, rgba(100, 100, 225, 0.25) 290px, rgba(0, 0, 0, 0) 290px, rgba(0, 0, 0, 0) 300px, rgba(100, 100, 225, 0.25) 300px, rgba(100, 100, 225, 0.25) 340px, rgba(0, 0, 0, 0) 340px, rgba(0, 0, 0, 0) 350px, rgba(100, 100, 225, 0.25) 350px, rgba(100, 100, 225, 0.25) 390px, rgba(0, 0, 0, 0) 390px, rgba(0, 0, 0, 0) 400px, rgba(100, 100, 225, 0.25) 400px, rgba(100, 100, 225, 0.25) 440px, rgba(0, 0, 0, 0) 440px, rgba(0, 0, 0, 0) 450px, rgba(100, 100, 225, 0.25) 450px, rgba(100, 100, 225, 0.25) 490px, rgba(0, 0, 0, 0) 490px, rgba(0, 0, 0, 0) 500px, rgba(100, 100, 225, 0.25) 500px, rgba(100, 100, 225, 0.25) 540px, rgba(0, 0, 0, 0) 540px, rgba(0, 0, 0, 0) 550px, rgba(100, 100, 225, 0.25) 550px, rgba(100, 100, 225, 0.25) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 600px, rgba(100, 100, 225, 0.25) 600px, rgba(100, 100, 225, 0.25) 640px, rgba(0, 0, 0, 0) 640px, rgba(0, 0, 0, 0) 650px, rgba(100, 100, 225, 0.25) 650px, rgba(100, 100, 225, 0.25) 690px, rgba(0, 0, 0, 0) 690px, rgba(0, 0, 0, 0) 700px, rgba(100, 100, 225, 0.25) 700px, rgba(100, 100, 225, 0.25) 740px, rgba(0, 0, 0, 0) 740px, rgba(0, 0, 0, 0) 750px, rgba(100, 100, 225, 0.25) 750px, rgba(100, 100, 225, 0.25) 790px, rgba(0, 0, 0, 0) 790px, rgba(0, 0, 0, 0) 800px, rgba(100, 100, 225, 0.25) 800px, rgba(100, 100, 225, 0.25) 840px, rgba(0, 0, 0, 0) 840px, rgba(0, 0, 0, 0) 850px, rgba(100, 100, 225, 0.25) 850px, rgba(100, 100, 225, 0.25) 890px, rgba(0, 0, 0, 0) 890px, rgba(0, 0, 0, 0) 900px, rgba(100, 100, 225, 0.25) 900px, rgba(100, 100, 225, 0.25) 940px, rgba(0, 0, 0, 0) 940px, rgba(0, 0, 0, 0) 950px, rgba(100, 100, 225, 0.25) 950px, rgba(100, 100, 225, 0.25) 990px, rgba(0, 0, 0, 0) 990px, rgba(0, 0, 0, 0) 1000px, rgba(100, 100, 225, 0.25) 1000px, rgba(100, 100, 225, 0.25) 1040px, rgba(0, 0, 0, 0) 1040px, rgba(0, 0, 0, 0) 1050px, rgba(100, 100, 225, 0.25) 1050px, rgba(100, 100, 225, 0.25) 1090px, rgba(0, 0, 0, 0) 1090px, rgba(0, 0, 0, 0) 1100px, rgba(100, 100, 225, 0.25) 1100px, rgba(100, 100, 225, 0.25) 1140px, rgba(0, 0, 0, 0) 1140px, rgba(0, 0, 0, 0) 1150px, rgba(100, 100, 225, 0.25) 1150px, rgba(100, 100, 225, 0.25) 1190px, rgba(0, 0, 0, 0) 1190px, rgba(0, 0, 0, 0) 1200px, rgba(100, 100, 225, 0.25) 1200px, rgba(100, 100, 225, 0.25) 1240px, rgba(0, 0, 0, 0) 1240px, rgba(0, 0, 0, 0) 1250px, rgba(100, 100, 225, 0.25) 1250px, rgba(100, 100, 225, 0.25) 1290px, rgba(0, 0, 0, 0) 1290px, rgba(0, 0, 0, 0) 1300px, rgba(100, 100, 225, 0.25) 1300px, rgba(100, 100, 225, 0.25) 1340px, rgba(0, 0, 0, 0) 1340px, rgba(0, 0, 0, 0) 1350px, rgba(100, 100, 225, 0.25) 1350px, rgba(100, 100, 225, 0.25) 1390px, rgba(0, 0, 0, 0) 1390px, rgba(0, 0, 0, 0) 1400px, rgba(100, 100, 225, 0.25) 1400px, rgba(100, 100, 225, 0.25) 1440px, rgba(0, 0, 0, 0) 1440px, rgba(0, 0, 0, 0) 1450px, rgba(100, 100, 225, 0.25) 1450px, rgba(100, 100, 225, 0.25) 1490px, rgba(0, 0, 0, 0) 1490px, rgba(0, 0, 0, 0) 1500px);
+  -webkit-background-size: 100% 18px, auto;
+  -moz-background-size: 100% 18px, auto;
+  -o-background-size: 100% 18px, auto;
+  background-size: 100% 18px, auto;
+  background-position: left top;
+}
+/* line 4, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .feedback, body.bp .error, body.bp .alert, body.bp .notice, body.bp .success, body.bp .info {
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border: 2px solid #dddddd;
+}
+/* line 5, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .error, body.bp .alert {
+  background: #fbe3e4;
+  color: #8a1f11;
+  border-color: #fbc2c4;
+}
+/* line 27, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .error a, body.bp .alert a {
+  color: #8a1f11;
+}
+/* line 7, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .notice {
+  background: #fff6bf;
+  color: #514721;
+  border-color: #ffd324;
+}
+/* line 36, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .notice a {
+  color: #514721;
+}
+/* line 8, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .success {
+  background: #e6efc2;
+  color: #264409;
+  border-color: #c6d880;
+}
+/* line 45, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .success a {
+  color: #264409;
+}
+/* line 9, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .info {
+  background: #d5edf8;
+  color: #205791;
+  border-color: #92cae4;
+}
+/* line 54, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .info a {
+  color: #205791;
+}
+/* line 10, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .hide {
+  display: none;
+}
+/* line 11, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .highlight {
+  background: yellow;
+}
+/* line 12, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .added {
+  background: #006600;
+  color: white;
+}
+/* line 13, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+body.bp .removed {
+  background: #990000;
+  color: white;
+}
+/* line 39, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+body.bp .box {
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+  background: #e5ecf9;
+}
+/* line 42, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+body.bp .border {
+  padding-right: 4px;
+  margin-right: 5px;
+  border-right: 1px solid #dddddd;
+}
+/* line 45, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+body.bp .colborder {
+  padding-right: 29px;
+  margin-right: 30px;
+  border-right: 1px solid #dddddd;
+}
+/* line 47, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+body.bp hr {
+  background: #dddddd;
+  color: #dddddd;
+  clear: both;
+  float: none;
+  width: 100%;
+  height: 0.1em;
+  margin: 0 0 1.45em;
+  border: none;
+}
+/* line 49, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+body.bp hr.space {
+  background: #dddddd;
+  color: #dddddd;
+  clear: both;
+  float: none;
+  width: 100%;
+  height: 0.1em;
+  margin: 0 0 1.45em;
+  border: none;
+  background: white;
+  color: white;
+  visibility: hidden;
+}
+/* line 51, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
+body.bp form.inline {
+  line-height: 3;
+}
+/* line 6, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+body.bp form.inline p {
+  margin-bottom: 0;
+}
+
+/* line 18, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp label {
+  font-weight: bold;
+}
+/* line 19, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp fieldset {
+  padding: 1.4em;
+  margin: 0 0 1.5em 0;
+}
+/* line 20, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp legend {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+/* line 26, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp input.text, form.bp input.title, form.bp input[type=email], form.bp input[type=text], form.bp input[type=password] {
+  margin: 0.5em 0;
+  background-color: white;
+  padding: 5px;
+}
+/* line 27, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp input.title {
+  font-size: 1.5em;
+}
+/* line 29, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp textarea {
+  margin: 0.5em 0;
+  padding: 5px;
+}
+/* line 30, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp select {
+  margin: 0.5em 0;
+}
+/* line 55, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp fieldset {
+  border: 1px solid #cccccc;
+}
+/* line 58, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp input.text, form.bp input.title, form.bp input[type=email], form.bp input[type=text], form.bp input[type=password],
+form.bp textarea {
+  background-color: #fff;
+  border: 1px solid #bbbbbb;
+}
+/* line 61, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp input.text:focus, form.bp input.title:focus, form.bp input[type=email]:focus, form.bp input[type=text]:focus, form.bp input[type=password]:focus,
+form.bp textarea:focus {
+  border-color: #666666;
+}
+/* line 65, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp select {
+  background-color: #fff;
+  border-width: 1px;
+  border-style: solid;
+}
+/* line 44, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp input.text, form.bp input.title, form.bp input[type=email], form.bp input[type=text], form.bp input[type=password] {
+  width: 300px;
+}
+/* line 46, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_form.scss */
+form.bp textarea {
+  width: 390px;
+  height: 250px;
+}
+
+/* line 26, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_two_col.scss */
+body.two-col #container {
+  width: 1490px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 29, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_two_col.scss */
+body.two-col #sidebar {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 340px;
+}
+/* line 147, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html body.two-col #sidebar {
+  overflow-x: hidden;
+}
+/* line 34, C:/Users/sstgerma/Downloads/p2_sem/p2_sem/sass/partials/_two_col.scss */
+body.two-col #content {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 1140px;
+}
+/* line 147, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html body.two-col #content {
+  overflow-x: hidden;
+}

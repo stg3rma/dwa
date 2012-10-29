@@ -1,5 +1,6 @@
+<h1>upload your profile picture</h1>
 <form method='POST' action='/profile/p_addImage' enctype="multipart/form-data">
-	<strong>Add image for profile picture :</strong><br>
+	<strong>Choose image for profile picture :</strong><br>
 	<label for="file">Filename:</label>
 	<input type="file" name="file" id="file" />
 	<br />
