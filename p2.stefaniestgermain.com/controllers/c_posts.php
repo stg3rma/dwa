@@ -108,7 +108,6 @@ class posts_controller extends base_controller {
 
 	public function users(){
 
-
 		#Set up the view
 		$this->template->content = View::instance("v_posts_users");
 		$this->template->title = "Users";

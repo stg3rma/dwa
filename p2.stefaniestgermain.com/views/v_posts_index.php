@@ -1,5 +1,5 @@
 <h1>Posts from users I am following:</h1>
-<br>
+<br><br>
 <section id = "comments">
   <? foreach($posts as $post): ?>
     <article class="comment">
