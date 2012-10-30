@@ -28,14 +28,14 @@
 		<!-- Menu for users who are logged in -->
 		<ul>
 		<? if($user): ?>
-			<li><a href='/users/logout'>Logout</a></li>
-			<li><a href='/posts/users/'>Follow/Unfollow</a></li>
-			<li><a href='/posts/'>View posts</a></li>
-			<li><a href='/posts/add'>Add a new post</a></li>
+			<li><a class="button-link" href='/users/logout'>Logout</a></li>
+			<li><a class="button-link" href='/posts/users/'>Follow/Unfollow</a></li>
+			<li><a class="button-link" href='/posts/'>View posts</a></li>
+			<li><a class="button-link" href='/posts/add'>Add a new post</a></li>
 		<!-- Menu options for users who are not logged in -->
 		<? else: ?>
-			<li><a href='/users/signup'>Sign up</a></li>
-			<li><a href='/users/login'>Login</a></li>
+			<li><a class="button-link" href='/users/signup'>Sign up</a></li>
+			<li><a class="button-link" href='/users/login'>Login</a></li>
 		<? endif; ?>
 		</ul>		
 	</div>

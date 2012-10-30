@@ -22,6 +22,10 @@ class profile_controller extends base_controller {
 			"/stylesheets/screen.css", 
 			"/stylesheets/print.css", 
   			"/stylesheets/ie.css",
+   			"/stylesheets/validationEngine.jquery.css",
+			"/stylesheet/template.css",
+			"/js/languages/jquery.validationEngine-en.js", 
+			"/js/jquery.validationEngine.js", 
 	    );
 	    
 	    $this->template->client_files = Utils::load_client_files($client_files); 		
