@@ -49,7 +49,7 @@ class posts_controller extends base_controller {
 		echo "Your post has been added! <a href='/posts/add'>Add Another Post?</a>";
 	}
 
-	public function index(){
+	public function index($error = NULL){
 
 		#Set up view
 		$this->template->content = View::instance('v_posts_index');
@@ -67,7 +67,13 @@ class posts_controller extends base_controller {
 		#Execute our query storing the results in a variable $connections
 		$connections = DB::instance(DB_NAME)->select_rows($q);
 
-		#In ord to query for the posts we need, we're going to need a string of user ids
+		#Not following anyone yet
+		if($connections == "" || $connections == NULL){
+		#$error = "You are not following anyone yet.";
+		Router::redirect("/posts/error_not_following");
+		}
+		
+		#In order to query for the posts we need, we're going to need a string of user ids
 		#separated by commas. To create this, loop through our connections array
 		$connections_string = "";
 		foreach($connections as $connection){
@@ -76,6 +82,11 @@ class posts_controller extends base_controller {
 
 		#Remove the final comma
 		$connections_string = substr($connections_string, 0, -1);
+
+		#The users you are following have no posts
+		#if($connections_string == "" || $connections_string == NULL){
+		#Router::redirect("/posts/error_no_posts");
+		#}
 
 		#Connections string example: 10, 7, 8 (where the numbers fare user_ids 
 		#of who this user is following)
@@ -88,7 +99,7 @@ class posts_controller extends base_controller {
 
 		#Run our query and store results in the variable $posts
 		$posts = DB::instance(DB_NAME)->select_rows($q);
-
+		
 		#Pass the data to the view
 		$this->template->content->posts = $posts;
 

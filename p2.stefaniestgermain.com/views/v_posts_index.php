@@ -1,5 +1,12 @@
 <h1>Posts from users I am following:</h1>
 <br><br>
+
+<? if(!$posts ): ?>
+  <div class='error'>
+    There have been no posts. Please check back later.
+  </div>
+<? endif; ?>
+
 <section id = "comments">
   <? foreach($posts as $post): ?>
     <article class="comment">

@@ -11,10 +11,10 @@ class profile_controller extends base_controller {
 		}
 	}
 
-	public function addImage() {
+	public function add_image() {
 		
 		# Setup view
-			$this->template->content = View::instance('v_profile_addImage');
+			$this->template->content = View::instance('v_profile_add_image');
 			$this->template->title   = "Add an image to your profile";
 
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
@@ -32,7 +32,7 @@ class profile_controller extends base_controller {
 		
 	}
 	
-	public function p_addImage(){
+	public function p_add_image(){
 	
 		
 		# Associate this image with this user
@@ -63,7 +63,7 @@ class profile_controller extends base_controller {
 		echo $imgObj->exists(TRUE);
 		#$this->image.open_image($imgObj);
 
-	public function updateProfile()
+	public function update_profile()
 	$imgObj.create_initial_avatar($user_id);
 }
 

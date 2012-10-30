@@ -131,6 +131,9 @@ width:60px;
 background-color:#fff;
 }
 
+.error{
+  color: red;
+}
 
 /* line 58, ../sass/partials/_base.scss */
 .two-col {
