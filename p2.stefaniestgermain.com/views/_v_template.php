@@ -35,7 +35,7 @@
 		<!-- Menu options for users who are not logged in -->
 		<? else: ?>
 			<li><a href='/users/signup'>Sign up</a></li>
-			<li><a href='/users/login'>Log in</a></li>
+			<li><a href='/users/login'>Login</a></li>
 		<? endif; ?>
 		</ul>		
 	</div>

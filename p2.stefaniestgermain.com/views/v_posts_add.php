@@ -12,6 +12,12 @@
 	<input type='radio' name='private' value='1'>
 	<br><br> -->
 	
+	<? if($error): ?>
+		<div class ='error'>
+			Please enter text for your New Post.
+		</div>
+		<br>
+	<? endif; ?>
 	
 	<input type='submit' value='Submit'>
 	

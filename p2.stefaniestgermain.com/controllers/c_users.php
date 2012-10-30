@@ -195,7 +195,7 @@ class users_controller extends base_controller {
 		}
 	}
 
-		public function profileById($user_id_passed) {
+		public function profile_by_id($user_id_passed) {
 		# If user is blank, they're not logged in, show message and don't do anything else
 		# Not logged in
 		if(!$this->user) {

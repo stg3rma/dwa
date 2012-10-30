@@ -11,7 +11,7 @@ class posts_controller extends base_controller {
 		}
 	}
 
-	public function add() {
+	public function add($error = NULL) {
 		
 		# Setup view
 			$this->template->content = View::instance('v_posts_add');
@@ -26,6 +26,8 @@ class posts_controller extends base_controller {
 	    
 	    $this->template->client_files = Utils::load_client_files($client_files); 		
 
+	    #Pass data to the view
+	    $this->template->content->error = $error;
 			
 		# Render template
 			echo $this->template;
@@ -42,9 +44,13 @@ class posts_controller extends base_controller {
 		$_POST['modified'] = Time::now(); 
 
 		# Insert this post into the database
-		
 		DB::instance(DB_NAME)->insert("posts", $_POST);
-		
+
+		#Empty post  
+		if($_POST['content'] == "" || $_POST['content'] == NULL){
+			Router::redirect("/posts/add/error");
+		}
+
 		# For now, just confirm the post - make this fancier later
 		echo "Your post has been added! <a href='/posts/add'>Add Another Post?</a>";
 	}
