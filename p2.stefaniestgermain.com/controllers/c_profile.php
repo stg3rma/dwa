@@ -63,13 +63,15 @@ class profile_controller extends base_controller {
 
 	public function index(){
 
-		$imgObj = new Image(APP_PATH."uploads/Chrysanthemum.jpg");	
+		$imgObj = new Image(APP_PATH."/uploads/Chrysanthemum.jpg");	
 		echo $imgObj->exists(TRUE);
 		#$this->image.open_image($imgObj);
 
-	public function update_profile()
-	$imgObj.create_initial_avatar($user_id);
-}
+		public function update_profile()
+		$imgObj.create_initial_avatar($user_id);
+	}
+
+
 
 
 		

@@ -1,7 +1,7 @@
-<form method='POST'  action='/users/p_signup'>
+<form method='POST' id='user_signup' action='/users/p_signup'>
 
 	First Name<br>
-	<input type='text' name='first_name'>
+	<input class="validate[required] text-input" type='text' name='first_name'><legend>Required!</legend>
 	<br><br>
 	
 	Last Name<br>
@@ -18,7 +18,7 @@
 
 	<? if($error): ?>
 		<div class='error'>
-			Signup failed. Please verify that all fields have been populated.
+			Signup failed. The email address you entered is already in use in the system. 
 		</div>
 		<br>
 	<? endif; ?>

@@ -64,24 +64,22 @@ class users_controller extends base_controller {
 		#	#echo "Registration failed! ";
 		#	Router::redirect("/users/signup/error");
 		#}
-		#elseif($user_id_exists != "" || !NULL){
+		if($user_id_exists != "" || $user_id_exists != NULL){
 		#echo "Email address in use in the system";
-		#	Router::redirect("/users/signup/error");
-		#}	
-		#else{
+			Router::redirect("/users/signup/error");
+		}	
+		else{
 			$user_id =  DB::instance(DB_NAME)->insert("users", $_POST);
 
-		#	$newuser = $this->user;
-
 		#Create initial avatar
-		#$newuser->create_initial_avatar($newuser->user_id);
+		$this->userObj = new User();
+		$this->user = $this->userObj->create_initial_avatar($user_id);
 
-			# For now, just confirm they've signed up - we can make this fancier later
-			#echo "You're registered! Now go <a href='/users/login'>login</a>";
-			Router::redirect("/");
+		# For now, just confirm they've signed up - we can make this fancier later
+		#echo "You're registered! Now go <a href='/users/login'>login</a>";
+		Router::redirect("/users/login");
 
-		#}
-		
+		}		
 	}
 
 	public function login($error = NULL){
@@ -180,10 +178,7 @@ class users_controller extends base_controller {
 			return;
 			
 		}
-		else {
-
-		
-				
+		else 		
 	
 		$this->template->content = View::instance("v_users_profile");
 		$this->template->title   = "Profile of ".$this->user->first_name;
@@ -204,10 +199,10 @@ class users_controller extends base_controller {
 		
 		# Render template
 		echo $this->template;
-		}
 	}
+	
 
-		public function profile_by_id($user_id_passed) {
+	public function profile_by_id($user_id_passed) {
 		# If user is blank, they're not logged in, show message and don't do anything else
 		# Not logged in
 		if(!$this->user) {
@@ -237,8 +232,24 @@ class users_controller extends base_controller {
 			"/js/jquery.validationEngine.js", 
 	    );
 	    
-	    $this->template->client_files = Utils::load_client_files($client_files); 		
+	    $this->template->client_files = Utils::load_client_files($client_files); 
 
+  		#verify user exists
+   		
+   		#profile info via Helper
+		$membership_duration = Helper::get_user_membership_length($user_id_passed);
+		$last_post = Helper::get_date_of_last_post($user_id_passed);
+
+		$profile_arr = "";
+		$profile_arr["membership_duration"] = $membership_duration;
+		$profile_arr["last_post"] = $last_post;
+
+
+		echo "mem_dur is: ".$membership_duration;
+		echo "last_post: ".$last_post;
+
+		#Pass data to the view
+		$this->template->content->profile_arr = $profile_arr;
 		
 		# Render template
 		echo $this->template;
