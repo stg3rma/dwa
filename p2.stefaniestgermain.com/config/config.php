@@ -47,5 +47,8 @@ A email designated to receive messages from the server. Examples:
 	//define('PASSWORD_SALT', '');
 	//define('TOKEN_SALT', '');
 	
-# For avatar upload path
-	define('APP_PATH.AVATAR_PATH', '/uploads');
+#Modified avatar definitions
+# Default Image / Avatar settings
+ define('SMALL_W', 100);
+ define('SMALL_H', 100);
+ define('PLACE_HOLDER_IMAGE', "/images/placeholder.png");

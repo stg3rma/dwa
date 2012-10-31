@@ -41,16 +41,9 @@ class profile_controller extends base_controller {
 		
 		# Associate this image with this user
 		$user_id = $this->user->user_id;
-
-		#Unix timestamp of when this post was created/modified
-		$_POST['created'] = Time::now(); 
-		$_POST['modified'] = Time::now(); 
-		$upload_dir = 'uploads';
-		$allowed_files = '.jpg';
-		#Upload the image
-		#$file_obj = '';
+		$array = "";
 		$file_obj = $this->$_FILES;
-		Upload::upload($file_obj, $upload_dir, $allowed_files, $new_file_name = NULL);
+		Upload::upload($_FILES, "/uploads/avatars/", array("jpg", "jpeg", "gif", "png"), $user_id);
 
 		# Insert this post into the database
 		
@@ -65,10 +58,8 @@ class profile_controller extends base_controller {
 
 		$imgObj = new Image(APP_PATH."/uploads/Chrysanthemum.jpg");	
 		echo $imgObj->exists(TRUE);
-		#$this->image.open_image($imgObj);
+		echo $this->$imgObj->image.open_image($imgObj);
 
-		public function update_profile()
-		$imgObj.create_initial_avatar($user_id);
 	}
 
 
