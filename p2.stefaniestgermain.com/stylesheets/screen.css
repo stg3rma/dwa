@@ -122,7 +122,7 @@ body {
   /* line 78, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_fancy-type.scss */
   body p.incr,
   body .incr p {
-    font-size: 0.83333em;
+    font-size: 1em;
     line-height: 1.44em;
     margin-bottom: 1.5em; }
   /* line 13, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/_fancy-type.scss */
@@ -152,11 +152,14 @@ body {
 
 #topnav{
   text-align: right; 
+  margin-right: 20px;
+
 }
 #topnav li{
 display: inline;
 list-style-type: none;
-padding-right: 20px;
+padding-right: 5px;
+
 }
 
 
@@ -164,6 +167,7 @@ padding-right: 20px;
 
 width:60px;
 background-color:#fff;
+font-size: .8em;
 }
 
 .error{
@@ -175,6 +179,7 @@ background-color:#fff;
   width: 960px;
   margin: 0 auto;
   margin-top: 50px;
+  font-size: 1.5em;
   overflow: hidden;
   *zoom: 1;
   border-radius: 10px;

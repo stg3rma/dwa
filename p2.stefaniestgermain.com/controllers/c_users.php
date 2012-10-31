@@ -125,7 +125,7 @@ class users_controller extends base_controller {
 		$token = DB::instance(DB_NAME)->select_field($q);
 		
 		#login failed
-		if($token == "" || !$token){
+		if($token == "" || $_POST['email'] == "" || $_POST['password'] == ""){
 			Router::redirect("/users/login/error");
 			# send back to login page - should add indication what went wrong
 		}
