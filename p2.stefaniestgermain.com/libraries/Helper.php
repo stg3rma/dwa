@@ -8,7 +8,7 @@ class Helper {
       $q = "SELECT avatar FROM users WHERE user_id = ".$user_id;
       
       $image_name = DB::instance(DB_NAME)->SELECT_field($q);
-      return $image_path = htmlspecialchars(APP_PATH."/uploads/avatars/".$image_name);
+      return $image_path = htmlspecialchars("/uploads/avatars/$image_name");
   }
 
   #Get membership length as string 
@@ -27,7 +27,7 @@ class Helper {
 
     #max created for most recent post creation
     $q = "SELECT date_format(FROM_unixtime(unix_timestamp(now()) - max(created)),
-    'P2 member for: %e days, %k hours, %i minutes, %s seconds ago.') FROM posts WHERE user_id = ".$user_id;
+    'Last post: %e days, %k hours, %i minutes, %s seconds ago.') FROM posts WHERE user_id = ".$user_id;
 
     $date_of_last_post = DB::instance(DB_NAME)->SELECT_field($q);
     return htmlspecialchars($date_of_last_post);
@@ -38,7 +38,7 @@ class Helper {
 
     $q = "SELECT * FROM users WHERE user_id = ".$user_id;
     $user_info = DB::instance(DB_NAME)->SELECT_row($q);
-
+    return $user_info;
   } 
 
   #from example in user controller
@@ -67,6 +67,7 @@ class Helper {
                   
     #Run our query and store results in the variable $posts
     $followers = DB::instance(DB_NAME)->SELECT_rows($q);
+    return htmlspecialchars($followers);
 
   }
 

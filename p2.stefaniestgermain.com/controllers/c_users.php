@@ -240,7 +240,7 @@ class users_controller extends base_controller {
    		#profile info via Helper
 		$membership_duration = Helper::get_user_membership_length($user_id_passed);
 		$last_post = Helper::get_date_of_last_post($user_id_passed);
-		$user_info = Helper::get_user_info($user_id_passed);
+		
 		$count_followed = Helper::get_count_followed($user_id_passed); 
 		$followers = Helper::get_count_following($user_id_passed);
 		$image_path = Helper::get_image_path($user_id_passed);
@@ -249,17 +249,83 @@ class users_controller extends base_controller {
 		$profile_arr = "";
 		$profile_arr["membership_duration"] = $membership_duration;
 		$profile_arr["last_post"] = $last_post;
-		$profile_arr["user_info"] = $user_info;
 		$profile_arr["count_followed"] = $count_followed;
 		$profile_arr["followers"] = $followers;
 		$profile_arr["image_path"] = $image_path;
 
-		echo "mem_dur is: ".$membership_duration;
-		echo "last_post: ".$last_post;
+		$user_arr = "";
+		$user_arr = Helper::get_user_info($user_id_passed);
+		
+
+	
 
 		#Pass data to the view
 		$this->template->content->profile_arr = $profile_arr;
+		$this->template->content->user_arr = $user_arr;
+		# Render template
+		echo $this->template;
+		}
+	}
+
+		public function myprofile() {
+		# If user is blank, they're not logged in, show message and don't do anything else
+		# Not logged in
+		if(!$this->user) {
+			echo "Members only. <a href='/users/login'>Please Login</a>";
+			
+			# Return will force this method to exit here so the rest of 
+			# the code won't be executed and the profile view won't be displayed.
+			return;
+			
+		}
+		else {
+
+		#echo "user_id passed as parameter is".$user_id_passed;
+				
+	
+		$this->template->content = View::instance("v_users_myprofile");
+		$this->template->title   = "Profile of ".$this->user->first_name;
+
+		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
+		$client_files = Array(
+			"/stylesheets/screen.css", 
+			"/stylesheets/print.css", 
+  			"/stylesheets/ie.css",
+  			"/stylesheets/validationEngine.jquery.css",
+			"/stylesheet/template.css",
+			"/js/languages/jquery.validationEngine-en.js", 
+			"/js/jquery.validationEngine.js", 
+	    );
+	    
+	    $this->template->client_files = Utils::load_client_files($client_files); 
+
+  		#verify user exists
+   		
+   		#profile info via Helper
+		$membership_duration = Helper::get_user_membership_length($this->user->user_id);
+		$last_post = Helper::get_date_of_last_post($this->user->user_id);
 		
+		$count_followed = Helper::get_count_followed($this->user->user_id); 
+		$followers = Helper::get_count_following($this->user->user_id);
+		$image_path = Helper::get_image_path($this->user->user_id);
+
+
+		$profile_arr = "";
+		$profile_arr["membership_duration"] = $membership_duration;
+		$profile_arr["last_post"] = $last_post;
+		$profile_arr["count_followed"] = $count_followed;
+		$profile_arr["followers"] = $followers;
+		$profile_arr["image_path"] = $image_path;
+
+		$user_arr = "";
+		$user_arr = Helper::get_user_info($this->user->user_id);
+		
+
+	
+
+		#Pass data to the view
+		$this->template->content->profile_arr = $profile_arr;
+		$this->template->content->user_arr = $user_arr;
 		# Render template
 		echo $this->template;
 		}

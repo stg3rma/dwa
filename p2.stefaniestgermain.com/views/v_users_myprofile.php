@@ -1,3 +1,6 @@
+
+
+
 <h1>This is the profile of <strong><?=$user_arr['first_name']?> <?=$user_arr['last_name']?></p><br></strong></h1>
 
 <? if(!$profile_arr ): ?>
@@ -5,7 +8,6 @@
     There is no user profile info. Please check back later.
   </div>
 <? endif; ?>
-
 
 
 

@@ -32,14 +32,14 @@
 			<li><a class="button-link" href='/posts/users/'>Follow|Unfollow</a></li>
 			<li><a class="button-link" href='/posts/'>View posts</a></li>
 			<li><a class="button-link" href='/posts/add'>Add Post</a></li>
-			<li><a class="button-link" href='/profile/'>Profile</a></li>
+			<li><a class="button-link" href='/users/myprofile'>Profile</a></li>
 		<!-- Menu options for users who are not logged in -->
 		<? else: ?>
 			<li><a class="button-link" href='/users/signup'>Sign up</a></li>
 			<li><a class="button-link" href='/users/login'>Login</a></li>
-		<? endif; ?>
+		<? endif; ?>		
 		</ul>		
-	</div>
+	</div>		
 	<div id="sidebar">
       <p>&nbsp;</p>
     </div>
