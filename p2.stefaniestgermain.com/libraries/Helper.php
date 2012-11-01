@@ -2,6 +2,15 @@
 
 class Helper {
 
+  #Get profile picture 
+  public static function get_image_path($user_id){
+
+      $q = "SELECT avatar FROM users WHERE user_id = ".$user_id;
+      
+      $image_name = DB::instance(DB_NAME)->SELECT_field($q);
+      return $image_path = htmlspecialchars(APP_PATH."/uploads/avatars/".$image_name);
+  }
+
   #Get membership length as string 
   public static function get_user_membership_length($user_id){
 
@@ -28,15 +37,15 @@ class Helper {
   public static function get_user_info($user_id){
 
     $q = "SELECT * FROM users WHERE user_id = ".$user_id;
-    $user = DB::instance(DB_NAME)->SELECT_row($q);
+    $user_info = DB::instance(DB_NAME)->SELECT_row($q);
 
   } 
 
   #from example in user controller
   public static function get_followers($user_id){
-
+   
     #Build a query of the users this user is following & get their user info
-    $q = "SELECT * FROM users_users WHERE user_id = ".$this->user->user_id;
+    $q = "SELECT * FROM users_users WHERE user_id = ".$user_id;
 
     #Execute our query storing the results in a variable $connections
     $connections = DB::instance(DB_NAME)->SELECT_rows($q);
@@ -64,7 +73,7 @@ class Helper {
   #Get count of users the logged in user is following
   public static function get_count_following($user_id){
 
-      $q = "SELECT count(user_id_followed) FROM users_users WHERE user_id = ".$this->user->user_id;
+      $q = "SELECT count(user_id_followed) FROM users_users WHERE user_id = ".$user_id;
       $count_following = DB::instance(DB_NAME)->SELECT_field($q);
       return htmlspecialchars($count_following);
   }
@@ -72,7 +81,7 @@ class Helper {
   #Get count of followers
   public static function get_count_followed($user_id){
 
-    $q = "SELECT count(user_id_followed) FROM users_users WHERE user_id_followed = ".$this->user->user_id;
+    $q = "SELECT count(user_id_followed) FROM users_users WHERE user_id_followed = ".$user_id;
     $count_followed = DB::instance(DB_NAME)->SELECT_field($q);
     return htmlspecialchars($count_followed);
   } 
@@ -84,5 +93,6 @@ class Helper {
     $count_followed = DB::instance(DB_NAME)->SELECT_field($q);
     return htmlspecialchars($count_followed);
   }
+
 }
 ?>

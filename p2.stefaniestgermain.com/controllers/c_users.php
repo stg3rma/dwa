@@ -72,8 +72,9 @@ class users_controller extends base_controller {
 			$user_id =  DB::instance(DB_NAME)->insert("users", $_POST);
 
 		#Create initial avatar
-		$this->userObj = new User();
-		$this->user = $this->userObj->create_initial_avatar($user_id);
+		$imgObj = new Image(APP_PATH."/uploads/avatars/");	
+		echo $imgObj->exists(TRUE);	
+		$imgObj->create_initial_avatar($user_id);
 
 		# For now, just confirm they've signed up - we can make this fancier later
 		#echo "You're registered! Now go <a href='/users/login'>login</a>";
@@ -239,11 +240,19 @@ class users_controller extends base_controller {
    		#profile info via Helper
 		$membership_duration = Helper::get_user_membership_length($user_id_passed);
 		$last_post = Helper::get_date_of_last_post($user_id_passed);
+		$user_info = Helper::get_user_info($user_id_passed);
+		$count_followed = Helper::get_count_followed($user_id_passed); 
+		$followers = Helper::get_count_following($user_id_passed);
+		$image_path = Helper::get_image_path($user_id_passed);
+
 
 		$profile_arr = "";
 		$profile_arr["membership_duration"] = $membership_duration;
 		$profile_arr["last_post"] = $last_post;
-
+		$profile_arr["user_info"] = $user_info;
+		$profile_arr["count_followed"] = $count_followed;
+		$profile_arr["followers"] = $followers;
+		$profile_arr["image_path"] = $image_path;
 
 		echo "mem_dur is: ".$membership_duration;
 		echo "last_post: ".$last_post;

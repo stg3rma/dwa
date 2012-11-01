@@ -43,9 +43,10 @@ class profile_controller extends base_controller {
 		$user_id = $this->user->user_id;
 		$array = "";
 		$file_obj = $this->$_FILES;
+
 		Upload::upload($_FILES, "/uploads/avatars/", array("jpg", "jpeg", "gif", "png"), $user_id);
 
-		# Insert this post into the database
+		# Insert this name into the database
 		
 		#DB::instance(DB_NAME)->insert("image", $_POST);
 		#$imgObj = new Image(APP_PATH."uploads/test.png");	

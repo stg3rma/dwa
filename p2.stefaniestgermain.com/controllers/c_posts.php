@@ -82,7 +82,7 @@ class posts_controller extends base_controller {
 		#$error = "You are not following anyone yet.";
 		Router::redirect("/posts/error_not_following");
 		}
-		
+ 		
 		#In order to query for the posts we need, we're going to need a string of user ids
 		#separated by commas. To create this, loop through our connections array
 		$connections_string = "";
@@ -176,7 +176,7 @@ class posts_controller extends base_controller {
 
 	}
 
-	public function follow($user_id_followed){
+	public function follow($user_id_followed = NULL){
 
 		#Prepare our data array to be inserted
 		$data = Array(
@@ -188,13 +188,13 @@ class posts_controller extends base_controller {
 
 		#Do the insert
 		DB::instance(DB_NAME)->insert('users_users', $data);
-
+ 
 		#Send them back
 		Router::redirect("/posts/users");
 
 	}
 
-		public function unfollow($user_id_followed){
+		public function unfollow($user_id_followed = NULL){
 			$where_condition = 'WHERE user_id = '.$this->user->user_id.' AND 
 			user_id_followed = '.$user_id_followed;
 			DB::instance(DB_NAME)->delete('users_users', $where_condition);

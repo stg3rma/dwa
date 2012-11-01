@@ -164,3 +164,4 @@ pip-log.txt
 
 #framework 
 environment.php
+uploads/avatars/*.*

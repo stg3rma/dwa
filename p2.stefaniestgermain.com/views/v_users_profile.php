@@ -9,6 +9,12 @@
 <section>
  <div class='text'>
 	<p><?=$profile_arr['membership_duration']?></p><br>
-	<p><?=$profile_arr['last_post']?></p>
+	<p><?=$profile_arr['last_post']?></p><br>
+	<p><?=$profile_arr['user_info']?></p><br>
+	<p><?=$profile_arr['count_followed']?></p><br>
+	<p><?=$profile_arr['followers']?></p><br>
+	<p><?=$profile_arr['image_path']?></p><br>
+
  </div>
 </section>
+

@@ -16,4 +16,5 @@
 
 			<br><br>
 
-			<? endforeach; ?>
+	<? endforeach; ?>
+ </form>

@@ -29,9 +29,10 @@
 		<ul>
 		<? if($user): ?>
 			<li><a class="button-link" href='/users/logout'>Logout</a></li>
-			<li><a class="button-link" href='/posts/users/'>Follow/Unfollow</a></li>
+			<li><a class="button-link" href='/posts/users/'>Follow|Unfollow</a></li>
 			<li><a class="button-link" href='/posts/'>View posts</a></li>
-			<li><a class="button-link" href='/posts/add'>Add a new post</a></li>
+			<li><a class="button-link" href='/posts/add'>Add Post</a></li>
+			<li><a class="button-link" href='/profile/'>Profile</a></li>
 		<!-- Menu options for users who are not logged in -->
 		<? else: ?>
 			<li><a class="button-link" href='/users/signup'>Sign up</a></li>
