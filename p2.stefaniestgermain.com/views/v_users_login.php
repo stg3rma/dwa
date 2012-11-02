@@ -1,5 +1,8 @@
 <form method='POST' action='/users/p_login'>
 
+	<h1>Welcome to P2 microblog! Please login</h1>
+	<br><br>
+
 	Email<br>
 	<input type='text' name='email'>
 	<br><br>

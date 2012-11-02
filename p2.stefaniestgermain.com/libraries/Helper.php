@@ -2,6 +2,31 @@
 
 class Helper {
 
+  #Get user's name
+  public static function get_name($user_id){
+
+      $q = "SELECT first_name, last_name 
+      FROM users
+      WHERE user_id = $user_id";
+
+      #Run our query and store results in the variable $posts
+      $fullname = DB::instance(DB_NAME)->SELECT_row($q);
+
+      return $fullname;
+  }
+
+  #Get posts
+  public static function get_posts($user_id){
+
+      $q = "SELECT * FROM posts
+      JOIN users USING (user_id)
+      WHERE posts.user_id = $user_id ORDER BY posts.created DESC";
+
+      #Run our query and store results in the variable $posts
+      $posts = DB::instance(DB_NAME)->select_rows($q);
+      return $posts;
+  }
+
   #Get profile picture 
   public static function get_image_path($user_id){
 

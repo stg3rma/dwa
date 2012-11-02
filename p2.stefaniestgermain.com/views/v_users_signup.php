@@ -1,7 +1,7 @@
 <form method='POST' id='user_signup' action='/users/p_signup'>
 
 	First Name<br>
-	<input class="validate[required] text-input" type='text' name='first_name'><legend>Required!</legend>
+	<input type='text' name='first_name'>
 	<br><br>
 	
 	Last Name<br>
@@ -22,6 +22,8 @@
 		</div>
 		<br>
 	<? endif; ?>
+
+
 	
 	<input type='submit' value='Submit'>
 	

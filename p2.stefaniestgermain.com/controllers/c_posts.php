@@ -28,9 +28,18 @@ class posts_controller extends base_controller {
 			"/js/jquery.validationEngine.js", 
 	    );
 	    
-	    $this->template->client_files = Utils::load_client_files($client_files); 		
+	    $this->template->client_files = Utils::load_client_files($client_files); 
+	    $current_posts = "";
+	    $fullname = "";
 
-	    #Pass data to the view
+	    #get recent posts and name to display below add post box
+	    $id = $this->user->user_id;
+		$current_posts = Helper::get_posts($id);
+		$fullname = Helper::get_name($id);
+
+		#Pass the data to the view
+		$this->template->content->posts = $current_posts;
+		$this->template->content->fullname = $fullname;		
 	    $this->template->content->error = $error;
 			
 		# Render template
@@ -55,8 +64,10 @@ class posts_controller extends base_controller {
 			Router::redirect("/posts/add/error");
 		}
 
+
+
 		# For now, just confirm the post - make this fancier later
-		echo "Your post has been added! <a href='/posts/add'>Add Another Post?</a>";
+		Router::redirect("/posts/add/");
 	}
 
 	public function index($error = NULL){
@@ -109,7 +120,8 @@ class posts_controller extends base_controller {
 
 		#Run our query and store results in the variable $posts
 		$posts = DB::instance(DB_NAME)->select_rows($q);
-		
+
+
 		#Pass the data to the view
 		$this->template->content->posts = $posts;
 
@@ -203,5 +215,7 @@ class posts_controller extends base_controller {
 			Router::redirect("/posts/users");
 		
 	}
+
+
 		
 } # end of the class

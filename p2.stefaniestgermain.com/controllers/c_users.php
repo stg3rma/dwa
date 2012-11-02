@@ -55,30 +55,35 @@ class users_controller extends base_controller {
 		echo "Email address on form is: ".$_POST['email'];
 		#check if email address is already in use
 		
-			$q = "SELECT user_id
+			$q = "SELECT email
 				  FROM users WHERE email = '".$_POST['email']."'";
 				
-		$user_id_exists = DB::instance(DB_NAME)->select_field($q);
-		
+		$user_exists = DB::instance(DB_NAME)->select_field($q);
+
+				
 		#if(!$this->user){
 		#	#echo "Registration failed! ";
 		#	Router::redirect("/users/signup/error");
 		#}
-		if($user_id_exists != "" || $user_id_exists != NULL){
+		if($user_exists == $_POST['email']){
 		#echo "Email address in use in the system";
 			Router::redirect("/users/signup/error");
 		}	
 		else{
-			$user_id =  DB::instance(DB_NAME)->insert("users", $_POST);
+			
+		$user_id =  DB::instance(DB_NAME)->insert("users", $_POST);
 
 		#Create initial avatar
 		$imgObj = new Image(APP_PATH."/uploads/avatars/");	
-		echo $imgObj->exists(TRUE);	
-		$imgObj->create_initial_avatar($user_id);
+		if($imgObj->exists(FALSE)){
+			$imgObj->create_initial_avatar($user_id);
+		}	
+		
 
 		# For now, just confirm they've signed up - we can make this fancier later
 		#echo "You're registered! Now go <a href='/users/login'>login</a>";
 		Router::redirect("/users/login");
+
 
 		}		
 	}
@@ -319,9 +324,6 @@ class users_controller extends base_controller {
 
 		$user_arr = "";
 		$user_arr = Helper::get_user_info($this->user->user_id);
-		
-
-	
 
 		#Pass data to the view
 		$this->template->content->profile_arr = $profile_arr;
