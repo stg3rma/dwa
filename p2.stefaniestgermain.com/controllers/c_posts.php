@@ -64,13 +64,11 @@ class posts_controller extends base_controller {
 			Router::redirect("/posts/add/error");
 		}
 
-
-
 		# For now, just confirm the post - make this fancier later
 		Router::redirect("/posts/add/");
 	}
 
-	public function index($error = NULL){
+	public function index(){
 
 		#Set up view
 		$this->template->content = View::instance('v_posts_index');
@@ -84,17 +82,16 @@ class posts_controller extends base_controller {
 		#Build a query of the users this user is following - we are only interested
 		#in their posts
 		$q = "SELECT * FROM users_users WHERE user_id = ".$this->user->user_id;
-		
+
+	
 		#Execute our query storing the results in a variable $connections
 		$connections = DB::instance(DB_NAME)->select_rows($q);
 
 		#Not following anyone yet
-		if($connections == "" || $connections == NULL){
+		#if($connections == "" || $connections == NULL){
 		#$error = "You are not following anyone yet.";
-		Router::redirect("/posts/index/error->$error");
-	
-		
-		}
+		#Router::redirect("/posts/index/error->$error");
+		#}
  		
 		#In order to query for the posts we need, we're going to need a string of user ids
 		#separated by commas. To create this, loop through our connections array
@@ -106,14 +103,16 @@ class posts_controller extends base_controller {
 		#Remove the final comma
 		$connections_string = substr($connections_string, 0, -1);
 
-		#The users you are following have no posts
-		#if($connections_string == "" || $connections_string == NULL){
-		#Router::redirect("/posts/error_no_posts");
-		#}
+		if(empty($connections_string)) {
+		# If the user isn't following anyone, this prevents a SQL error
+		$no_followers = "You haven't followed anyone. Follow people <a href=\"/posts/users\">here</a>.";
+		$this->template->content->show_no_follower_message = TRUE;
+		$this->template->content->posts = $posts;
+		$this->template->content->show_no_posts_message = FALSE;
+		}
+		else{
 
-		#Connections string example: 10, 7, 8 (where the numbers fare user_ids 
-		#of who this user is following)
-
+	
 		#Now let's build our query to grab the posts
 		$q = "SELECT * from posts
 			JOIN users USING (user_id)
@@ -121,12 +120,23 @@ class posts_controller extends base_controller {
 			#This is where we use string of user_ids we created
 
 		#Run our query and store results in the variable $posts
+		
 		$posts = DB::instance(DB_NAME)->select_rows($q);
 
-
-		#Pass the data to the view
+		if(empty($posts)) {
+		# following someone but no posts yet
+		$no_followers = "You haven't followed anyone. Follow people <a href=\"/posts/users\">here</a>.";
+		$this->template->content->show_no_posts_message = TRUE;
 		$this->template->content->posts = $posts;
-		$this->template->content->error = $error;
+		$this->template->content->show_no_follower_message = TRUE;
+		
+					
+		}
+
+	}
+		
+
+
 
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 		$client_files = Array(

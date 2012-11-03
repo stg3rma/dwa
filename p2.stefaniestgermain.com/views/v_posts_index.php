@@ -1,18 +1,17 @@
+<? if($show_no_follower_message): ?>
+You need to follow someone to see a feed! 
+Find friends to follow <a href="/posts/users">here</a>
+<? endif; ?>
+<? if(!$show_no_follower_message && $show_no_posts_message): ?>
+The users you are following have not posted anything yet.
+Stay tuned!</a>
+<? endif; ?>
+<? if($posts): ?>
+<div>
 <h1>Posts from users <?= $user->first_name ?> is following:</h1>
 <br><br>
 
- <? if($error): ?>
-    <div class='error'>
-      <?=$error; ?>
-    </div>
-    <br>
-  <? endif; ?>
-
-<? if(!$posts ): ?>
-  <div class='error'>
-    There have been no posts. Please check back later.
-  </div>
-<? endif; ?>
+<? echo Debug::dump($posts, "as POSTS!!!!!!!!!!"); ?>
 
 <section id = "comments">
   <? foreach($posts as $post): ?>
@@ -29,5 +28,5 @@
     </article>
   <? endforeach; ?>
 </section>
-
-
+</div>
+<? endif; ?>
