@@ -332,5 +332,102 @@ class users_controller extends base_controller {
 		echo $this->template;
 		}
 	}
+
+  
+  public function edit($error = NULL){
+
+  		# If user is blank, they're not logged in, show message and don't do anything else
+		# Not logged in
+		if(!$this->user) {
+			echo "Members only. <a href='/users/login'>Please Login</a>";
+			
+			# Return will force this method to exit here so the rest of 
+			# the code won't be executed and the profile view won't be displayed.
+			return;
+			
+		}
+		else{
+
+		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
+		$client_files = Array(
+			"/stylesheets/screen.css", 
+			"/stylesheets/print.css", 
+  			"/stylesheets/ie.css",
+  			"/stylesheets/validationEngine.jquery.css",
+			"/stylesheet/template.css",
+			"/js/languages/jquery.validationEngine-en.js", 
+			"/js/jquery.validationEngine.js", 
+	    );
+	    
+	    $this->template->client_files = Utils::load_client_files($client_files); 
+
+    	# Setup view
+		$this->template->content = View::instance('v_users_edit');
+		$this->template->title   = "Edit your profile";
+
+		#$user_info = Helper::get_user_info($this->user->user_id);
+
+    	#Pass the data to the view
+		#$this->template->content->user_info = $user_info;
+	    $this->template->content->error = $error;
+			
+		# Render template
+		echo $this->template;
+
+      }
+  }
+
+
+ 
+
+	
+		
+
+public function p_edit(){
+
+  		# If user is blank, they're not logged in, show message and don't do anything else
+		# Not logged in
+		if(!$this->user) {
+			echo "Members only. <a href='/users/login'>Please Login</a>";
+			
+		# Return will force this method to exit here so the rest of 
+			return;
+		}
+		else{
+
+		# Associate this post with this user
+		#$_POST['user_id'] = $this->user->user_id;
+
+		#Unix timestamp of when this post was created/modified
+		$_POST['created'] = Time::now(); 
+		$_POST['modified'] = Time::now(); 
+
+		# Insert this post into the database
+		$where_condition = 'WHERE user_id = '.$this->user->user_id;
+		DB::instance(DB_NAME)->update("users", $_POST, "$where_condition");
+
+		# Prevent SQL injection attacks by sanitizing user entered data
+		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+		
+		#Empty fields 
+		#if($_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['email'] == "" || $_POST['password']){
+		#	Router::redirect("/users/edit/error");
+		#}
+
+		echo Debug::dump($_POST, "posts content before update");
+
+		# Insert this user edit into the database
+		#DB::instance(DB_NAME)->update("users", $_POST, "WHERE user_id = ".$user_id);
+       #UPDATE `users` SET `modified`=$_POST['modified'],`password`=$_POST['password'],`email`=$_POST['email'],`first_name`=$_POST['password'],`last_name`=$_POST['password'] WHERE 'user_id' = $user_id;
+
+
+       Router::redirect("/users/myprofile");
+
+
+    }
+
+  }
+
 		
 } # end of the class
