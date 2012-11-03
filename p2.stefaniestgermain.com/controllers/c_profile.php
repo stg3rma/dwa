@@ -32,6 +32,18 @@ class profile_controller extends base_controller {
 
 
 
+		#render the template
+		echo $this->template;
+	}
+
+
+			
+
+	
+	public function p_add_image(){
+	
+		
+		
 		# The database has columns "imagename" and "title"
 
 		$errors = array();
@@ -62,15 +74,28 @@ class profile_controller extends base_controller {
 				$_POST['modified'] = Time::now();
 				$_POST['imagename']	= $file_name;
 
-				# Save to database
 
+				# Save to database
 				DB::instance(DB_NAME)->insert('images', $_POST);
 
 				# Save to your file path
-				move_uploaded_file($file_tmp, APP_PATH."/uploads/images/".$file_name);
+				move_uploaded_file($file_tmp, APP_PATH."/uploads/avatars/".$file_name);
+
+				#resize image
+
+				# Create small (thumb)
+
+				$imgObj = new Image(APP_PATH.AVATAR_PATH.$file_name);
+
+				$small = Utils::postfix("_".SMALL_W."_".SMALL_H, APP_PATH.AVATAR_PATH.$file_name);
+
+				$imgObj->resize(SMALL_W, SMALL_H, 'crop');
+				$imgObj->save_image($small, 50);
+
+
 
 				# Redirect
-				Router::redirect("/profile/add_image?alert=Your message was posted!");
+				Router::redirect("/profile/add_image?alert=Your image has been uploaded!");
 			}
 
 		}
@@ -79,29 +104,6 @@ class profile_controller extends base_controller {
 		else {
 			Router::redirect("/profile/add_image?error=Please select an image to upload");
 		}
-	}
-
-
-			
-
-	
-	public function p_add_image(){
-	
-		
-		# Associate this image with this user
-		$user_id = $this->user->user_id;
-		$array = "";
-		$file_obj = $this->$_FILES;
-
-		Upload::upload($_FILES, "/uploads/avatars/", array("jpg", "jpeg", "gif", "png"), $user_id);
-
-		# Insert this name into the database
-		
-		#DB::instance(DB_NAME)->insert("image", $_POST);
-		#$imgObj = new Image(APP_PATH."uploads/test.png");	
-		
-		# For now, just confirm the post - make this fancier later
-		echo "Your profile picture has just been addeded! <a href='/profile/add_image'>Edit your profile?</a>";
 	}
 
 	public function index(){

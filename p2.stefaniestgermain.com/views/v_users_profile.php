@@ -6,26 +6,31 @@
   </div>
 <? endif; ?>
 
-
-
-
-<section>
- <div class='text'>
-	<p>Member for: <?=$profile_arr['membership_duration']?></p><br>
-	<p>Last post: <?=$profile_arr['last_post']?></p><br>
-	<p>Number of followers: <?=$profile_arr['count_followed']?></p><br>
-	<p>Following <?=$profile_arr['followers']?> number of user</p><br>
-	<p>Profile image path: <img src="<?=$profile_arr['image_path']?>"></p><br>
-
-
-	<p>User_id: <?=$user_arr['user_id']?></p><br>
-	<p>Account created: <?=$user_arr['created']?></p><br>
-	<p>email address: <?=$user_arr['email']?></p><br>
-	<p>User last modified:<?=$user_arr['modified']?></p><br>
-	<p>First Name: <?=$user_arr['first_name']?></p><br>
-	<p>Last Name: <?=$user_arr['last_name']?></p><br>
-	<p>Avatar: <?=$user_arr['avatar']?></p><br>
-	
+<h2>Account Information</h2>
+<section id="comment-body">
+ <div id="text">
+	<ul>
+		<li>First Name: <?=$user_arr['first_name']?></li>
+		<li>Last Name: <?=$user_arr['last_name']?></li>
+		<li>email address: <?=$user_arr['email']?></li>
+		<li>Account created: <?=$user_arr['created']?></li>
+		<li>User last modified:<?=$user_arr['modified']?></li>
+	</ul>
  </div>
+</section>
+<br>
+<br>
+
+<h2>P2 Stats</h2>
+<section id="text">
+ <div id="text">
+   <ul>
+ 	<li>Member for: <?=$profile_arr['membership_duration']?></li>
+	<li>Last post: <?=$profile_arr['last_post']?></li>
+	<li>Number of followers: <?=$profile_arr['count_followed']?></li>
+	<li>Following <?=$profile_arr['followers']?> number of user</li>
+	<li>Profile image path: <img src="<?=$profile_arr['image_path']?>"></li>
+   </ul>
+ <div>
 </section>
 

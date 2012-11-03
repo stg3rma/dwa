@@ -13,7 +13,7 @@
 	<label for="file">Filename:</label>
 	<input type="file" name="imagename" />
 	<br />
-	<input type="submit" name="submit" value="Submit" />
+	<input type="submit" />
 </form>
 
 

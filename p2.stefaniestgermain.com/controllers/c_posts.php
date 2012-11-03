@@ -91,7 +91,9 @@ class posts_controller extends base_controller {
 		#Not following anyone yet
 		if($connections == "" || $connections == NULL){
 		#$error = "You are not following anyone yet.";
-		Router::redirect("/posts/error_not_following");
+		Router::redirect("/posts/index/error->$error");
+	
+		
 		}
  		
 		#In order to query for the posts we need, we're going to need a string of user ids
@@ -124,6 +126,7 @@ class posts_controller extends base_controller {
 
 		#Pass the data to the view
 		$this->template->content->posts = $posts;
+		$this->template->content->error = $error;
 
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 		$client_files = Array(

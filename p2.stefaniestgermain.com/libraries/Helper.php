@@ -2,12 +2,24 @@
 
 class Helper {
 
+
+  #Get filename for image
+  public static function get_imagename($user_id){
+
+      $q = "select * from images where user_id =".$user_id;
+
+      #Run our query and store results in the variable 
+      $images = DB::instance(DB_NAME)->SELECT_row($q);
+
+      return $images;
+  }
+
   #Get user's name
   public static function get_name($user_id){
 
       $q = "SELECT first_name, last_name 
       FROM users
-      WHERE user_id = $user_id";
+      WHERE user_id =".$user_id;
 
       #Run our query and store results in the variable $posts
       $fullname = DB::instance(DB_NAME)->SELECT_row($q);
@@ -115,7 +127,7 @@ class Helper {
   #Get date of last posts as string
   public static function get_posts_by_days_old($days){
 
-    $q = "SELECT * FROM posts WHERE (to_days(now()) - to_days(FROM_unixtime(created)) < $days )";
+    $q = "SELECT * FROM posts WHERE (to_days(now()) - to_days(FROM_unixtime(created))) < $days )";
     $count_followed = DB::instance(DB_NAME)->SELECT_field($q);
     return htmlspecialchars($count_followed);
   }

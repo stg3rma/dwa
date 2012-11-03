@@ -1,5 +1,12 @@
-<h1>Posts from users I am following:</h1>
+<h1>Posts from users <?= $user->first_name ?> is following:</h1>
 <br><br>
+
+ <? if($error): ?>
+    <div class='error'>
+      <?=$error; ?>
+    </div>
+    <br>
+  <? endif; ?>
 
 <? if(!$posts ): ?>
   <div class='error'>

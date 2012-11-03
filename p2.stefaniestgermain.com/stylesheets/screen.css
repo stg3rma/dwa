@@ -38,7 +38,8 @@
 html {
   margin: 0;
   padding: 0;
-  border: 0; }
+  border: 0;
+}
 
 /* line 18, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 .bp-reset-element, body, h1, h2, h3, h4, h5, h6, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, blockquote, q, th, td, caption, table,
@@ -661,6 +662,8 @@ body.two-col #container {
   padding-top: 50px;
   margin: 0 auto;
   overflow: hidden;
+      line-height: normal;
+    vertical-align: baseline;
   *zoom: 1; }
 /* line 28, ../sass/partials/_two_col.scss */
 body.two-col #header, body.two-col #footer {
@@ -690,5 +693,7 @@ body.two-col #content {
   * html body.two-col #content {
     overflow-x: hidden; 
   }
+
+
 
   

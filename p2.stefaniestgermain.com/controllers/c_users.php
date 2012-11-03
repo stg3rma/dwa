@@ -38,7 +38,10 @@ class users_controller extends base_controller {
 	public function p_signup() {
 		
 		# Dump out the results of POST to see what the form submitted
-		print_r($_POST);
+		#print_r($_POST);
+
+		# Prevent SQL injection attacks by sanitizing user entered data
+		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 		
 		#encrypt
 		$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
@@ -49,37 +52,25 @@ class users_controller extends base_controller {
 		
 		$_POST['created'] = Time::now(); #could mimic different time
 		$_POST['modified'] = Time::now(); #time stamp	
-		# Insert this user into the database
-		#$user_id = DB::instance(DB_NAME)->insert("users", $_POST);
 		
-		echo "Email address on form is: ".$_POST['email'];
-		#check if email address is already in use
-		
-			$q = "SELECT email
-				  FROM users WHERE email = '".$_POST['email']."'";
-				
+		#check if the address is not in use in the system
+		$q = "SELECT email
+			FROM users WHERE email = '".$_POST['email']."'";
+
 		$user_exists = DB::instance(DB_NAME)->select_field($q);
 
-				
-		#if(!$this->user){
-		#	#echo "Registration failed! ";
-		#	Router::redirect("/users/signup/error");
-		#}
-		if($user_exists == $_POST['email']){
-		#echo "Email address in use in the system";
-			Router::redirect("/users/signup/error");
-		}	
-		else{
+		if($user_exists != ""){	
 			
+			$address_in_use = "The email address you have entered is already in use. Please pick another.";
+					
+			Router::redirect("/users/signup/error->$address_in_use");
+		}
+		else{
+		
+		#$user_id = DB::instance(DB_NAME)->insert("users", $_POST);	
 		$user_id =  DB::instance(DB_NAME)->insert("users", $_POST);
 
-		#Create initial avatar
-		$imgObj = new Image(APP_PATH."/uploads/avatars/");	
-		if($imgObj->exists(FALSE)){
-			$imgObj->create_initial_avatar($user_id);
-		}	
-		
-
+	
 		# For now, just confirm they've signed up - we can make this fancier later
 		#echo "You're registered! Now go <a href='/users/login'>login</a>";
 		Router::redirect("/users/login");
@@ -198,6 +189,8 @@ class users_controller extends base_controller {
 			"/stylesheet/template.css",
 			"/js/languages/jquery.validationEngine-en.js", 
 			"/js/jquery.validationEngine.js", 
+			"/stylesheets/style.css",   
+			"/stylesheets/jquery-ui.css", 
 	    );
 	    
 	    $this->template->client_files = Utils::load_client_files($client_files); 		
@@ -300,6 +293,7 @@ class users_controller extends base_controller {
 			"/stylesheet/template.css",
 			"/js/languages/jquery.validationEngine-en.js", 
 			"/js/jquery.validationEngine.js", 
+
 	    );
 	    
 	    $this->template->client_files = Utils::load_client_files($client_files); 
@@ -313,8 +307,9 @@ class users_controller extends base_controller {
 		$count_followed = Helper::get_count_followed($this->user->user_id); 
 		$followers = Helper::get_count_following($this->user->user_id);
 		$image_path = Helper::get_image_path($this->user->user_id);
+		
 
-
+		
 		$profile_arr = "";
 		$profile_arr["membership_duration"] = $membership_duration;
 		$profile_arr["last_post"] = $last_post;
@@ -322,12 +317,17 @@ class users_controller extends base_controller {
 		$profile_arr["followers"] = $followers;
 		$profile_arr["image_path"] = $image_path;
 
+		$image_arr = "";
+		$image_arr = Helper::get_imagename($this->user->user_id);
+
 		$user_arr = "";
 		$user_arr = Helper::get_user_info($this->user->user_id);
 
 		#Pass data to the view
 		$this->template->content->profile_arr = $profile_arr;
 		$this->template->content->user_arr = $user_arr;
+		$this->template->content->image_arr = $image_arr;
+
 		# Render template
 		echo $this->template;
 		}
@@ -365,10 +365,7 @@ class users_controller extends base_controller {
 		$this->template->content = View::instance('v_users_edit');
 		$this->template->title   = "Edit your profile";
 
-		#$user_info = Helper::get_user_info($this->user->user_id);
-
     	#Pass the data to the view
-		#$this->template->content->user_info = $user_info;
 	    $this->template->content->error = $error;
 			
 		# Render template
@@ -378,10 +375,6 @@ class users_controller extends base_controller {
   }
 
 
- 
-
-	
-		
 
 public function p_edit(){
 
@@ -395,19 +388,39 @@ public function p_edit(){
 		}
 		else{
 
-		# Associate this post with this user
-		#$_POST['user_id'] = $this->user->user_id;
 
-		#Unix timestamp of when this post was created/modified
-		$_POST['created'] = Time::now(); 
+		# Prevent SQL injection attacks by sanitizing user entered data
+		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+		#if user changes password encrypt it
+		if($_POST['password'] != $user->password){
+
+			#encrypt
+			$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+			#can override password salt in application version in core config
+
+		}
+
+		#if user did edit email verify that the address is not in use in the system
+		if($user->email != $_POST['email']){
+
+			$q = "SELECT email
+				FROM users WHERE email = '".$_POST['email']."'";
+					
+			$user_exists = DB::instance(DB_NAME)->select_field($q);
+			$address_in_use = "The email address you have entered is already in use. Please pick another.";
+					
+			if($user_exists == $_POST['email']){
+			#echo "Email address in use in the system";
+				Router::redirect("/users/edit/error->$address_in_use");
+		}
+
+		#Unix timestamp of when this post was modified
 		$_POST['modified'] = Time::now(); 
 
 		# Insert this post into the database
 		$where_condition = 'WHERE user_id = '.$this->user->user_id;
 		DB::instance(DB_NAME)->update("users", $_POST, "$where_condition");
-
-		# Prevent SQL injection attacks by sanitizing user entered data
-		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
 		
 		#Empty fields 
@@ -422,8 +435,17 @@ public function p_edit(){
        #UPDATE `users` SET `modified`=$_POST['modified'],`password`=$_POST['password'],`email`=$_POST['email'],`first_name`=$_POST['password'],`last_name`=$_POST['password'] WHERE 'user_id' = $user_id;
 
 
-       Router::redirect("/users/myprofile");
+		if($error){
 
+			Router:: redirect("/users/edit/error");
+		} 
+		else{
+
+			Router::redirect("/users/myprofile");
+		}     
+
+			
+	}
 
     }
 

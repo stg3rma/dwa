@@ -1,3 +1,7 @@
+
+<h1>Please edit your profile</h1>
+<br>
+
 <form method='POST' id='user_edit' action='/users/p_edit'>
 
 	First Name<br>
@@ -19,5 +23,11 @@
 	<input type='submit' value='Submit'>
 	
 </form>
-
-<? echo Debug::dump($_POST, "posts content before update"); ?>
+<br>
+<br>
+	<? if($error): ?>
+		<div class='error'>
+			<?=$error; ?>
+		</div>
+		<br>
+	<? endif; ?>
