@@ -12,10 +12,10 @@
   </div>
 <? endif; ?>
 <br>
-	<p><img src="/uploads/avatars/14-1351939952_100_100.jpg" />
-	<p><img src="/uploads/avatars/14-1351939952_100_100.jpg" />
+	<p>
 	<? $file = "http://".DB_HOST."/uploads/avatars/".$image_arr['imagename'];?>
 	<img src="<?= $file ?>" />
+	</p>
 <br>
 <section>
  <div class="comment-body">
@@ -24,7 +24,7 @@
 		<li>First Name: <?=$user_arr['first_name']?></li>
 		<li>Last Name: <?=$user_arr['last_name']?></li>
 		<li>email address: <?=$user_arr['email']?></li>
-		<li>User last modified:<?=$user_arr['modified']?></li>
+		<li>User last modified: <?= $user_arr['modified']?></li>
 		<li>Avatar: <?=$user_arr['avatar']?></li>
 	</ul>
 	<div>

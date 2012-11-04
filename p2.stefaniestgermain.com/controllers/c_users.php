@@ -389,70 +389,64 @@ public function p_edit(){
 	# Return will force this method to exit here so the rest of
 	return;
 	}
-	else{
-
 
 	# Prevent SQL injection attacks by sanitizing user entered data
 	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
+	#Empty fields check
+	if($_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['email'] == "" || $_POST['password' == ""]){
+	 $required="All fields are required";
+	 Router::redirect("/users/edit/error: $required");
+	}
+
 	#if user changes password encrypt it
 	if($_POST['password'] != $user->password){
 
-	#encrypt
-	$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
-	#can override password salt in application version in core config
-
-	}
-
-	#if user did edit email verify that the address is not in use in the system
-	if($user->email != $_POST['email']){
-
-	$q = "SELECT email
-	FROM users WHERE email = '".$_POST['email']."'";
-
-	$user_exists = DB::instance(DB_NAME)->select_field($q);
-	$address_in_use = "The email address you have entered is already in use. Please pick another.";
-
-	if($user_exists == $_POST['email']){
-	#echo "Email address in use in the system";
-	Router::redirect("/users/edit/error->$address_in_use");
+		#encrypt
+		$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+		#can override password salt in application version in core 	
 	}
 
 	#Unix timestamp of when this post was modified
 	$_POST['modified'] = Time::now();
 
-	# Insert this post into the database
-	$where_condition = 'WHERE user_id = '.$this->user->user_id;
-	DB::instance(DB_NAME)->update("users", $_POST, "$where_condition");
+	#if user did not edit email 
+	if($user->email == $_POST['email']){
+
+		# Insert this post into the database
+		#$where_condition = 'WHERE user_id = '.$this->user->user_id;
+		#DB::instance(DB_NAME)->update("users", $_POST, $where_condition);
+
+		# Insert this user edit into the database
+		DB::instance(DB_NAME)->update("users", $_POST, "WHERE user_id = ".$user_id);
+    	#UPDATE `users` SET `modified`=$_POST['modified'],`password`=$_POST['password'],`email`=$_POST['email'],`first_name`=$_POST['password'],`last_name`=$_POST['password'] WHERE 'user_id' = $user_id;
 
 
-	#Empty fields
-	#if($_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['email'] == "" || $_POST['password']){
-	# Router::redirect("/users/edit/error");
+	} 
+
+	#test if email is in use already
+	#if($user->email != $_POST['email']){
+
+		#check if email is used in the system
+	#	$q = "SELECT email
+	#	FROM users WHERE email = '".$_POST['email']."'";
+
+	#	$user_exists = DB::instance(DB_NAME)->select_field($q);
+		
+	#	$address_in_use_message = "The email address you have entered is already in use. Please pick another.";
+
+	#	if($user_exists){
+	#	#echo "Email address in use in the system";
+	#	Router::redirect("/users/edit/error->$address_in_use_message");
+	#	}
+
 	#}
 
-	echo Debug::dump($_POST, "posts content before update");
-
-	# Insert this user edit into the database
-	#DB::instance(DB_NAME)->update("users", $_POST, "WHERE user_id = ".$user_id);
-	       #UPDATE `users` SET `modified`=$_POST['modified'],`password`=$_POST['password'],`email`=$_POST['email'],`first_name`=$_POST['password'],`last_name`=$_POST['password'] WHERE 'user_id' = $user_id;
 
 
-	if($error){
-
-	Router:: redirect("/users/edit/error");
-	}
-	else{
 
 	Router::redirect("/users/myprofile");
-	}
-
-
-	}
-
-	    }
-
-	  }
-
+	
+}
 
 } # end of the class

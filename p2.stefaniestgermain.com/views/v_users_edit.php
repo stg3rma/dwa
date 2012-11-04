@@ -23,6 +23,8 @@
 	<input type='submit' value='Submit'>
 	
 </form>
+
+<? echo Debug::dump($user, "Users"); ?>
 <br>
 <br>
 	<? if($error): ?>

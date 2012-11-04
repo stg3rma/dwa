@@ -108,9 +108,7 @@ class profile_controller extends base_controller {
 
 	public function index(){
 
-		$imgObj = new Image(APP_PATH."/uploads/Chrysanthemum.jpg");	
-		echo $imgObj->exists(TRUE);
-		echo $this->$imgObj->image.open_image($imgObj);
+		Router::redirect("/users/myprofile");
 
 	}
 
@@ -153,7 +151,7 @@ http://techstream.org/Web-Development/PHP/Single-File-Upload-With-PHP
 		$small = Utils::postfix("_".SMALL_W."_".SMALL_H, APP_PATH.AVATAR_PATH.$file_name);
 
 		$imgObj->resize(SMALL_W, SMALL_H, 'crop');
-		$imgObj->save_image($small, 100);
+		$imgObj->save_image($small, 50);
 
 	# Send them back to their profile
 		Router::redirect("/users/edit-profile/");
