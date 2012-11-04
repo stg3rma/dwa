@@ -95,12 +95,18 @@ class posts_controller extends base_controller {
 
 		if(empty($connections_string)) {
 		# If the user isn't following anyone, this prevents a SQL error
-		$no_follower = "You haven't followed anyone. Follow people <a href=\"/posts/users\">here</a>.";
+		$show_no_follower_message = "You haven't followed anyone. Follow people <a href=\"/posts/users\">here</a>.";
+		$show_no_posts_message = "There are no posts.";
+
 		$this->template->content->show_no_follower_message = TRUE;
-	
-		}
+		$this->template->content->show_no_posts_message = TRUE;
+		$this->template->content->show_posts = FALSE;
 		
-	
+
+		}
+		else{
+
+
 		#Now let's build our query to grab the posts
 		$q = "SELECT * from posts
 			JOIN users USING (user_id)
@@ -111,13 +117,13 @@ class posts_controller extends base_controller {
 		
 		$posts = DB::instance(DB_NAME)->select_rows($q);
 
-			
-	
+		$this->template->content->show_no_follower_message = FALSE;
+		$this->template->content->show_no_posts_message = FALSE;
+		$this->template->content->show_posts = TRUE;
 		$this->template->content->posts = $posts;
-	
-	
+		}
+			
 		
-
 
 
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
@@ -136,6 +142,7 @@ class posts_controller extends base_controller {
 
  		#Render the view
 		echo $this->template;
+		
 	}
 
 	public function users(){

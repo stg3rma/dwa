@@ -16,15 +16,13 @@
 	<input type='password' name='password'>
 	<br><br>
 
-	<? if($error): ?>
-		<div class='error'>
-			Signup failed. The email address you entered is already in use in the system. 
-		</div>
-		<br>
-	<? endif; ?>
-
-
 	
 	<input type='submit' value='Submit'>
+	<br>
+	<? if($error): ?>
+		<div class='error'>
+			<?	 echo $error ?>
+		</div>
+	<? endif; ?>
 	
 </form>

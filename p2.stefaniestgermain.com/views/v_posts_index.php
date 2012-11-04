@@ -2,6 +2,12 @@
 You need to follow someone to see a feed! 
 Find friends to follow <a href="/posts/users">here</a>
 <? endif; ?>
+
+<? if($show_no_posts_message): ?>
+Sorry there are no posts. Stay tuned! 
+<? endif; ?>
+
+<? if($show_posts): ?>
 <h1>Posts from users <?= $user->first_name ?> is following:</h1>
 
 <br><br>
@@ -24,3 +30,4 @@ Find friends to follow <a href="/posts/users">here</a>
 </section>
 
 
+<? endif; ?>

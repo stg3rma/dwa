@@ -57,13 +57,17 @@ public function p_signup() {
 	$q = "SELECT email
 	FROM users WHERE email = '".$_POST['email']."'";
 
-	$user_exists = DB::instance(DB_NAME)->select_field($q);
+	$email = DB::instance(DB_NAME)->select_field($q);
 
-	if($user_exists != ""){	
+	if($email == $_POST['email'] && $_POST['email' != ""]){	
 
-	$address_in_use = "The email address you have entered is already in use. Please pick another.";
+		$address_in_use = "The email address you have entered is already in use. Please pick another.";
+		Router::redirect("/users/signup/error=$address_in_use");
+	}
+	if($_POST['email'] == "" || $_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['password'] == ""){
 
-	Router::redirect("/users/signup/error->$address_in_use");
+		$required = "All fields on this form are required.";
+		Router::redirect("/users/signup/error: $required");
 	}
 	else{
 
