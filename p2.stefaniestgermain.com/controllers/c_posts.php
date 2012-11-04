@@ -73,11 +73,6 @@ class posts_controller extends base_controller {
 		#Set up view
 		$this->template->content = View::instance('v_posts_index');
 		$this->template->title = "Posts";
-
-		#Build the query
-		#$q = "SELECT * FROM posts JOIN users USING (user_id)";
-		#Run the query grabbing all the posts and joining in the users
-		#$posts = DB::instance(DB_NAME)->select_rows($q);
 		
 		#Build a query of the users this user is following - we are only interested
 		#in their posts
@@ -87,11 +82,6 @@ class posts_controller extends base_controller {
 		#Execute our query storing the results in a variable $connections
 		$connections = DB::instance(DB_NAME)->select_rows($q);
 
-		#Not following anyone yet
-		#if($connections == "" || $connections == NULL){
-		#$error = "You are not following anyone yet.";
-		#Router::redirect("/posts/index/error->$error");
-		#}
  		
 		#In order to query for the posts we need, we're going to need a string of user ids
 		#separated by commas. To create this, loop through our connections array
@@ -105,13 +95,11 @@ class posts_controller extends base_controller {
 
 		if(empty($connections_string)) {
 		# If the user isn't following anyone, this prevents a SQL error
-		$no_followers = "You haven't followed anyone. Follow people <a href=\"/posts/users\">here</a>.";
+		$no_follower = "You haven't followed anyone. Follow people <a href=\"/posts/users\">here</a>.";
 		$this->template->content->show_no_follower_message = TRUE;
-		$this->template->content->posts = $posts;
-		$this->template->content->show_no_posts_message = FALSE;
+	
 		}
-		else{
-
+		
 	
 		#Now let's build our query to grab the posts
 		$q = "SELECT * from posts
@@ -123,17 +111,11 @@ class posts_controller extends base_controller {
 		
 		$posts = DB::instance(DB_NAME)->select_rows($q);
 
-		if(empty($posts)) {
-		# following someone but no posts yet
-		$no_followers = "You haven't followed anyone. Follow people <a href=\"/posts/users\">here</a>.";
-		$this->template->content->show_no_posts_message = TRUE;
+			
+	
 		$this->template->content->posts = $posts;
-		$this->template->content->show_no_follower_message = TRUE;
-		
-					
-		}
-
-	}
+	
+	
 		
 
 
