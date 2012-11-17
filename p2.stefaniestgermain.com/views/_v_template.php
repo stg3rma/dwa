@@ -14,7 +14,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">   
 	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.css"> 
-
+	<link rel="stylesheet" type="text/css" href="/js/jquery-ui.js"> 
 
 	
 </head>
@@ -22,34 +22,20 @@
 <body class="gradient-example" id="v-gradient">	
 	<div class="two-col">
 	<div id="header">
-      <a href='/'><img src="/images/logo.gif" alt="P2 microblog logo"/></a>
+      <h1>P3 | interactive map</h1>
     </div>
 	<div id="topnav" >
-		<!-- Menu for users who are logged in -->
+		<!-- Menu for users who are logged in 
 		<ul>
-		<? if($user): ?>
-			<li><a class="button-link" href='/users/logout'>Logout</a></li>
-			<li><a class="button-link" href='/posts/users/'>Follow|Unfollow</a></li>
-			<li><a class="button-link" href='/posts/'>View posts</a></li>
-			<li><a class="button-link" href='/posts/add'>Add Post</a></li>
-			<li><a class="button-link" href='/users/myprofile'>Profile</a></li>
-		<!-- Menu options for users who are not logged in -->
-		<? else: ?>
 			<li><a class="button-link" href='/users/signup'>Sign up</a></li>
-			<li><a class="button-link" href='/users/login'>Login</a></li>
-		<? endif; ?>		
-		</ul>		
+			<li><a class="button-link" href='/users/login'>Login</a></li>		
+		</ul>		-->
 	</div>		
-	<div id="sidebar">
-      <p>&nbsp;</p>
-    </div>
-    <div id="content">
-	<br>
-
+	
 		<?=$content;?> 
-	</div><!--end content -->
+	
   <div id="footer">
-   <a href='/'><img src="/images/footer.gif" alt="P2 microblog footer"/></a>
+    <h3>footer goes here</h3>
   </div>
 
 </div><!--end two col -->
