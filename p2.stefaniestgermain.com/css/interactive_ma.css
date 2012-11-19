@@ -4,10 +4,11 @@
 
 #wrapper {
     width:960px;
-    margin:0px auto;
+    margin: auto;
 }
 
 h1 {    
+    font-family:Verdana;
     text-align:center;
     font-size:30px;
     margin-top:25px;
@@ -24,12 +25,13 @@ h2 {
 
 #top-half {
     width:960px;
-    margin-right:50px;
+    margin: auto;
     float:top;
 }
 
 #bottom-half {
     width:960px;
+    margin: auto;
     float:bottom;
 }
 
@@ -46,6 +48,12 @@ h2 {
 	float:left;
 }
 
+#map{
+
+    width: 960px; 
+    height: 400px;
+}
+
 
 #header {
     width:960px;
@@ -54,32 +62,18 @@ h2 {
 
 
 
-#card {
-    background-image:url('/images/card-background.jpg');
-    background-repeat:no-repeat;
-    height:513px;
-    width:369px;
-    margin:0px auto;
-}
 
-#canvas {
-    border:1px solid black;
-    width:338px;
-    height:469px;
-    position:relative;
-    top:33px;
-    left:16px;
-    overflow:hidden;
-}
 
-.footer {
+#footer {
     clear:both;
+    width: 960px;
+    float: bottom;
 }
 
 .color-choice {
     margin-right:4px;
-    width:10px;
-    height:10px;
+    width:15px;
+    height:15px;
     float:left;
     border:1px solid black;
 }
@@ -99,7 +93,6 @@ h2 {
 #green {
     background-color:green;
 }
-
 
 
 .texture-choice {

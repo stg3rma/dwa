@@ -24,7 +24,6 @@ class javascript_controller extends base_controller {
 			"/js/leaflet.js",
 			"/css/interactive_ma.css",
 			"/css/leaflet.css",
-			"/images/",
 			);
 			
 		# Load the above specified files

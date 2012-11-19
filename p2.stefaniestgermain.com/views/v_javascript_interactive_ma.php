@@ -1,5 +1,5 @@
  <div id='wrapper'>
- 	<div id="map" style="width: 960px; height: 400px"></div>
+ 	<div id="map"></div>
 
 	<script src="/js/leaflet.js"></script>
 
@@ -10,79 +10,79 @@
 
     <br><br>
     <!-- MAP LEGEND ON THE LEFT -->
+  
     <div id='bottom-half'>
+
+    	<a id="showhidemapsetup" href="#">show/hide</a>
     	<div id='map-setup'>
 	  
-	        <h2>Pick a basemap style</h2>
-	        <input type='radio' name='basemap' value='20760'>day<br>
-	        <input type='radio' name='basemap' value='31643'>night
-	       
-	        <br>
-
-	        <h2>Pick a zoom level</h2>
+	 
+	        <h2 class='change-zoom'>Pick a zoom level</h2>
 	        <input type='radio' name='zoom' value='9'>county<br>
 	        <input type='radio' name='zoom' value='13'>neighborhood<br>
 	        <input type='radio' name='zoom' value='18'>building
 	       
 	        <br>
 
-	        <h2>Add a layer to map</h2>
-	        <input type='radio' name='layer' value='77488'>water<br>
+	        <h2 class='change-layer'>Add a layer to map</h2>
+	        <input type='radio' name='layer' value='20760'>none<br>
+	        <input type='radio' name='layer' value='water'>water text<br>
+	        <input type='radio' name='layer' value='77488'>water<br> 
 	        <input type='radio' name='layer' value='77999'>parks & trees<br>
 	        <input type='radio' name='layer' value='78001'>cities<br>
 	        <input type='radio' name='layer' value='77488'>roads
 	        
 
     	</div>
+    	<a id="showhidepagesetup" href="#">show/hide</a> 
       	<div id='page-setup'>
-	        <h2>Select page color</h2>
+	        <h2 class='change-font'>Select page color</h2>
 	        <div class='color-choice' id='red'></div>
 	        <div class='color-choice' id='orange'></div>
 	        <div class='color-choice' id='yellow'></div>
 	        <div class='color-choice' id='green'></div>
 	    
-	        <br>
-	        
-	        <h2>Pick a texture</h2>
-	        <div class='texture-choice' id='texture1'></div>
-	        <div class='texture-choice' id='texture2'></div>
-	        <div class='texture-choice' id='texture3'></div>
-	        <div class='texture-choice' id='texture4'></div>
 	        
 	        <br>
 
-	        <h2>Font choice</h2>
-	        <div class="font-choice" id="font-choice">
-<select id="fs">
+  		<h2 id='change-font'>Enter map dimensions</h2>
+			<small>You have <span id='characters-left'>10</span> characters left</small><br>
+			<select class='map-height '>
+				<option value="200">200</option>
+				<option value="400">400</option>
+				<option value="600">600</option>
+				<option value="960">960</option>
+				<option value="1024">1024</option>
+			</select>
+			<select class='map-width'>
+				<option value="200">200</option>
+				<option value="400">400</option>
+				<option value="600">600</option>
+				<option value="960">960</option>
+				<option value="1024">1024</option>
+			</select>
 
-        <option value="Arial">Arial</option>
+	        <h2 class='change-font'>Font choice</h2>
+			<select id="fc">
+		        <option value="Arial">Arial</option>
+		        <option value="Verdana ">Verdana </option>
+		        <option value="Georgia">Georgia </option>
+		        <option value="Helvetica">Helvetica</option>
+    		</select>
 
-        <option value="Verdana ">Verdana </option>
-
-        <option value="Impact ">Impact </option>
-
-        <option value="Comic Sans MS">Comic Sans MS</option>
-
-    </select>
+    		<h2 class='change-font'>Font size</h2>
+			<select id="fs">
+		        <option value="14">14</option>
+		        <option value="16">16</option>
+		        <option value="18">18</option>
+		       
+    		</select>
 	        
-	        
-	        <h2>Enter your recipient</h2>
-	        <small>You have <span id='characters-left'>10</span> characters left</small><br>
-	        <input type='text' id='recipient' maxlength=10>
-	        
-	        <br>
-	        
-	        <h2>Add some graphics</h2>
-	        <img src='/images/graphic_burst.png' class='graphic-choice'>
-	        <img src='/images/graphic_gift_2.png' class='graphic-choice'>
-	        <img src='/images/graphic_gift_3.png' class='graphic-choice'>
-	        <br>
-	        <img src='/images/graphic_gift.png' class='graphic-choice'>
-	        <img src='/images/graphic_heart.png' class='graphic-choice'>
-	        <img src='/images/graphic_star.png' class='graphic-choice'>
+	   
+	  
       	</div> 
     </div>
-    
+  
     <!-- MAP SETTINGS ON THE LEFT -->
 
 

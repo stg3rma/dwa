@@ -14,7 +14,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">   
 	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.css"> 
-	<link rel="stylesheet" type="text/css" href="/js/jquery-ui.js"> 
+
 
 	
 </head>
