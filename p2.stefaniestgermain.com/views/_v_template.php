@@ -12,15 +12,15 @@
 	<!-- Controller Specific JS/CSS -->
 	<?=@$client_files; ?>   
 	
-	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">   
+
 	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.css"> 
 
 
 	
 </head>
 
-<body class="gradient-example" id="v-gradient">	
-	<div class="two-col">
+<body>	
+	<div id="wrapper">
 	<div id="header">
       <h1>P3 | interactive map</h1>
     </div>
@@ -35,9 +35,8 @@
 		<?=$content;?> 
 	
   <div id="footer">
-    <h3>footer goes here</h3>
+    <h3>Stefanie St. Germain</h3>
   </div>
-
-</div><!--end two col -->
+</div>
 </body>
 </html>

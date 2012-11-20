@@ -107,11 +107,18 @@ $(document).ready(function() {
             roads = L.tileLayer(cmUrl, {styleId: 77488, attribution: cmAttr});
 
         var county = 9, neighborhood = 13, building = 18;
+
+        var southWest = new L.LatLng(40.44695, -74.87183),
+            northEast = new L.LatLng(43.11702, -69.20288), 
+            boundsmax = new L.LatLngBounds(southWest, northEast);
+
+
         
         var map = L.map('map', {
             center: [41.91, -72.279],
             zoom: 8,
-            layers: [gray,  cities]
+            layers: [gray],
+            maxBounds: [boundsmax]
         });
 
         var baseLayers = {
@@ -125,9 +132,39 @@ $(document).ready(function() {
             "Roads": roads,
         };
 
-        
+    $('input[name=zoom]').click(function() {
+               
+        var zoom = $(this).val();
+        map.setZoom(zoom);
+        map.invalidateSize();
+        map.center();
+    
+    });
 
- 
+    $('input[name=layer]').click(function() {
+               
+        var nlayer = $(this).val();
+        // map.addLayer(nlayer);
+        //L.control.layers(water).addTo(map);
+        //test =L.tileLayer(cmUrl, {styleId: 77488, attribution: cmAttr});
+        //map.setView(new L.LatLng(41.91, -72.279), 3).addLayer(test);
+        if(nlayer == "water") {
+            map.addLayer(water);
+        }
+        if(nlayer == "parks"){
+            map.addLayer(parks);
+        }
+        if(nlayer == "cities"){
+            map.addLayer(cities);
+        }
+        if(nlayer == "roads"){
+            map.addLayer(roads);
+        }
+
+
+    });   
+
+
 
    //L.control.layers(baseLayers, overlays).addTo(map);
    

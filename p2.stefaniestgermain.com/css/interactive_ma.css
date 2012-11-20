@@ -1,11 +1,22 @@
-* {
+
+body {
     font-family:verdana;
+    margin: auto;
+    background-color: red;
 }
 
 #wrapper {
-    width:960px;
+    width: 1024px;
     margin: auto;
+    background-color: green;
 }
+
+#content {
+    width: 1024px;
+    margin: auto;
+    background-color: orange;
+}
+
 
 h1 {    
     font-family:Verdana;
@@ -52,6 +63,7 @@ h2 {
 
     width: 960px; 
     height: 400px;
+    margin: auto;
 }
 
 
@@ -60,14 +72,12 @@ h2 {
     float:top;
 }
 
-
-
-
-
 #footer {
     clear:both;
     width: 960px;
     float: bottom;
+    margin: auto;
+    padding:30px;
 }
 
 .color-choice {
@@ -93,16 +103,6 @@ h2 {
 #green {
     background-color:green;
 }
-
-
-.texture-choice {
-    width:100px;
-    height:25px;
-    border:1px solid black;
-    float:left;
-    margin-right:4px;
-}
-
 
 
 #message {

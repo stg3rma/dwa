@@ -1,4 +1,4 @@
- <div id='wrapper'>
+ <div id='content'>
  	<div id="map"></div>
 
 	<script src="/js/leaflet.js"></script>
@@ -18,19 +18,18 @@
 	  
 	 
 	        <h2 class='change-zoom'>Pick a zoom level</h2>
-	        <input type='radio' name='zoom' value='9'>county<br>
-	        <input type='radio' name='zoom' value='13'>neighborhood<br>
-	        <input type='radio' name='zoom' value='18'>building
+	        <input type='radio' name='zoom' value='7'>county<br>
+	        <input type='radio' name='zoom' value='11'>neighborhood<br>
+	        <input type='radio' name='zoom' value='16'>building
 	       
 	        <br>
 
 	        <h2 class='change-layer'>Add a layer to map</h2>
-	        <input type='radio' name='layer' value='20760'>none<br>
-	        <input type='radio' name='layer' value='water'>water text<br>
-	        <input type='radio' name='layer' value='77488'>water<br> 
-	        <input type='radio' name='layer' value='77999'>parks & trees<br>
-	        <input type='radio' name='layer' value='78001'>cities<br>
-	        <input type='radio' name='layer' value='77488'>roads
+	        <input type='radio' name='layer' value='gray'>none<br>
+	        <input type='radio' name='layer' value='water'>water<br>
+	        <input type='radio' name='layer' value='parks'>parks & trees<br>
+	        <input type='radio' name='layer' value='cities'>cities<br>
+	        <input type='radio' name='layer' value='roads'>roads
 	        
 
     	</div>
