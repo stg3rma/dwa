@@ -1,20 +1,21 @@
 
+
 body {
     font-family:verdana;
     margin: auto;
-    background-color: red;
+    background-color: #FFF;
 }
 
 #wrapper {
     width: 1024px;
     margin: auto;
-    background-color: green;
+    
 }
 
 #content {
-    width: 1024px;
+    width: 100%;
     margin: auto;
-    background-color: orange;
+    padding-top: 100px;
 }
 
 
@@ -28,35 +29,35 @@ h1 {
 
 h2 {
     font-family:Verdana;
-    font-size:15px;
-    margin-top:30px;
-    margin-bottom:5px;
-    border-bottom:1px dotted #ccc;
+    font-size:10px;
+  
 }
 
-#top-half {
-    width:960px;
+#left-half {
+    width:300px;
     margin: auto;
-    float:top;
+    float:left;
+    
 }
 
-#bottom-half {
+#right-half {
     width:960px;
     margin: auto;
-    float:bottom;
+    
+    
 }
 
 #page-setup{
 	border: 1px;
-	background-color: yellow;
-	float:right;
+	width:150px;
+	
 }
 
 #map-setup{
-	width:250px;
+	width:150px;
 	border: 1px;
-	background-color: orange;
-	float:left;
+	
+	
 }
 
 #map{

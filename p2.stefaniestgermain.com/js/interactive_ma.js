@@ -7,7 +7,7 @@ $(document).ready(function() {
         var color_selection = $(this).css('background-color');
     
         // Set the page to be that color
-        $('html').css('background-color', color_selection);
+        $('body').css('background-color', color_selection);
             
     });
     
@@ -55,7 +55,7 @@ $(document).ready(function() {
     $('.map-width').click(function() {
                
         $('#map').css("width", $(this).val() + "px");
-        map.invalidateSize();
+        map.invalidateSize(false);
         map.center();
     
     });
@@ -84,11 +84,12 @@ $(document).ready(function() {
                
         var layer =  $(this).val();
         updateMap(layer);
-        
+        map.invalidateSize();
+        map.center();
     
     });
 
-
+          var map;
           var cities = new L.LayerGroup();
 
        // L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities),
@@ -112,25 +113,26 @@ $(document).ready(function() {
             northEast = new L.LatLng(43.11702, -69.20288), 
             boundsmax = new L.LatLngBounds(southWest, northEast);
 
+         var baseLayers = {
+                "Gray": gray,
+            };
+
+            var overlays = {
+                "Water": water,
+                "Parks": parks,
+                "Cities": cities,
+                "Roads": roads,
+            };
 
         
-        var map = L.map('map', {
+         map = L.map('map', {
             center: [41.91, -72.279],
             zoom: 8,
             layers: [gray],
             maxBounds: [boundsmax]
         });
 
-        var baseLayers = {
-            "Gray": gray,
-        };
-
-        var overlays = {
-            "Water": water,
-            "Parks": parks,
-            "Cities": cities,
-            "Roads": roads,
-        };
+   
 
     $('input[name=zoom]').click(function() {
                
@@ -149,19 +151,43 @@ $(document).ready(function() {
         //test =L.tileLayer(cmUrl, {styleId: 77488, attribution: cmAttr});
         //map.setView(new L.LatLng(41.91, -72.279), 3).addLayer(test);
         if(nlayer == "water") {
-            map.addLayer(water);
+            if(map.hasLayer(water)){
+                water.bringToFront();
+            }
+            else{
+                map.addLayer(water);
+            }
+            map.invalidateSize(false);
         }
         if(nlayer == "parks"){
-            map.addLayer(parks);
+         if(map.hasLayer(parks)){
+                parks.bringToFront();
+            }
+            else{
+                map.addLayer(parks);
+            }
+            map.invalidateSize(false);
         }
         if(nlayer == "cities"){
-            map.addLayer(cities);
+           if(map.hasLayer(cities)){
+                cities.bringToFront();
+            }
+            else{
+                map.addLayer(cities);
+            }
+            map.invalidateSize(false);
         }
         if(nlayer == "roads"){
-            map.addLayer(roads);
+         if(map.hasLayer(roads)){
+                cities.bringToFront();
+            }
+            else{
+                map.addLayer(roads);
+            }
+            map.invalidateSize(false);
         }
-
-
+        map.invalidateSize();
+       
     });   
 
 

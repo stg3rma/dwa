@@ -1,5 +1,9 @@
- <div id='content'>
 
+
+ <div id='content'>
+ 	<div id="map"></div>
+
+	<script src="/js/leaflet.js"></script>
 
 
 
@@ -9,20 +13,20 @@
     <br><br>
     <!-- MAP LEGEND ON THE LEFT -->
   
-    <div id='left-half'>
+    <div id='bottom-half'>
 
     	<a id="showhidemapsetup" href="#">show/hide</a>
     	<div id='map-setup'>
 	  
 	 
-	        <h2 class='change-zoom, change-font'>Pick a zoom level</h2>
+	        <h2 class="'change-zoom', 'change-font'">Pick a zoom level</h2>
 	        <input type='radio' name='zoom' value='7'>county<br>
 	        <input type='radio' name='zoom' value='11'>neighborhood<br>
 	        <input type='radio' name='zoom' value='16'>building
 	       
 	        <br>
 
-	        <h2 class='change-layer, change-font'>Add a layer to map</h2>
+	        <h2 class='change-layer'>Add a layer to map</h2>
 	        <input type='radio' name='layer' value='gray'>none<br>
 	        <input type='radio' name='layer' value='water'>water<br>
 	        <input type='radio' name='layer' value='parks'>parks & trees<br>
@@ -42,8 +46,8 @@
 	        
 	        <br>
 
-  		<h2 id='change-font' class=' change-font'>Map dimensions</h2>
-			<small>height x width</small><br>
+  		<h2 id='change-font'>Enter map dimensions</h2>
+			<small>You have <span id='characters-left'>10</span> characters left</small><br>
 			<select class='map-height '>
 				<option value="200">200</option>
 				<option value="400">400</option>
@@ -78,11 +82,6 @@
 	   
 	  
       	</div> 
-    </div>
-    <div id="right-half">
- 		<div id="map"></div>
-
-		<script src="/js/leaflet.js"></script>
     </div>
   
     <!-- MAP SETTINGS ON THE LEFT -->

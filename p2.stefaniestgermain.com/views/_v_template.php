@@ -8,35 +8,61 @@
 	<!-- JS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-			
+	<script src="/js/bootstrap.min.js"></script>		
+	<script src="/js/bootstrap.js"></script>	
 	<!-- Controller Specific JS/CSS -->
 	<?=@$client_files; ?>   
 	
 
 	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.css"> 
-
+	<link rel="stylesheet"href="/css/bootstrap.min.css"  media="screen">
+	<link rel="stylesheet"href="/css/bootstrap.css"  media="screen">
+	<link rel="stylesheet"href="/css/bootstrap-responsive.min.css"  media="screen">
 
 	
 </head>
 
 <body>	
-	<div id="wrapper">
-	<div id="header">
-      <h1>P3 | interactive map</h1>
+ <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href=""/javascript/interactive_ma"">P3 | interactive map</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/javascript/interactive_ma">Reset Map</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
-	<div id="topnav" >
-		<!-- Menu for users who are logged in 
-		<ul>
-			<li><a class="button-link" href='/users/signup'>Sign up</a></li>
-			<li><a class="button-link" href='/users/login'>Login</a></li>		
-		</ul>		-->
-	</div>		
+
+    <div class="container">
 	
 		<?=$content;?> 
-	
-  <div id="footer">
-    <h3>Stefanie St. Germain</h3>
-  </div>
-</div>
+	</div> <!-- /container -->
+  
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+
 </body>
+    
 </html>
