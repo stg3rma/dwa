@@ -95,18 +95,21 @@ $(document).ready(function() {
     });
 
   
-
+    //basemap
     var cmAttr = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
         cmUrl = 'http://{s}.tile.cloudmade.com/8008b6734c6949529af51af504ef115f/{styleId}/256/{z}/{x}/{y}.png';
 
+    //map layers
     var gray = L.tileLayer(cmUrl, {styleId: 20760, attribution: cmAttr}),
         water = L.tileLayer(cmUrl, {styleId: 77995, attribution: cmAttr}),
         parks = L.tileLayer(cmUrl, {styleId: 77999, attribution: cmAttr}),
         cities  = L.tileLayer(cmUrl, {styleId: 78001,   attribution: cmAttr}),
         roads = L.tileLayer(cmUrl, {styleId: 77488, attribution: cmAttr});
-
+        
+    //zoom levels - range 1 to 18
     var county = 9, neighborhood = 13, building = 18;
 
+    //setting boundary to not allow panning outside MA
     var southWest = new L.LatLng(40.44695, -74.87183),
         northEast = new L.LatLng(43.11702, -69.20288), 
         boundsmax = new L.LatLngBounds(southWest, northEast);
@@ -122,7 +125,7 @@ $(document).ready(function() {
         "Roads": roads,
     };
         
-        
+    //default map center on MA   
     map = L.map('map', {
         center: [41.91, -72.279],
         zoom: 8,
