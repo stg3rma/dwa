@@ -24,13 +24,7 @@ body {
 }
 
 
-h1 {    
-    font-family:Verdana;
-    text-align:left;
-    font-size:30px;
-    margin-top:25px;
-    margin-bottom:25px;
-}
+
 
 h2 {
     font-family:Verdana;
@@ -38,11 +32,15 @@ h2 {
   
 }
 
+h3{
+    font-size:20px;
+}
+
 #left-half {
     width:300px;
     margin: auto;
     float:left;
-     padding-top: 50px;
+    padding-top: 50px;
     
 }
 
@@ -51,9 +49,10 @@ h2 {
 }
 
 #right-half {
-    width:960px;
+    width:1024px;
     margin: auto;
-     padding-top: 100px;
+    padding-top: 85px;
+    padding-left:30px;
     
     
 }
@@ -64,16 +63,21 @@ h2 {
 
 #page-setup{
     border: 1px;
-   display: none;
+    display: none;
+    padding-top: 20px;
 }
 
 #map-setup{
    
     border: 1px;
-    padding-top: 50px;
+    padding-top: 20px;
     display: none;
-    
-    
+      
+}
+
+#map-setup select{
+
+    width:100px;
 }
 
 #map{
@@ -81,6 +85,7 @@ h2 {
     width: 960px; 
     height: 400px;
     margin: auto;
+
 
 }
 
@@ -146,8 +151,29 @@ h2 {
 }
 
 .showhidepagesetup{
-    margin-right:55px;
+   
     float:left;
-
+    padding-left:10px;
+   
 }
+
+.showhidemapsetup{
+    
+    float:left;
+    padding-left:10px;
+   
+}
+
+.mapreset{
+    
+    float:left;
+    padding-left:10px;
+}
+
+a{
+    padding-top:center;
+    font-size:16px;
+}
+
+
 

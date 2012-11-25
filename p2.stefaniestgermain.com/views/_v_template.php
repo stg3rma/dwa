@@ -27,16 +27,16 @@
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
+            <span class="icon-bar">test</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href=""/javascript/interactive_ma""><h1>P3 | interactive map</h2></a>
+          <a  href='/javascript/interactive_ma'><h1>P3 | interactive map</h1></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><h2><a href="/javascript/interactive_ma">Reset Map</a></h2></li>&nbsp;
-              <li><h2><a id="showhidemapsetup" href="#">Edit Map</a></h2></li>&nbsp;
-              <li><h2><a id="showhidepagesetup" href="#">Edit Page</a></h2></li>&nbsp;
+              <li><a href="/javascript/interactive_ma" id="mapreset">reset map</a></li>&nbsp;
+              <li><a href="#" id="showhidemapsetup" >edit map</a></li>&nbsp;
+              <li><a href="#" id="showhidepagesetup" >edit page</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

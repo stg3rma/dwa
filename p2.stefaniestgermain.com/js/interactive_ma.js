@@ -1,4 +1,8 @@
-
+/*
+background color change from card generator example
+maps views created with custom map API key at www.cloudmade.com
+jquery selectors used to interact with Leaflet javascript map API  
+*/
 $(document).ready(function() {
 
     $('.color-choice').click(function() {
@@ -11,7 +15,7 @@ $(document).ready(function() {
             
     });
     
-   $("#fc").change(function() {
+    $("#fc").change(function() {
   
     $('.change-font').css("font-family", $(this).val());
  
@@ -24,7 +28,7 @@ $(document).ready(function() {
 
 
 
-   $('a#showhidepagesetup').click(function() {
+    $('a#showhidepagesetup').click(function() {
                
         $('#page-setup').toggle('slow', function(){
            
@@ -33,7 +37,7 @@ $(document).ready(function() {
 
  
 
-   $('a#showhidemapsetup').click(function() {
+    $('a#showhidemapsetup').click(function() {
                
         $('#map-setup').toggle('slow', function(){
             $('.hidden').css("display", '');
@@ -90,42 +94,41 @@ $(document).ready(function() {
     
     });
 
-    //maps views created with custom map API key at www.cloudmade.com
-    //jquery selectors used on Leaflet javascript map API    
+  
 
-        var cmAttr = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
-            cmUrl = 'http://{s}.tile.cloudmade.com/8008b6734c6949529af51af504ef115f/{styleId}/256/{z}/{x}/{y}.png';
+    var cmAttr = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+        cmUrl = 'http://{s}.tile.cloudmade.com/8008b6734c6949529af51af504ef115f/{styleId}/256/{z}/{x}/{y}.png';
 
-        var gray = L.tileLayer(cmUrl, {styleId: 20760, attribution: cmAttr}),
-            water = L.tileLayer(cmUrl, {styleId: 77995, attribution: cmAttr}),
-            parks = L.tileLayer(cmUrl, {styleId: 77999, attribution: cmAttr}),
-            cities  = L.tileLayer(cmUrl, {styleId: 78001,   attribution: cmAttr}),
-            roads = L.tileLayer(cmUrl, {styleId: 77488, attribution: cmAttr});
+    var gray = L.tileLayer(cmUrl, {styleId: 20760, attribution: cmAttr}),
+        water = L.tileLayer(cmUrl, {styleId: 77995, attribution: cmAttr}),
+        parks = L.tileLayer(cmUrl, {styleId: 77999, attribution: cmAttr}),
+        cities  = L.tileLayer(cmUrl, {styleId: 78001,   attribution: cmAttr}),
+        roads = L.tileLayer(cmUrl, {styleId: 77488, attribution: cmAttr});
 
-        var county = 9, neighborhood = 13, building = 18;
+    var county = 9, neighborhood = 13, building = 18;
 
-        var southWest = new L.LatLng(40.44695, -74.87183),
-            northEast = new L.LatLng(43.11702, -69.20288), 
-            boundsmax = new L.LatLngBounds(southWest, northEast);
+    var southWest = new L.LatLng(40.44695, -74.87183),
+        northEast = new L.LatLng(43.11702, -69.20288), 
+        boundsmax = new L.LatLngBounds(southWest, northEast);
 
-         var baseLayers = {
-                "Gray": gray,
-            };
+    var baseLayers = {
+        "Gray": gray,
+     };
 
-            var overlays = {
-                "Water": water,
-                "Parks": parks,
-                "Cities": cities,
-                "Roads": roads,
-            };
-
+    var overlays = {
+        "Water": water,
+        "Parks": parks,
+        "Cities": cities,
+        "Roads": roads,
+    };
         
-         map = L.map('map', {
-            center: [41.91, -72.279],
-            zoom: 8,
-            layers: [gray],
-            maxBounds: [boundsmax]
-        });
+        
+    map = L.map('map', {
+        center: [41.91, -72.279],
+        zoom: 8,
+        layers: [gray],
+        maxBounds: [boundsmax]
+    });
 
    
 
@@ -145,6 +148,15 @@ $(document).ready(function() {
         //L.control.layers(water).addTo(map);
         //test =L.tileLayer(cmUrl, {styleId: 77488, attribution: cmAttr});
         //map.setView(new L.LatLng(41.91, -72.279), 3).addLayer(test);
+        if(nlayer == "gray") {
+            if(map.hasLayer(gray)){
+                gray.bringToFront();
+            }
+            else{
+                map.addLayer(gray);
+            }
+            map.invalidateSize(false);
+        }
         if(nlayer == "water") {
             if(map.hasLayer(water)){
                 water.bringToFront();
@@ -187,8 +199,8 @@ $(document).ready(function() {
 
 
 
-   //L.control.layers(baseLayers, overlays).addTo(map);
-   
+    //L.control.layers(baseLayers, overlays).addTo(map);
+    //built-in feature leaflet map
 
         var popup = L.popup();
 
