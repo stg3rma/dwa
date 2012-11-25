@@ -31,17 +31,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href=""/javascript/interactive_ma"">P3 | interactive map</a>
+          <a class="brand" href=""/javascript/interactive_ma""><h1>P3 | interactive map</h2></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="/javascript/interactive_ma">Reset Map</a></li>
+              <li><h2><a href="/javascript/interactive_ma">Reset Map</a></h2></li>&nbsp;
+              <li><h2><a id="showhidemapsetup" href="#">Edit Map</a></h2></li>&nbsp;
+              <li><h2><a id="showhidepagesetup" href="#">Edit Page</a></h2></li>&nbsp;
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
+
 	
 		<?=$content;?> 
 	</div> <!-- /container -->

@@ -27,7 +27,7 @@ $(document).ready(function() {
    $('a#showhidepagesetup').click(function() {
                
         $('#page-setup').toggle('slow', function(){
-    
+           
         });
     });
 
@@ -36,6 +36,7 @@ $(document).ready(function() {
    $('a#showhidemapsetup').click(function() {
                
         $('#map-setup').toggle('slow', function(){
+            $('.hidden').css("display", '');
     
         }); 
     });
@@ -60,7 +61,7 @@ $(document).ready(function() {
     
     });
 
-    function updateMap(layer){
+        function updateMap(layer){
        var map = L.map('map', {
             center: [41.91, -72.279],
             zoom: 8,
@@ -89,20 +90,14 @@ $(document).ready(function() {
     
     });
 
-          var map;
-          var cities = new L.LayerGroup();
-
-       // L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities),
-       // L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
-       // L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
-       // L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
-
+    //maps views created with custom map API key at www.cloudmade.com
+    //jquery selectors used on Leaflet javascript map API    
 
         var cmAttr = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
             cmUrl = 'http://{s}.tile.cloudmade.com/8008b6734c6949529af51af504ef115f/{styleId}/256/{z}/{x}/{y}.png';
 
         var gray = L.tileLayer(cmUrl, {styleId: 20760, attribution: cmAttr}),
-            water = L.tileLayer(cmUrl, {styleId: 77488, attribution: cmAttr}),
+            water = L.tileLayer(cmUrl, {styleId: 77995, attribution: cmAttr}),
             parks = L.tileLayer(cmUrl, {styleId: 77999, attribution: cmAttr}),
             cities  = L.tileLayer(cmUrl, {styleId: 78001,   attribution: cmAttr}),
             roads = L.tileLayer(cmUrl, {styleId: 77488, attribution: cmAttr});
