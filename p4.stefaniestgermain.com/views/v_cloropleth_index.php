@@ -4,6 +4,7 @@
 			height: 600px;
 		}
 
+
 		.info {
 			padding: 6px 8px;
 			font: 14px/16px Arial, Helvetica, sans-serif;
@@ -38,7 +39,7 @@
 	
 	<script type="text/javascript">
 
-		var map = L.map('map').setView([42.373, -71.107], 14);
+		var map = L.map('map').setView([42.373, -71.107], 7);
 
 		var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
 			attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
@@ -47,6 +48,12 @@
 		}).addTo(map);
 
 
+    	//setting boundary to not allow panning outside Cambridge, MA
+    	var southWest = new L.LatLng(42.34078, -71.04755),
+        northEast = new L.LatLng(42.39811, -71.16222), 
+        boundsmax = new L.LatLngBounds(southWest, northEast);
+        map.setZoom(13);
+        map.setMaxBounds([boundsmax]);
 
 		// control that shows state info on hover
 		var info = L.control();
@@ -58,24 +65,24 @@
 		};
 
 		info.update = function (props) {
-			this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
-				'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
-				: 'Hover over a state');
+			this._div.innerHTML = '<h4>E-75 311 issues by zipcode</h4>' +  (props ?
+				'<b>' + props.name + '</b><br />' + props.density + ' issues reported'
+				: 'Hover over area');
 		};
 
 		info.addTo(map);
 
 
-		// get color depending on population density value
+		// color based on issue volume per zip code
+		// colors from ColorBrewer 
+
 		function getColor(d) {
-			return d > 1000 ? '#800026' :
-			       d > 500  ? '#BD0026' :
-			       d > 200  ? '#E31A1C' :
-			       d > 100  ? '#FC4E2A' :
-			       d > 50   ? '#FD8D3C' :
-			       d > 20   ? '#FEB24C' :
-			       d > 10   ? '#FED976' :
-			                  '#FFEDA0';
+			return d > 50 ? '#253494' :
+			       d > 40  ? '#2C7FB8' :
+			       d > 30  ? '#41B6C4' :
+			       d > 20  ? '#A1DAB4' :
+			       d > 10  ? '#FFFFCC' :
+			                 '#FFEDA0';
 		}
 
 		function style(feature) {
@@ -132,7 +139,7 @@
 		}).addTo(map);
 		
 
-		map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+		map.attributionControl.addAttribution('cloudmade leaflet map');
 
 
 		var legend = L.control({position: 'bottomright'});
@@ -140,7 +147,7 @@
 		legend.onAdd = function (map) {
 
 			var div = L.DomUtil.create('div', 'info legend'),
-				grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+				grades =  [0, 10, 20, 30, 40, 50]
 				labels = [],
 				from, to;
 
@@ -158,6 +165,8 @@
 		};
 
 		legend.addTo(map);
+
+
 
 	</script>
 
