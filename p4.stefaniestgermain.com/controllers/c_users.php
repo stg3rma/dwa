@@ -64,7 +64,7 @@ public function p_signup() {
 		$address_in_use = "The email address you have entered is already in use. Please pick another.";
 		Router::redirect("/users/signup/error=$address_in_use");
 	}
-	if($_POST['email'] == "" || $_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['password'] == ""){
+	if($_POST['email'] == "" || $_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['password'] == "" || $_POST['zipcode'] == "" || $_POST['role'] == ""){
 
 		$required = "All fields on this form are required.";
 		Router::redirect("/users/signup/error: $required");
@@ -114,7 +114,7 @@ public function p_login() {
 	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
 	$q = "SELECT token
-	FROM users
+	FROM p4_users
 	WHERE email = '".$_POST['email']."'
 	AND password = '".$_POST['password']."'
 	";
@@ -415,10 +415,10 @@ public function p_edit(){
 
 		# Insert this post into the database
 		#$where_condition = 'WHERE user_id = '.$this->user->user_id;
-		#DB::instance(DB_NAME)->update("users", $_POST, $where_condition);
+		#DB::instance(DB_NAME)->update("p4_users", $_POST, $where_condition);
 
 		# Insert this user edit into the database
-		DB::instance(DB_NAME)->update("users", $_POST, "WHERE user_id = ".$user_id);
+		DB::instance(DB_NAME)->update("p4_users", $_POST, "WHERE user_id = ".$user_id);
     	#UPDATE `users` SET `modified`=$_POST['modified'],`password`=$_POST['password'],`email`=$_POST['email'],`first_name`=$_POST['password'],`last_name`=$_POST['password'] WHERE 'user_id' = $user_id;
 
 

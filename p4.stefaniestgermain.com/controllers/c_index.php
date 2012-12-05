@@ -23,8 +23,12 @@ class index_controller extends base_controller {
 			"/stylesheets/screen.css", 
 			"/stylesheets/print.css", 
   			"/stylesheets/ie.css",
-	    );
-	    
+  			"/js/zipcode_ca.js",
+			"/js/cloropleth.js",
+			"/css/cloropleth.css"
+		);
+			
+	   
 	    $this->template->client_files = Utils::load_client_files($client_files); 		
   
 		

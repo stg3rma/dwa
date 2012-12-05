@@ -1,15 +1,15 @@
 <form method='POST' action='/users/p_login'>
 
-	<h1>Welcome to P2 microblog! Please login.</h1>
+	<h1>Welcome to P4 E-75 311! Please login.</h1>
 	<br><br>
 
 	Email<br>
 	<input type='text' name='email'>
-	<br><br>
+	<br>
 	
 	Password<br>
 	<input type='password' name='password'>
-	<br><br>
+	<br>
 
 	<input type='submit'>
 

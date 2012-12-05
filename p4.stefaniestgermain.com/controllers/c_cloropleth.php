@@ -21,8 +21,8 @@ class cloropleth_controller extends base_controller {
 		# Specify what JS/CSS files we need to load in the view
 		$client_files = Array(
 			"/js/zipcode_ca.js",
-			"/js/cloropleth.js"
-
+			"/js/cloropleth.js",
+			"/css/cloropleth.css"
 			);
 			
 		# Load the above specified files
