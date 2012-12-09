@@ -1,5 +1,6 @@
-<form method='POST' id='user_signup' action='/users/p_signup'>
 
+<form method='POST' id='users_signup' action='/users/p_signup'>
+	<br>
 	First Name<br>
 	<input type='text' name='first_name'>
 	<br>
@@ -17,18 +18,19 @@
 	<br>
 
 	Zip Code<br>
-	<select id="zipcode">
-		<option value="1">02138</option>
-		<option value="2">02139</option>
-		<option value="3">02140</option>
-		<option value="4">02141</option>
-		<option value="5">02142</option>          
+	<select id='zipcode' name='zipcode'>
+		<option value="02138">02138</option>
+		<option value="02139">02139</option>
+		<option value="02140">02140</option>
+		<option value="02141">02141</option>
+		<option value="02142">02142</option>          
     </select>
     <br>
-    Admin Access?<br>
-    <input type='radio' name='admin' value='0' checked="true"> no<br>
-	<input type='radio' name='admin' value='1'> yes<br>
-	
+    Access?<br>
+    <select id ='admin' name='admin'>
+    	<option value="user">user</option>
+    	<option value="admin">admin</option>
+	</select>      
 	       
     <br>
 	<input type='submit' value='Submit'>

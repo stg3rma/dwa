@@ -10,7 +10,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>		
 	<script src="/js/bootstrap.js"></script>	
-  <script src="/js/leaflet.js"></script>  
+  <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script> 
   <script src="/js/zipcode_ca.js"></script>
 	<!-- Controller Specific JS/CSS -->
 	<?=@$client_files; ?>   
@@ -19,10 +19,11 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.css"> 
 	<link rel="stylesheet"href="/css/bootstrap.min.css"  media="screen">
 	<link rel="stylesheet"href="/css/bootstrap.css"  media="screen">
-	<link rel="stylesheet"href="/css/leaflet.css"  media="screen">
+	<link rel="stylesheet"href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css"  media="screen">
   <link rel="stylesheet"href="/css/p4.css" media="screen">
 
-  <!-- modified the Twitter Boostrap CCS/layout from United theme from Bootswatch.com  -->
+
+  <!-- modified the Twitter Boostrap CCS/layout from Cosmo theme from Bootswatch.com  -->
 	
 </head>
 
@@ -31,20 +32,31 @@
 
   <!-- Navbar
     ================================================== -->
- <div class="navbar navbar-fixed-top">
+  <div class="navbar navbar-fixed-top">
    <div class="navbar-inner">
      <div class="container">
-       
-       <a class="brand" href="/"><h2>P4 E-75 311</h2></a>
+       <a class="brand" href="../">P4 E-75 311</a>
        <div class="nav-collapse" id="main-menu">
+        <ul class="nav" id="main-menu-left">
+        </ul>  
         <ul class="nav pull-right" id="main-menu-right">
-          <li><a class="btn" href="/users/signup" title="P4 E-75 311 Signup">signup</a> </li>
-          <li><a class="btn" href="/users/login" title="P4 E-75 311 Login">login<a></li>
+
+          <? if(!$user): ?>
+            <li><a href='/users/signup'>Sign up</a></li> 
+            <li><a href='/users/login'>Login</a></li>                      
+          <? else: ?>
+            <h1>Welcome back <strong><?=$user->first_name?></strong><h1><br>
+            <li><a href='/users/logout' title="P4 E-75 311 Signup">Logout</a></li> 
+            <li><a href='/users/profile/$user' title="P4 E-75 311 Login">Profile</a></li>
+          <? endif; ?>
+
         </ul>
        </div>
      </div>
    </div>
-</div>
+ </div>
+
+
 
     <div class="container">
 

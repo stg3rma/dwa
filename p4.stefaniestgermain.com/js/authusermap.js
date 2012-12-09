@@ -137,6 +137,23 @@ $(document).ready(function() {
 
 		legend.addTo(map);
 
+	    //L.control.layers(baseLayers, overlays).addTo(map);
+    	//built-in feature leaflet map
+
+        var popup = L.popup();
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+
+                map.on('click', function(e) {
+    alert(e.latlng);
+});
+        }
+
+       // map.on('click', onMapClick);
 
 
     

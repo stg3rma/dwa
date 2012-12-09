@@ -1,27 +1,22 @@
-<? if($show_no_follower_message): ?>
-You need to follow someone to see a feed! 
-Find friends to follow <a href="/posts/users">here</a>
+<? if($show_no_issues_message): ?>
+Sorry there are no issues. 
 <? endif; ?>
 
-<? if($show_no_posts_message): ?>
-Sorry there are no posts. Stay tuned! 
-<? endif; ?>
-
-<? if($show_posts): ?>
-<h1>Posts from users <?= $user->first_name ?> is following:</h1>
+<? if($show_issues): ?>
+<h1>Issues <?= $user->first_name ?> has reported:</h1>
 
 <br><br>
 
 
 <section id = "comments">
-  <? foreach($posts as $post): ?>
+  <? foreach($issues as $post): ?>
     <article class="comment">
       <a class="comment-img" href="#non">
-        <img src="/images/placeholder.png" alt="" width="50" height="50">
+        <img src="" alt="" width="50" height="50">
       </a>
       <div class="comment-body">
         <div class="text">
-          <p><?=$post['content']?></p>
+          <p><?=$post['description']?></p>
         </div>
         <p class="attribution">by <a href='/users/profile_by_id/<?=$post['user_id'] ?>'><?=$post['first_name']?> <?=$post['last_name']?> </a> at <?= date('D M d, Y, h:ia', $post['created']) ?></p>
       </div>

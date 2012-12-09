@@ -17,7 +17,9 @@ public function signup($error = NULL) {
 
 	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 	$client_files = Array(
-	
+	"/js/languages/jquery.validationEngine-en.js",
+	"/js/jquery.validationEngine.js"
+	  
 	);
 
 	$this->template->client_files = Utils::load_client_files($client_files);
@@ -31,7 +33,7 @@ public function signup($error = NULL) {
 public function p_signup() {
 
 	# Dump out the results of POST to see what the form submitted
-	#print_r($_POST);
+	print_r($_POST);
 
 	# Prevent SQL injection attacks by sanitizing user entered data
 	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
@@ -46,7 +48,7 @@ public function p_signup() {
 	$_POST['created'] = Time::now(); #could mimic different time
 	$_POST['modified'] = Time::now(); #time stamp
 
-/*	#check if the address is not in use in the system
+	#check if the address is not in use in the system
 	$q = "SELECT email
 	FROM p4_users WHERE email = '".$_POST['email']."'";
 
@@ -57,21 +59,20 @@ public function p_signup() {
 		$address_in_use = "The email address you have entered is already in use. Please pick another.";
 		Router::redirect("/users/signup/error=$address_in_use");
 	}
-*/
-	if($_POST['email'] == "" || $_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['password'] == ""){
+	if($_POST['email'] == "" || $_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['password'] == "" ){
 
 		$required = "All fields on this form are required.";
 		Router::redirect("/users/signup/error: $required");
 	}
 	else{
 
-		#$user_id = DB::instance(DB_NAME)->insert("p4_users", $_POST);
+		#$user_id = DB::instance(DB_NAME)->insert("users", $_POST);
 		$user_id = DB::instance(DB_NAME)->insert("p4_users", $_POST);
 
 
 		# For now, just confirm they've signed up - we can make this fancier later
-		#echo "You're registered! Now go <a href='/users/login'>login</a>";
-		Router::redirect("/issues/add");
+		echo "You're registered! Now go <a href='/issues/add'>add issues</a>";
+		//Router::redirect("/usermap/");
 	}	
 }
 
@@ -84,11 +85,13 @@ public function login($error = NULL){
 
 	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 	$client_files = Array(
-	
+	"/js/languages/jquery.validationEngine-en.js",
+	"/js/jquery.validationEngine.js"
 	);
 
 	$this->template->client_files = Utils::load_client_files($client_files);
 
+    echo "You're signed in! Now go <a href='/issues/add'>add issues</a>";
 	#render the template
 	echo $this->template;
 }
@@ -111,6 +114,7 @@ public function p_login() {
 
 	#login failed
 	if($token == "" || $_POST['email'] == "" || $_POST['password'] == ""){
+	echo "Something went wrong - blank fields on form = and login failed";
 	Router::redirect("/users/login/error");
 	# send back to login page - should add indication what went wrong
 	}
@@ -123,7 +127,7 @@ public function p_login() {
 		setcookie("token", $token, strtotime('+2 weeks'), '/');
 
 		#send them to the main page
-		Router::redirect("/");
+		Router::redirect("/usermap/");
 
 		#token name value and how long should last
 		#send back to index page
@@ -173,7 +177,10 @@ public function profile() {
 
 	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 	$client_files = Array(
-	
+	"/js/languages/jquery.validationEngine-en.js",
+	"/js/jquery.validationEngine.js",
+	"/stylesheets/style.css",
+	"/stylesheets/jquery-ui.css"
 	);
 
 	$this->template->client_files = Utils::load_client_files($client_files);
@@ -205,7 +212,8 @@ public function profile_by_id($user_id_passed) {
 
 	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 	$client_files = Array(
-	
+	"/js/languages/jquery.validationEngine-en.js",
+	"/js/jquery.validationEngine.js"
 	);
 
 	$this->template->client_files = Utils::load_client_files($client_files);
@@ -263,7 +271,9 @@ public function myprofile() {
 
 	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 	$client_files = Array(
-	
+	"/js/languages/jquery.validationEngine-en.js",
+	"/js/jquery.validationEngine.js"
+
 	);
 
 	$this->template->client_files = Utils::load_client_files($client_files);
@@ -320,7 +330,9 @@ public function myprofile() {
 
 	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 	$client_files = Array(
-	
+
+	"/js/languages/jquery.validationEngine-en.js",
+	"/js/jquery.validationEngine.js"
 	);
 
 	$this->template->client_files = Utils::load_client_files($client_files);
@@ -380,7 +392,7 @@ public function p_edit(){
 
 		# Insert this user edit into the database
 		DB::instance(DB_NAME)->update("p4_users", $_POST, "WHERE user_id = ".$user_id);
-    	#UPDATE `p4_users` SET `modified`=$_POST['modified'],`password`=$_POST['password'],`email`=$_POST['email'],`first_name`=$_POST['password'],`last_name`=$_POST['password'] WHERE 'user_id' = $user_id;
+    	#UPDATE `users` SET `modified`=$_POST['modified'],`password`=$_POST['password'],`email`=$_POST['email'],`first_name`=$_POST['password'],`last_name`=$_POST['password'] WHERE 'user_id' = $user_id;
 
 
 	} 
@@ -390,7 +402,7 @@ public function p_edit(){
 
 		#check if email is used in the system
 	#	$q = "SELECT email
-	#	FROM p4_users WHERE email = '".$_POST['email']."'";
+	#	FROM users WHERE email = '".$_POST['email']."'";
 
 	#	$user_exists = DB::instance(DB_NAME)->select_field($q);
 		

@@ -1,6 +1,6 @@
 <?php
 
-class cloropleth_controller extends base_controller {
+class marker_controller extends base_controller {
 
 	/*-------------------------------------------------------------------------------------------------
 	
@@ -16,13 +16,15 @@ class cloropleth_controller extends base_controller {
 	public function index() {
 		
 		# Set up the view
-		$this->template->content = View::instance("v_cloropleth_index");
+		$this->template->content = View::instance("v_marker_index");
 		
 		# Specify what JS/CSS files we need to load in the view
 		$client_files = Array(
-			"/js/cloropleth.js",
-			"/css/cloropleth.css"
-		);
+			"/js/marker_map.js",
+			"/css/cloropleth.css",
+			"/css/leaflet.css",
+
+			);
 			
 		# Load the above specified files
 		$this->template->client_files = Utils::load_client_files($client_files);

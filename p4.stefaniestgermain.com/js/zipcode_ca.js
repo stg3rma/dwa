@@ -3,7 +3,7 @@ var cambridgeData = {
     "type":"FeatureCollection","features":[
     {"type":"Feature", "id":"1","properties"
     :{
-        "name":"Massachusetts",
+        "name":"02138",
         "density":2
     },
     "geometry":{

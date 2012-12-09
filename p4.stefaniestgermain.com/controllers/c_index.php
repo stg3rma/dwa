@@ -20,11 +20,8 @@ class index_controller extends base_controller {
 	
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 		$client_files = Array(
-			"/stylesheets/screen.css", 
-			"/stylesheets/print.css", 
-  			"/stylesheets/ie.css",
-  			"/js/zipcode_ca.js",
-			"/js/cloropleth.js",
+
+  			"/js/cloropleth.js",
 			"/css/cloropleth.css"
 		);
 			
@@ -33,7 +30,7 @@ class index_controller extends base_controller {
   
 		
 		# Render the view
-			echo $this->template;
+		echo $this->template;
 
 	}
 	
