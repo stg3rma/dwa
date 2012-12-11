@@ -8,7 +8,7 @@ class issues_controller extends base_controller {
 		#Make sure user is loggined in if they want to use anything in this controller
 		if(!$this->user){
 			die("Members only. <a href='/users/login'>Please Login</a>");
-		}
+		} 
 	}
 
 	public function add($error = NULL) {
@@ -28,7 +28,7 @@ class issues_controller extends base_controller {
 
 	    #get recent posts and name to display below add post box
 	    $id = $this->user->user_id;
-		$current_posts = Helper::get_issues($id);
+		$current_issues = Helper::get_issues($id);
 		$fullname = Helper::get_name($id);
 
 		#Pass the data to the view
@@ -70,7 +70,8 @@ class issues_controller extends base_controller {
 		
 		#Build a query of the issues this user reported 
 		$q = "SELECT * FROM p4_issues WHERE user_id = ".$this->user->user_id;
-	
+		
+
 		#Execute our query storing the results in a variable $connections
 		$user_issues = DB::instance(DB_NAME)->select_rows($q);
 	

@@ -1,7 +1,4 @@
-<br>
-<br>
-<br>
-<br>
+
 
 <form name='new-post' method='POST' action='/issues/p_add'>
 

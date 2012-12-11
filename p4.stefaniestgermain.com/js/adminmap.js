@@ -31,11 +31,10 @@ $(document).ready(function() {
 		function onMapClick(e) {
 			popup
 				.setLatLng(e.latlng)
-				.setContent("You clicked the map at " + e.latlng.toString())
+				.setContent("You clicked the map at " + e.latlng.toString()  )
 				.openOn(map);
-        //alert("You clicked at: " + e.latlng.lat + " " + e.latlng.lng);
 		}
-    
+
 
 		L.marker([42.373, -71.107]).addTo(map)
 			.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
@@ -353,4 +352,58 @@ $(document).ready(function() {
  }); 
 
 
-     
+   // create a map
+map = new L.Map('mymap');
+
+// create the OpenStreetMap layer
+osmTile = "http://tile.openstreetmap.org/{z}/{x}/{y}.png";
+osmCopyright = "Map data &copy; 2012 OpenStreetMap contributors";
+osmLayer = new L.TileLayer(osmTile, { maxZoom: 18, attribution: osmCopyright } );
+map.addLayer(osmLayer);
+
+// set the map's starting view
+map.setView( new L.LatLng(42.360752, -71.05), 15 );
+
+var buildings = [
+    {
+        name: "Boston Aquarium",
+        lonlats: [
+            [-71.048501,42.359521],
+            [-71.048439,42.359293],
+            [-71.0486,42.359277],
+            [-71.048541,42.359069],
+            [-71.049362,42.358968],
+            [-71.050164,42.359261]
+        ],
+        video:"http://www.youtube.com/embed/HZkauzLKm2c"
+    },
+    {
+        name: "Boston City Hall",
+        lonlats: [
+            [-71.058465,42.360752],
+            [-71.057561,42.360823],
+            [-71.057408,42.359965],
+            [-71.058326,42.359884]
+        ],
+        video: "http://www.youtube.com/embed/q5poo1sdNHg"
+    }
+];
+
+for(i=0;i<buildings.length;i=i+1){
+    // inside of this loop - runs for each building
+    var latlngs = [ ];
+    for(j=0;j<=buildings[i].lonlats.length-1;j=j+1){
+        //inside of this loop, convert lonlat to L.LatLng
+        //runs for each point in each building
+        latlngs.push( new L.LatLng(buildings[i].lonlats[j][1], buildings[i].lonlats[j][0]) );
+    }
+    // now that we have a list of points, turn the building into a polygon
+    buildingPolygon = new L.Polygon(latlngs, { color: 'green', fillColor: 'red' });
+    buildingPolygon.bindPopup("<h3>" + buildings[i].name + buildings[i].latLngs;
+    // add attributes
+    buildingPolygon.attributes = {
+        name: buildings[i].name,
+        video: buildings[i].video
+    };
+    map.addLayer(buildingPolygon);
+}  

@@ -16,11 +16,11 @@
 	<?=@$client_files; ?>   
 	
 
-	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.css"> 
-	<link rel="stylesheet"href="/css/bootstrap.min.css"  media="screen">
-	<link rel="stylesheet"href="/css/bootstrap.css"  media="screen">
-	<link rel="stylesheet"href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css"  media="screen">
-  <link rel="stylesheet"href="/css/p4.css" media="screen">
+	<link rel="stylesheet" href="/stylesheets/jquery-ui.css" type="text/css"> 
+	<link rel="stylesheet" href="/css/bootstrap.min.css"  media="screen">
+	<link rel="stylesheet" href="/css/bootstrap.css"  media="screen">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css"  media="screen">
+  <link rel="stylesheet" href="/css/p4.css" media="screen">
 
 
   <!-- modified the Twitter Boostrap CCS/layout from Cosmo theme from Bootswatch.com  -->
@@ -56,9 +56,7 @@
    </div>
  </div>
 
-
-
-    <div class="container">
+<div class="container">
 
 
 
@@ -67,22 +65,6 @@
 		<?=$content;?> 
 	</div> <!-- /container -->
   
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap-transition.js"></script>
-    <script src="/js/bootstrap-alert.js"></script>
-    <script src="/js/bootstrap-modal.js"></script>
-    <script src="/js/bootstrap-dropdown.js"></script>
-    <script src="/js/bootstrap-scrollspy.js"></script>
-    <script src="/js/bootstrap-tab.js"></script>
-    <script src="/js/bootstrap-tooltip.js"></script>
-    <script src="/js/bootstrap-popover.js"></script>
-    <script src="/js/bootstrap-button.js"></script>
-    <script src="/js/bootstrap-collapse.js"></script>
-    <script src="/js/bootstrap-carousel.js"></script>
-    <script src="/js/bootstrap-typeahead.js"></script>
 
 </body>
     

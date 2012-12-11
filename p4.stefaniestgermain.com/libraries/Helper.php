@@ -10,7 +10,7 @@ class Helper {
       FROM p4_users
       WHERE user_id =".$user_id;
 
-      #Run our query and store results in the variable $posts
+      #Run our query and store results in the variable $issues
       $fullname = DB::instance(DB_NAME)->SELECT_row($q);
 
       return $fullname;
@@ -20,10 +20,10 @@ class Helper {
   public static function get_issues($user_id){
 
       $q = "SELECT * FROM p4_issues
-      WHERE user_id = $user_id ORDER BY posts.created DESC";
+          WHERE user_id = $user_id ORDER BY p4_issues.created DESC";
 
-      #Run our query and store results in the variable $posts
-      $posts = DB::instance(DB_NAME)->select_rows($q);
+      #Run our query and store results in the variable $issues
+      $issues = DB::instance(DB_NAME)->select_rows($q);
       return $issues;
   }
 
@@ -32,7 +32,7 @@ class Helper {
   public static function get_user_membership_length($user_id){
 
       $q = "SELECT date_format(FROM_unixtime(unix_timestamp(now()) - created),
-      'P2 member for: %e days, %k hours, %i minutes, %s seconds ago.') FROM p4_users WHERE user_id = ".$user_id;
+      'P4  member for: %e days, %k hours, %i minutes, %s seconds ago.') FROM p4_users WHERE user_id = ".$user_id;
       
       $user_membership_length = DB::instance(DB_NAME)->SELECT_field($q);
       return htmlspecialchars($user_membership_length);
@@ -63,6 +63,14 @@ class Helper {
   public static function get_users_count(){
 
       $q = "SELECT count(user_id) FROM p4_users WHERE role = 'admin'";
+      $user_count = DB::instance(DB_NAME)->SELECT_field($q);
+      return htmlspecialchars($count_following);
+  }
+
+  #Get count of usersin the system
+  public static function get_users_count(){
+
+      $q = "SELECT count(user_id) FROM p4_users WHERE role = 'user'";
       $user_count = DB::instance(DB_NAME)->SELECT_field($q);
       return htmlspecialchars($count_following);
   }
