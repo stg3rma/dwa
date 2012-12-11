@@ -8,18 +8,18 @@ Date of the last created post <div id='last_created_post'></div>
 
 $('#refresh').click(function() {
 
-$.ajax({
-url: "/posts/p_control_panel",
-type: 'POST',
-success: function(response) {
+	$.ajax({
+	url: "/posts/p_control_panel",
+	type: 'POST',
+	success: function(response) {
 
-var data = $.parseJSON(response);
+		var data = $.parseJSON(response);
 
-$('#post_count').html(data['post_count']);
-$('#users_count').html(data['users_count']);
-$('#last_created_post').html(data['last_created_post']);
+		$('#post_count').html(data['post_count']);
+		$('#users_count').html(data['users_count']);
+		$('#last_created_post').html(data['last_created_post']);
 
-},
+	},
 });	
 
 

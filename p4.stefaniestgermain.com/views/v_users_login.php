@@ -1,4 +1,5 @@
-<form method='POST' action='/users/p_login'>
+
+	<form method='POST' action='/users/p_login'>
 
 	<h1>Welcome to P4 E-75 311! Please login.</h1>
 	<br><br>
@@ -21,7 +22,5 @@
 		</div>
 		<br>
 	<? endif; ?>
-	
-	
 
 </form> 

@@ -112,7 +112,7 @@ public function p_login() {
 
 	Debug::dump($token, "token is");	
 	Debug::dump($_POST['password'], "$_POST"); 
-	Debug::dump($_POST['email'], "$_POST is: "); 	
+	Debug::dump($_POST['email'], "$_POST"); 	
 
 	Router::redirect("/users/login/error");
 	# send back to login page - should add indication what went wrong

@@ -26,7 +26,13 @@ class usermap_controller extends base_controller {
 			"/css/MarkerCluster.Default.css",
 			"/css/MarkerCluster.Default.ie.css",
 			"/js/leaflet.markercluster.js",
-			"/js/zipcode_ca.js"
+			"/js/zipcode_ca.js",
+			"/js/cambridge_02138.js",
+			"/js/cambridge_02139.js",
+			"/js/cambridge_02140.js",
+			"/js/cambridge_02141.js",
+			"/js/cambridge_02142.js"
+
 
 		);
 			
