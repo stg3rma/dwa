@@ -219,6 +219,34 @@ public function profile_by_id($user_id_passed) {
 	}
 }
 
+public function profile() {
+	# If user is blank, they're not logged in, show message and don't do anything else
+	# Not logged in
+	if(!$this->user) {
+	echo "Members only. <a href='/users/login'>Please Login</a>";
+
+	# Return will force this method to exit here so the rest of
+	# the code won't be executed and the profile view won't be displayed.
+	return;
+
+	}
+	else
+
+	$this->template->content = View::instance("v_users_profile");
+	$this->template->title = "Profile of ".$this->user->first_name;
+
+	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
+	$client_files = Array(
+
+	);
+
+	$this->template->client_files = Utils::load_client_files($client_files);
+
+
+	# Render template
+	echo $this->template;
+}
+
 
 
 

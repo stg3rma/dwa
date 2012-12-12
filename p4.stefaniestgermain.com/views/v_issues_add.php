@@ -1,22 +1,29 @@
 
+<div class="row">
+	<div class="span4">
+		<form name='new-post' method='POST' action='/issues/p_add'>
+			<strong>New Issue:</strong><br>
+				Description:<br>
+				<input type='text' name='description'><br>
+				Lat<br>
+				<input type='text' name='lat'><br>
+				Lng<br>
+				<input type='text' name='lng'><br>
+				Zip<br>
+				<input type='text' name='zipcode'><br>
+			<br><br>
+			<input type='submit'>
+		</form>
+		<br>
+		<div id='results'></div>
+	</div>
 
-<form name='new-post' method='POST' action='/issues/p_add'>
-
-	<strong>New Issue:</strong><br>
-		Description:<br>
-		<input type='text' name='description'><br>
-		Lat<br>
-		<input type='text' name='lat'><br>
-		Lng<br>
-		<input type='text' name='lng'><br>
-		Zip<br>
-		<input type='text' name='zipcode'><br>
-	<br><br>
-	<input type='submit'>
-
-</form>
-
-<div id='results'></div>
+	<div class="span8">
+	    <!-- map -->
+	 		<div id="map"></div>
+				<script src="/js/leaflet.js"></script>
+	</div>
+</div>
 
 <script type='text/javascript'>
 	

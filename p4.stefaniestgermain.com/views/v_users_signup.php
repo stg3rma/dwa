@@ -35,10 +35,14 @@
     <br>
 	<input type='submit' value='Submit'>
 	<br>
-	<? if($error): ?>
+	<br>
+	<div class="alert alert-info">
+    <? if($error): ?>
 		<div class='error'>
 			<?	 echo $error ?>
 		</div>
 	<? endif; ?>
+    </div>
+
 	
 </form>

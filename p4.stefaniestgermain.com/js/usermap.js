@@ -51,7 +51,7 @@ $(document).ready(function() {
       <!--form goes here -->
       '</form>'
       ;
-
+$('#modalAddIssue').modal(options)
       userMarker.bindPopup(form).openPopup();
     }
     

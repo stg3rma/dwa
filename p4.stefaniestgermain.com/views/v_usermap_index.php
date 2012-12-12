@@ -1,18 +1,19 @@
 
 <div class="row">
     <div class="span8">
-    <!-- map -->
- 		<div id="map"></div>
-			<script src="/js/leaflet.js"></script>
-		</div>
+	    <!-- map -->
+	    <div class="progress progress-striped">
+		    <div class="bar" style="width: 20%;">
+		 		<div id="map"></div>
+					<script src="/js/leaflet.js"></script>
+				</div>
+			</div>
+	    </div>
 	</div>
-	<div class="span4">
-	</div>
+	<div class="span4"></div>
 </div>
 
-//modal
-<div class="modal hide fade" id="addMarkerModal">
-	<div class="modal-header">
+
 
 
 

@@ -8,7 +8,6 @@
 	<!-- JS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>		
 	<script src="/js/bootstrap.js"></script>	
   <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script> 
   <script src="/js/zipcode_ca.js"></script>
@@ -16,11 +15,12 @@
 	<?=@$client_files; ?>   
 	
 
-	<link rel="stylesheet" href="/stylesheets/jquery-ui.css" type="text/css"> 
+	<link rel="stylesheet" href="/css/jquery-ui.css" type="text/css"> 
 	<link rel="stylesheet" href="/css/bootstrap.min.css"  media="screen">
 	<link rel="stylesheet" href="/css/bootstrap.css"  media="screen">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css"  media="screen">
   <link rel="stylesheet" href="/css/p4.css" media="screen">
+  <link rel="stylesheet" href="/css/prettify.css" media="screen">
 
 
   <!-- modified the Twitter Boostrap CCS/layout from Cosmo theme from Bootswatch.com  -->
