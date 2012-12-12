@@ -10,7 +10,7 @@ $(document).ready(function() {
 		var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
 			attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
 			key: '0302235d29684d8eae0be1f5149a05b6',
-			styleId: 79642
+			styleId: 998
 		}).addTo(map);
 
 

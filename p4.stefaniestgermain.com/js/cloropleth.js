@@ -42,15 +42,16 @@ $(document).ready(function() {
 
 
 		// color based on issue volume per zip code
-		// colors from ColorBrewer 
+		// colors from ColorBrewer
+
 
 		function getColor(d) {
-			return d > 50 ? '#253494' :
+			return d > 50  ? '#253494' :
 			       d > 40  ? '#2C7FB8' :
 			       d > 30  ? '#41B6C4' :
 			       d > 20  ? '#A1DAB4' :
 			       d > 10  ? '#FFFFCC' :
-			                 '#FFEDA0';
+			                 '#FFEDA0' ;
 		}
 
 		function style(feature) {

@@ -18,7 +18,7 @@ Sorry there are no issues.
         <div class="text">
           <p><?=$post['description']?></p>
         </div>
-        <p class="attribution">by <a href='/users/profile_by_id/<?=$post['user_id'] ?>'><?=$post['first_name']?> <?=$post['last_name']?> </a> at <?= date('D M d, Y, h:ia', $post['created']) ?></p>
+        <p class="attribution">on <?= date('D M d, Y, h:ia', $post['created']) ?></p>
       </div>
     </article>
   <? endforeach; ?>

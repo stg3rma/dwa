@@ -48,7 +48,7 @@ public function p_signup() {
 
 	#check if the address is not in use in the system
 	$q = "SELECT email
-	FROM p4_users WHERE email = '".$_POST['email']."'";
+	FROM users WHERE email = '".$_POST['email']."'";
 
 	$email = DB::instance(DB_NAME)->select_field($q);
 
@@ -65,7 +65,7 @@ public function p_signup() {
 	}
 	else{
 
-		$user_id = DB::instance(DB_NAME)->insert("p4_users", $_POST);
+		$user_id = DB::instance(DB_NAME)->insert("users", $_POST);
 
 
 		# For now, just confirm they've signed up - we can make this fancier later
@@ -100,7 +100,7 @@ public function p_login() {
 	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
 	$q = "SELECT token
-	FROM p4_users
+	FROM users
 	WHERE email = '".$_POST['email']."'
 	AND password = '".$_POST['password']."'
 	";
@@ -110,9 +110,7 @@ public function p_login() {
 	#login failed
 	if($token == "" || $_POST['email'] == "" || $_POST['password'] == ""){
 
-	Debug::dump($token, "token is");	
-	Debug::dump($_POST['password'], "$_POST"); 
-	Debug::dump($_POST['email'], "$_POST"); 	
+
 
 	Router::redirect("/users/login/error");
 	# send back to login page - should add indication what went wrong
@@ -126,7 +124,7 @@ public function p_login() {
 		setcookie("token", $token, strtotime('+2 weeks'), '/');
 
 		#send them to the main page
-		Router::redirect("/");
+		Router::redirect("/issues");
 
 		#token name value and how long should last
 		#send back to index page
@@ -157,6 +155,69 @@ public function logout() {
 	Router::redirect("/");
 }
 
+public function profile_by_id($user_id_passed) {
+	# If user is blank, they're not logged in, show message and don't do anything else
+	# Not logged in
+	if(!$this->user) {
+	echo "Members only. <a href='/users/login'>Please Login</a>";
+
+	# Return will force this method to exit here so the rest of
+	# the code won't be executed and the profile view won't be displayed.
+	return;
+
+	}
+	else {
+
+	#echo "user_id passed as parameter is".$user_id_passed;
+
+
+	$this->template->content = View::instance("v_users_profile");
+	$this->template->title = "Profile of ".$this->user->first_name;
+
+	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
+	$client_files = Array(
+	"/stylesheets/screen.css",
+	"/stylesheets/print.css",
+	   "/stylesheets/ie.css",
+	   "/stylesheets/validationEngine.jquery.css",
+	"/stylesheet/template.css",
+	"/js/languages/jquery.validationEngine-en.js",
+	"/js/jquery.validationEngine.js",
+	);
+
+	$this->template->client_files = Utils::load_client_files($client_files);
+
+	   #verify user exists
+	   
+	    #profile info via Helper
+	$membership_duration = Helper::get_user_membership_length($user_id_passed);
+	$last_post = Helper::get_date_of_last_post($user_id_passed);
+
+	$count_followed = Helper::get_count_followed($user_id_passed);
+	$followers = Helper::get_count_following($user_id_passed);
+	$image_path = Helper::get_image_path($user_id_passed);
+
+
+	$profile_arr = "";
+	$profile_arr["membership_duration"] = $membership_duration;
+	$profile_arr["last_post"] = $last_post;
+	$profile_arr["count_followed"] = $count_followed;
+	$profile_arr["followers"] = $followers;
+	$profile_arr["image_path"] = $image_path;
+
+	$user_arr = "";
+	$user_arr = Helper::get_user_info($user_id_passed);
+
+
+
+
+	#Pass data to the view
+	$this->template->content->profile_arr = $profile_arr;
+	$this->template->content->user_arr = $user_arr;
+	# Render template
+	echo $this->template;
+	}
+}
 
 
 

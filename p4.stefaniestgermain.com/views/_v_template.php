@@ -45,7 +45,7 @@
             <li><a href='/users/signup'>Sign up</a></li> 
             <li><a href='/users/login'>Login</a></li>                      
           <? else: ?>
-            <h1>Welcome back <strong><?=$user->first_name?></strong><h1><br>
+            <li><a href='/users/profile/'title="Welcome Back">Welcome back <strong><?=$user->first_name?></strong></a></li>
             <li><a href='/users/logout' title="P4 E-75 311 Signup">Logout</a></li> 
             <li><a href='/users/profile/$user' title="P4 E-75 311 Login">Profile</a></li>
           <? endif; ?>

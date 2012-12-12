@@ -7,8 +7,8 @@
 		<input type='text' name='description'><br>
 		Lat<br>
 		<input type='text' name='lat'><br>
-		Lon<br>
-		<input type='text' name='lon'><br>
+		Lng<br>
+		<input type='text' name='lng'><br>
 		Zip<br>
 		<input type='text' name='zipcode'><br>
 	<br><br>

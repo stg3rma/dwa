@@ -51,7 +51,7 @@ class issues_controller extends base_controller {
 		$_POST['modified'] = Time::now(); 
 
 		# Insert this post into the database
-		DB::instance(DB_NAME)->insert("p4_issues", $_POST);
+		DB::instance(DB_NAME)->insert("issues", $_POST);
 
 		#Empty post  
 		if($_POST['description'] == "" || $_POST['description'] == NULL){
@@ -69,10 +69,10 @@ class issues_controller extends base_controller {
 		$this->template->title = "Issues";
 		
 		#Build a query of the issues this user reported 
-		$q = "SELECT * FROM p4_issues WHERE user_id = ".$this->user->user_id;
+		$q = "SELECT * FROM issues WHERE user_id = ".$this->user->user_id;
 		
 
-		#Execute our query storing the results in a variable $connections
+		#Execute our query storing the results in a variable $user_issues
 		$user_issues = DB::instance(DB_NAME)->select_rows($q);
 	
 		if(empty($user_issues)) {
@@ -87,7 +87,7 @@ class issues_controller extends base_controller {
 		else{
 
 		#Now let's build our query to grab the issues
-		$q = "SELECT * FROM p4_issues WHERE user_id = ".$this->user->user_id;
+		$q = "SELECT * FROM issues WHERE user_id = ".$this->user->user_id;
 		#This is where we use string of user_ids we created
 
 		#Run our query and store results in the variable $issues
