@@ -19,7 +19,7 @@ class issues_controller extends base_controller {
 
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 		$client_files = Array(
-
+			"/js/jquery.form.js"
 			
 	    );
 	    
@@ -100,7 +100,6 @@ class issues_controller extends base_controller {
 		$this->template->content->issues = $issues;
 		}
 			
-		
 
 
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head

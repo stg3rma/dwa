@@ -40,28 +40,35 @@ $(document).ready(function() {
     userLayer = new L.LayerGroup();
 
 
-    //map.on('click', onMapClick);
-
     function onMapClick(e){
-      var userClickLatLng = new L.LatLng(e.latlng.lat, e.latlng.lng);
-      var userMarker = new L.Marker(userClickLatLng);
-      userLayer.addLayer(userMarker);
+     		
+		var userClickLatLng = new L.LatLng(e.latlng.lat, e.latlng.lng);
+        var userMarker = new L.Marker(userClickLatLng);
+        //userLayer.clearLayers();
+        userLayer.addLayer(userMarker).addTo(map);
+        var form = '<form id="userform" enctype="multipart/form-data">' +
+        	'<input type="text" id="name" name="name" />'
+        	'</form>';
+        //userMarker.bindPopup(form).openPopup();
+        $('#modalAddIssue').modal('show');    }
+
     
-      var form = '<form id="userinput">' + '<input type="text" id="description" name="description">'
+
+/*    var form = '<form id="userinput">' + '<input type="text" id="description" name="description">'
       <!--form goes here -->
       '</form>'
       ;
-$('#modalAddIssue').modal(options)
-      userMarker.bindPopup(form).openPopup();
-    }
+	  $('#modalAddIssue').modal(options)
+      userMarker.bindPopup(form).openPopup(); }
+*/
     
 
-		L.marker([42.373, -71.107]).addTo(map)
+/*		L.marker([42.373, -71.107]).addTo(map)
 			.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
 		L.marker([42.383, -71.108]).addTo(map)
 			.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-
+*/
 		L.circle([42.383, -71.121], 500, {
 			color: 'red',
 			fillColor: '',

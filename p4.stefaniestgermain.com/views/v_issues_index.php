@@ -3,6 +3,7 @@
   <div class="span12">
         <h3>Report an Issue</h3>
         <p>Click within the Cambridge boundaries outlined in blue on the map to report an E-75 311 issue to the map. If this were a live 311 system city officials would respond to your report. Admin fucntion enables city admin to flag issues as assigned or resolved at which point they will drop off the map.</p>
+
           <!-- modalAddIssue content -->
           <div id="modalAddIssue" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalAddIssueLabel" aria-hidden="true">
             <div class="modal-header">
@@ -10,6 +11,7 @@
               <h3 id="modalAddIssueLabel">Modal Heading</h3>
           </div>
           <div class="modal-body">
+              
               <h4>Text in a modal</h4>
               <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
 

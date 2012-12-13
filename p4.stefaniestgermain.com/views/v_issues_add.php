@@ -5,6 +5,8 @@
 			<strong>New Issue:</strong><br>
 				Description:<br>
 				<input type='text' name='description'><br>
+				Category<br>
+				<input type='text' name='category'><br>
 				Lat<br>
 				<input type='text' name='lat'><br>
 				Lng<br>
