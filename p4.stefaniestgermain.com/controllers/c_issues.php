@@ -60,7 +60,7 @@ class issues_controller extends base_controller {
 		}
 
 		# For now, just confirm the post - make this fancier later
-		Router::redirect("/issues/add/");
+		Router::redirect("/issues/");
 	}
 
 	public function index(){

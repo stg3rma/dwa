@@ -39,20 +39,50 @@ $(document).ready(function() {
     //new Leaflet layer group for markers
     userLayer = new L.LayerGroup();
 
+    //toggle map editing on/off for user page
+    $('#mapediton').on('click', function (e) {
+		map.on('click', onMapClick);
+	});
+	$('#mapeditoff').on('click', function (e) {
+     	map.off('click', onMapClick);
+	});	 
+
+
+    //<button type="button" class="btn" data-complete-text="finished!" >...</button>
+    //<script>
+    //$('.btn').button('complete');
+   
+    //</script>
 
     function onMapClick(e){
      		
-		var userClickLatLng = new L.LatLng(e.latlng.lat, e.latlng.lng);
-        var userMarker = new L.Marker(userClickLatLng);
+		var userLatLng = new L.LatLng(e.latlng.lat, e.latlng.lng);
+		var userLat = e.latlng.lat;
+		var userLng = e.latlng.lng;
+        var userMarker = new L.Marker(userLatLng);
+        //data-userLat = e.latlng.lat;
+
         //userLayer.clearLayers();
         userLayer.addLayer(userMarker).addTo(map);
         var form = '<form id="userform" enctype="multipart/form-data">' +
         	'<input type="text" id="name" name="name" />'
         	'</form>';
         //userMarker.bindPopup(form).openPopup();
-        $('#modalAddIssue').modal('show');    }
+        //$(".modal-body"#lat.val(mylat);
+       //var lat = $(this).data('userLat');
+      //$(".modal-body #lat").val(userLat);
 
-    
+document.getElementById("lat").value = userLat;
+document.getElementById("lng").value = userLng;
+    var data = $('#modal-div').data('mydata');
+
+
+        $('#modalAddIssue').modal('show');
+        //$('#addBookDialog').modal('show');
+        //$('#modalAddIssue').modal('show').('modal-body').data({userlat: userLat, userlng: userLng});    
+    }
+
+
 
 /*    var form = '<form id="userinput">' + '<input type="text" id="description" name="description">'
       <!--form goes here -->
@@ -93,7 +123,7 @@ $(document).ready(function() {
   cambridge_02141.bindPopup("02141").addTo(map);
   cambridge_02142.bindPopup("02142").addTo(map);
 
-	map.on('click', onMapClick);
+	
 
 
 
