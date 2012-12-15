@@ -12,6 +12,13 @@
   <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script> 
   <script src="/js/zipcode_ca.js"></script>
   <script src="/js/jquery.validationEngine.js"></script>
+  <script src="/js/usermap.js"></script>
+  <script src="/js/jquery.form.js"></script>
+  <script src="/js/cambridge_02138.js"></script>
+  <script src="/js/cambridge_02139.js"></script>
+  <script src="/js/cambridge_02140.js"></script>
+  <script src="/js/cambridge_02141.js"></script>
+  <script src="/js/cambridge_02142.js"></script>
 	<!-- Controller Specific JS/CSS -->
 	<?=@$client_files; ?>   
 	
@@ -20,7 +27,7 @@
 	<link rel="stylesheet" href="/css/bootstrap.css"  media="screen">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css"  media="screen">
   <link rel="stylesheet" href="/css/p4.css" media="screen">
-  <link rel="stylesheet" href="/css/prettify.css" media="screen">
+
 
 
   <!-- modified the Twitter Boostrap CCS/layout from Cosmo theme from Bootswatch.com  -->

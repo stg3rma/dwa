@@ -111,7 +111,7 @@ $(document).ready(function() {
 		map.attributionControl.addAttribution('cloudmade leaflet map');
 
 		//add marker
-		L.marker([42.373, -71.107]).addTo(map);
+		//L.marker([42.373, -71.107]).addTo(map);
 
 
 		var legend = L.control({position: 'bottomright'});

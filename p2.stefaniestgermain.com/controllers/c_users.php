@@ -238,7 +238,7 @@ public function profile_by_id($user_id_passed) {
 
 	   #verify user exists
 	   
-	    #profile info via Helper
+	#profile info via Helper
 	$membership_duration = Helper::get_user_membership_length($user_id_passed);
 	$last_post = Helper::get_date_of_last_post($user_id_passed);
 

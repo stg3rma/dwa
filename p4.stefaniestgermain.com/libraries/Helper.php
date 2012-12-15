@@ -1,7 +1,45 @@
 <?
 
 class Helper {
+  #Get open issues by zip code
+  public static function get_open_issues_by_zipid(zipid){
 
+      $q = "SELECT count(issue_id) FROM issues WHERE zipcode_id = zipid and active = 1";
+      $open_issues_by_zipid = DB::instance(DB_NAME)->SELECT_field($q);
+      return htmlspecialchars($open_issues_by_zipid);
+  }
+
+  //issues old & new totals
+  public static function get_active_issues(){
+
+      $q = "SELECT count(issue_id) FROM issues WHERE active = 1";
+      $active_issues = DB::instance(DB_NAME)->SELECT_field($q);
+      return htmlspecialchars($active_issues);
+  }
+
+  public static function get_closed_issues(){
+
+      $q = "SELECT count(issue_id) FROM issues WHERE active = 0 ";
+      $closed_issues = DB::instance(DB_NAME)->SELECT_field($q);
+      return htmlspecialchars($closed_issues);
+
+  }
+
+  public static function get_all_issues(){
+
+      $q = "SELECT count(issue_id) FROM issues";
+      $all_issues = DB::instance(DB_NAME)->SELECT_field($q);
+      return htmlspecialchars($all_issues);
+
+  }
+
+  //active issues by type
+  public static function get_open_issues_by_catid(catid){
+
+      $q = "SELECT count(category_id) FROM issues WHERE category_id = catid and active = 1";
+      $open_issues_by_catid = DB::instance(DB_NAME)->SELECT_field($q);
+      return htmlspecialchars($open_issues_by_catid);
+  }
 
   #Get user's name
   public static function get_name($user_id){
