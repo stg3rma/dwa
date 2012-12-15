@@ -17,7 +17,7 @@
           </div>
           <div class="modal-body">
     
-      <form name='new-post' method='POST' action='/issues/p_add'>
+      <form name='new-post' method='POST' action='/issues/p_add' onsubmit='updateUserMap()'>
       <strong>New Issue:</strong><br>
         Description:<br>
         <input type='text' name='description'><br>
@@ -29,9 +29,11 @@
         <input type='text' name='lng' id='lng'><br>
         Zip<br>
         <input type='text' name='zipcode'><br>
-      <br><br>
-      <input type='submit'>
-    </form>
+        <br><br>
+        <input type='submit'>
+      </form>
+
+
           <div class="modal-footer">
               <button class="btn" data-dismiss="modal">Close</button>
               <button class="btn btn-primary">Save changes</button>

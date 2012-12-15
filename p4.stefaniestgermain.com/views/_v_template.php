@@ -11,11 +11,11 @@
 	<script src="/js/bootstrap.js"></script>	
   <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script> 
   <script src="/js/zipcode_ca.js"></script>
+  <script src="/js/jquery.validationEngine.js"></script>
 	<!-- Controller Specific JS/CSS -->
 	<?=@$client_files; ?>   
 	
 
-	<link rel="stylesheet" href="/css/jquery-ui.css" type="text/css"> 
 	<link rel="stylesheet" href="/css/bootstrap.min.css"  media="screen">
 	<link rel="stylesheet" href="/css/bootstrap.css"  media="screen">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css"  media="screen">

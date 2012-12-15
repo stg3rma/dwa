@@ -3,6 +3,30 @@ maps views created with custom map API key at www.cloudmade.com
 jquery selectors used to interact with Leaflet javascript map API 
 & cloropleth map example featuring population density in US 
 */
+
+ /*     updateUserMap(){
+          $.ajax({
+        type: 'POST',
+        url: '/issues/get_issue_markers', 
+        success: function(response) {
+        //debug
+        console.log(response);
+        var data = JQuery.parseJSON(response);
+
+
+
+      for(var i = 0; i < data.length, i++){
+        var location = new L.LatLng(data[i].lat, data[i].lng);
+        var id = data[i].issue_id;
+        var description = data[i].description;
+        var marker = new L.Marker(location, {title: description });
+        marker.bindPopup("Please work!");
+        userLayer.addLayer(marker);
+      },
+    });
+ });
+}*/
+
 $(document).ready(function() {
 
 		var map = L.map('map').setView([42.373, -71.107], 7);
@@ -14,39 +38,50 @@ $(document).ready(function() {
 		}).addTo(map);
 
 
-    	//setting boundary to not allow panning outside Cambridge, MA
-    	var southWest = new L.LatLng(42.34078, -71.04755),
+    //setting boundary to not allow panning outside Cambridge, MA
+    var southWest = new L.LatLng(42.34078, -71.04755),
         northEast = new L.LatLng(42.39811, -71.16222), 
         boundsmax = new L.LatLngBounds(southWest, northEast);
         map.setZoom(13);
         map.setMaxBounds([boundsmax]);
 
-        //L.control.layers(baseLayers, overlays).addTo(map);
-    	//built-in feature leaflet map
+    //new Leaflet layer group for markers
+    userLayer = new L.LayerGroup();
+
+    //L.control.layers(baseLayers, overlays).addTo(map);
+    //built-in feature leaflet map
 		//L.marker([42.373, -71.107]).addTo(map)
 		//.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
 		var popup = L.popup();
 
-	/*	function onMapClick(e) {
-			popup
-				.setLatLng(e.latlng)
-				.setContent("You clicked the map at " + e.latlng.toString())
-				.openOn(map);
-        //alert("You clicked at: " + e.latlng.lat + " " + e.latlng.lng);
-		}*/
-
-    //new Leaflet layer group for markers
-    userLayer = new L.LayerGroup();
-
     //toggle map editing on/off for user page
     $('#mapediton').on('click', function (e) {
-		map.on('click', onMapClick);
-	});
-	$('#mapeditoff').on('click', function (e) {
+		  map.on('click', onMapClick);
+	  });
+	  $('#mapeditoff').on('click', function (e) {
      	map.off('click', onMapClick);
-	});	 
+	  });	 
 
+    //get user markers & add to map
+
+        function updateUserMap() { alert('INSIDE updateUserMap()');
+        $.getJSON("/issues/get_issue_markers", function(data){ 
+            var mdata = $.parseJSON(data);
+            console.log("this is data" + mdata);
+            for (var i = 0; i < mdata.length; i++) {
+            var title = "descr:";
+            var location = new L.LatLng(mdata[i].lat, mdata[i].lng);
+            var lat = mdata[i].lat;
+            var lng = mdata[i].lng;
+            var coords = new L.LatLng(mdata[i].lat, mdata[i].lng);
+            var marker = new L.Marker(coords, {title:description});
+            marker.bindPopup("popup text from getIssueMarker");
+            userLayer.addLayer(marker);
+          }
+        });
+      }
+      
 
     //<button type="button" class="btn" data-complete-text="finished!" >...</button>
     //<script>
@@ -61,7 +96,6 @@ $(document).ready(function() {
 		var userLng = e.latlng.lng;
         var userMarker = new L.Marker(userLatLng);
         //data-userLat = e.latlng.lat;
-
         //userLayer.clearLayers();
         userLayer.addLayer(userMarker).addTo(map);
         var form = '<form id="userform" enctype="multipart/form-data">' +
@@ -69,18 +103,18 @@ $(document).ready(function() {
         	'</form>';
         //userMarker.bindPopup(form).openPopup();
         //$(".modal-body"#lat.val(mylat);
-       //var lat = $(this).data('userLat');
-      //$(".modal-body #lat").val(userLat);
-
-document.getElementById("lat").value = userLat;
-document.getElementById("lng").value = userLng;
-    var data = $('#modal-div').data('mydata');
-
+        //var lat = $(this).data('userLat');
+        //$(".modal-body #lat").val(userLat);
+        //pass lat and lng from click to modal
+        document.getElementById("lat").value = userLat;
+        document.getElementById("lng").value = userLng;
+        var data = $('#modal-div').data('mydata');
 
         $('#modalAddIssue').modal('show');
-        //$('#addBookDialog').modal('show');
-        //$('#modalAddIssue').modal('show').('modal-body').data({userlat: userLat, userlng: userLng});    
+        //getIssueMarkers();
+       //getIssueMarkers();    
     }
+
 
 
 
@@ -93,12 +127,12 @@ document.getElementById("lng").value = userLng;
 */
     
 
-/*		L.marker([42.373, -71.107]).addTo(map)
+		L.marker([42.373, -71.107]).addTo(map)
 			.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
 		L.marker([42.383, -71.108]).addTo(map)
 			.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-*/
+
 		L.circle([42.383, -71.121], 500, {
 			color: 'red',
 			fillColor: '',
