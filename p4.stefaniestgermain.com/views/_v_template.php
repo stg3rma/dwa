@@ -48,10 +48,7 @@
             <li><a href='/issues/'title="Welcome Back">Welcome back  <strong><?=$user->first_name?></strong></a></li>
             <li><a href='/users/logout' title="P4 E-75 311 Signup">Logout</a></li> 
           <? endif; ?> 
-          <? if($user && $user.admin == 1): ?>
-            <li><a href='/admin/dashboard/' title="P4 E-75 311 Login">Dashboard</a></li>   
-          <? else: ?>                    
-          <? endif; ?> 
+  
         </ul>
        </div>
      </div>

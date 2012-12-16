@@ -2,7 +2,7 @@
 <div class="row">
   <div class="span12">
         <h3>Report an Issue</h3>
-        Click 'Map Edit Mode' then click within the Cambridge boundaries outlined in blue on the map to report an E-75 311 issue to the map. If this were a live 311 system city officials would respond to your report. Admin fucntion enables city admin to flag issues as assigned or resolved at which point they will drop off the map.
+        If you setup your account with 'Admin' access check out the <a href="/admin/dashboard">Admin Dashboard</a>. Otherwise click 'Map Edit Mode' then click within the Cambridge boundaries outlined in blue on the map to report an E-75 311 issue to the map. If this were a live 311 system city officials would respond to your report. Admin fucntion enables city admin to flag issues as assigned or resolved at which point they will drop off the map.
          <br><br>
           <!-- button to toggle map edit -->
           <div class="btn-group" data-toggle="buttons-radio">                 
@@ -17,6 +17,7 @@
               <h3 id="modalAddIssueLabel">Report an Issue</h3>
           </div>
           <div class="modal-body">
+
     
       <form name='new-post' method='POST' action='/issues/p_add' onsubmit='updateUserMap()'>
       <strong>New Issue:</strong><br>

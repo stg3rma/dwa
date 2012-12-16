@@ -58,7 +58,7 @@ public function p_signup() {
 		Router::redirect("/users/signup/error=$address_in_use");
 	}
 
-	if($_POST['email'] == "" || $_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['password'] == "" || $_POST['zipcode'] == "" || $_POST['admin'] == ""){
+	if($_POST['email'] == "" || $_POST['first_name'] == "" || $_POST['last_name'] == "" || $_POST['password'] == "" ){
 
 		$required = "All fields on this form are required.";
 		Router::redirect("/users/signup/error: $required");
