@@ -4,10 +4,12 @@ jquery selectors used to interact with Leaflet javascript map API
 & cloropleth map example featuring population density in US 
 */
 
+
+
 $(document).ready(function() {
 
-    var initialView
-    intialView = true;
+
+  // map on index page 
 
     var map = L.map('map').setView([42.373, -71.107], 7);
 
@@ -29,29 +31,6 @@ $(document).ready(function() {
     //new Leaflet layer group for markers
     var userLayer = new L.LayerGroup();
     map.addLayer(userLayer);
-
-        function style(feature) {
-      return {
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        dashArray: '3',
-        fillOpacity: 0.7,
-        fillColor: getColor(feature.properties.density)
-      };
-    }
-
-  //polyline cambridge_02138.js
-  cambridge_02138.bindPopup("02138").addTo(map);
-  cambridge_02139.bindPopup("02139").addTo(map);
-  cambridge_02140.bindPopup("02140").addTo(map);
-  cambridge_02141.bindPopup("02141").addTo(map);
-  cambridge_02142.bindPopup("02142").addTo(map);
-
-
-
-  // map on index page 
-
 
  
     //L.control.layers(baseLayers, overlays).addTo(map);
@@ -167,6 +146,23 @@ $(document).ready(function() {
       fillOpacity: 0
     }).bindPopup("I am a circle.");
 
+    function style(feature) {
+      return {
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7,
+        fillColor: getColor(feature.properties.density)
+      };
+    }
+
+  //polyline cambridge_02138.js
+  cambridge_02138.bindPopup("02138").addTo(map);
+  cambridge_02139.bindPopup("02139").addTo(map);
+  cambridge_02140.bindPopup("02140").addTo(map);
+  cambridge_02141.bindPopup("02141").addTo(map);
+  cambridge_02142.bindPopup("02142").addTo(map);
 
 
  }); 

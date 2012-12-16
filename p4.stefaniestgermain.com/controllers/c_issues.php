@@ -132,44 +132,7 @@ class issues_controller extends base_controller {
 		
 	}
 
-	public function users(){
 
-		#Set up the view
-		$this->template->content = View::instance("v_posts_users");
-		$this->template->title = "Users";
-
-		#Build our query to get all the users
-		$q = "SELECT * FROM users where user_id != ".$this->user->user_id; #SAS add where to excluded logged in user
-
-		#Execute the query to get all the users. Store the result array in the variable $users
-		$users = DB::instance(DB_NAME)->select_rows($q);
-
-		#Build query to figure out what connections does this user have - ie who are they following
-		$q = "SELECT * FROM users_users WHERE user_id = ".$this->user->user_id;
-
-		#Execute this query with the select_array method
-		#select_array will return our results in an array and use the user_id_followed
-		#field as the index. This will come in handy when we get into the view. Store our
-		#results (an array) in the variable $connections
-
-		$connections = DB::instance(DB_NAME)->select_array($q,'user_id_followed');
-
-		#Pass data (users and connections) to the view
-		$this->template->content->users = $users;
-		$this->template->content->connections = $connections;
-
-		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
-		$client_files = Array(
-			
-	    );
-	    
-	    $this->template->client_files = Utils::load_client_files($client_files); 		
-
-
-		#Render the view
-		echo $this->template;
-
-	}
 
 	public function p_get_issue_markers(){
 
@@ -185,11 +148,12 @@ class issues_controller extends base_controller {
 		#Run our query and store results in the variable $issues
 		
 		$data = DB::instance(DB_NAME)->select_rows($q);
+	    echo json_encode($data);
 
 		#Pass markers to the view
 		$this->template->content->issue_markers = print json_encode($data);
 		#send back json results to js as json
-		echo json_encode($data);
+		
 
 
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
@@ -213,6 +177,24 @@ class issues_controller extends base_controller {
 		
 	}
 	
+	public function get_markers(){
+
+
+		#Now let's build our query to grab the issues
+		$q = "SELECT lat, lng, description FROM issues WHERE user_id = ".$this->user->user_id;
+		#This is where we use string of user_ids we created
+
+		#Run our query and store results in the variable $issues
+		
+		$data = DB::instance(DB_NAME)->select_rows($q);
+	    echo json_encode($data);
+	    
+	}
+
+	public function delete(){
+
+		DB::instance(DB_NAME)->delete('issues', 'WHERE issue_id = '.$_POST['issue_id']);
+	}
 
 
 		

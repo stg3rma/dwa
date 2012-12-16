@@ -51,20 +51,18 @@
 
     <? if($show_issues): ?>
     <h3><?= $user->first_name ?>'s Issues:</h3>
-    <section id = "comments">
+    <section>
+      <table>
       <? foreach($issues as $post): ?>
-        <article class="comment">
-          <a class="comment-img" href="#non">
-            <img src="" alt="" width="50" height="50">
-          </a>
-          <div class="comment-body">
-            <div class="text">
-              <p><?=$post['description']?></p>
-            </div>
-            <p class="attribution">on <?= date('D M d, Y, h:ia', $post['created']) ?></p>
-          </div>
-        </article>
+        <tr id='issue_<?=$post['issue_id']?>'>
+          <td>
+              <?=$post['description']?> 
+            on<br> <?= date('D M d, Y, h:ia', $post['created']) ?>
+          </td>
+          <td><input type='button' class='delete' data-issue-id='<?=$post['issue_id']?>' value='delete'></td>
+        </tr>
       <? endforeach; ?>
+     </table>
     </section>
     <? endif; ?>
  
@@ -77,3 +75,27 @@
   </div>
 
 </div>
+
+<script>
+
+$('.delete').click(function() {
+
+var issue_id = $(this).attr('data-issue-id');
+
+    $.ajax({
+
+        type: 'POST',
+        url: '/issues/delete',
+        success: function(response) {
+          // Fade out this toy row since it has now been deleted
+          $('#issue_' + issue_id).hide('slow');
+        },
+        data: {
+
+        // Make sure we tell our method what issue is
+        issue_id: issue_id;
+        },
+  });
+
+});
+</script>
