@@ -18,7 +18,7 @@
 	<br>
 
 	Zip Code<br>
-	<select id='zipcode' name='zipcode'>
+	<select id='zipcode_id' name='zipcode_id'>
 		<option value="1">02138</option>
 		<option value="2">02139</option>
 		<option value="3">02140</option>
