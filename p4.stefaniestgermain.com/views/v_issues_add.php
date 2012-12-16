@@ -22,7 +22,7 @@
 
 	<div class="span8">
 	    <!-- map -->
-	 		<div id="map"></div>
+	 		<div id="map" class="map"></div>
 				<script src="/js/leaflet.js"></script>
 	</div>
 </div>

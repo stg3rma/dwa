@@ -9,16 +9,9 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 	<script src="/js/bootstrap.js"></script>	
-  <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script> 
-  <script src="/js/zipcode_ca.js"></script>
   <script src="/js/jquery.validationEngine.js"></script>
-  <script src="/js/usermap.js"></script>
   <script src="/js/jquery.form.js"></script>
-  <script src="/js/cambridge_02138.js"></script>
-  <script src="/js/cambridge_02139.js"></script>
-  <script src="/js/cambridge_02140.js"></script>
-  <script src="/js/cambridge_02141.js"></script>
-  <script src="/js/cambridge_02142.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
 	<!-- Controller Specific JS/CSS -->
 	<?=@$client_files; ?>   
 	
@@ -52,7 +45,7 @@
             <li><a href='/users/signup'>Sign up</a></li> 
             <li><a href='/users/login'>Login</a></li>                      
           <? else: ?>
-            <li><a href='/users/profile/'title="Welcome Back">Welcome back  <strong><?=$user->first_name?></strong></a></li>
+            <li><a href='/issues/'title="Welcome Back">Welcome back  <strong><?=$user->first_name?></strong></a></li>
             <li><a href='/users/logout' title="P4 E-75 311 Signup">Logout</a></li> 
             <li><a href='/users/profile/$user' title="P4 E-75 311 Login">Profile</a></li>
           <? endif; ?>

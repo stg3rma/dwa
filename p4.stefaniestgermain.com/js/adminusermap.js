@@ -4,28 +4,7 @@ jquery selectors used to interact with Leaflet javascript map API
 & cloropleth map example featuring population density in US 
 */
 
- /*     updateUserMap(){
-          $.ajax({
-        type: 'POST',
-        url: '/issues/get_issue_markers', 
-        success: function(response) {
-        //debug
-        console.log(response);
-        var data = JQuery.parseJSON(response);
 
-
-
-      for(var i = 0; i < data.length, i++){
-        var location = new L.LatLng(data[i].lat, data[i].lng);
-        var id = data[i].issue_id;
-        var description = data[i].description;
-        var marker = new L.Marker(location, {title: description });
-        marker.bindPopup("Please work!");
-        userLayer.addLayer(marker);
-      },
-    });
- });
-}*/
 
 $(document).ready(function() {
 
@@ -121,15 +100,6 @@ $(document).ready(function() {
 
 
 
-/*    var form = '<form id="userinput">' + '<input type="text" id="description" name="description">'
-      <!--form goes here -->
-      '</form>'
-      ;
-    $('#modalAddIssue').modal(options)
-      userMarker.bindPopup(form).openPopup(); }
-*/
-    
-
     L.marker([42.373, -71.107]).addTo(map)
       .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
@@ -188,7 +158,8 @@ $(document).ready(function() {
   });
 });
 
- }); 
+
+}); 
 
 
      

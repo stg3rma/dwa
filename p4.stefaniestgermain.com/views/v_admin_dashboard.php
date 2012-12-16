@@ -1,6 +1,6 @@
 
 <section id="typography">
-  <h1>Admin Dashboard for P4 e-75 311!</h1> 
+  <h3>Admin Dashboard for P4 e-75 311!</h3> 
   <br>
   <p>Please <a href='/users/signup'>Sign up</a> to report an issue. If you an existing user, please <a href='/users/login'>Login</a>                      
   <div class="row">
@@ -23,12 +23,12 @@
       vandalism (6): <div id='category6'></div>
       parks & recreation (7): <div id='category7'></div>
 
-      <button id='refresh_stats_button'>refresh stats</button>
+      <button id="refresh_stats_button">refresh stats</button>
       
     </div> 
     <div class="span8">  
       <!-- cloudmade leaftjs map -->
-      <div id="map"></div>
+      <div id="map"  class="map"></div>
       <script src="/js/leaflet.js"></script> 
       <br>
     </div>  

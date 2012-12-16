@@ -19,7 +19,13 @@ class issues_controller extends base_controller {
 
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 		$client_files = Array(
-			"/js/jquery.form.js"
+			"/js/usermap.js",
+			"/js/cambridge_02138.js",
+			"/js/cambridge_02139.js",
+			"/js/cambridge_02140.js",
+			"/js/cambridge_02141.js",
+			"/js/cambridge_02142.js"
+
 			
 	    );
 	    
@@ -98,6 +104,8 @@ class issues_controller extends base_controller {
 		$this->template->content->show_no_issues_message = FALSE;
 		$this->template->content->show_issues = TRUE;
 		$this->template->content->issues = $issues;
+
+		
 		}
 			
 
@@ -105,18 +113,13 @@ class issues_controller extends base_controller {
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 		$client_files = Array(
 			"/js/usermap.js",
-			"/css/cloropleth.css",
-			"/css/MarkerCluster.css",
-			"/css/MarkerCluster.Default.css",
-			"/css/MarkerCluster.Default.ie.css",
-			"/js/leaflet.markercluster.js",
-			"/js/zipcode_ca.js",
 			"/js/cambridge_02138.js",
 			"/js/cambridge_02139.js",
 			"/js/cambridge_02140.js",
 			"/js/cambridge_02141.js",
-			"/js/cambridge_02142.js",
-			"/js/jquery.form.js"
+			"/js/cambridge_02142.js"
+
+			
 
 	   
 	    );
@@ -192,18 +195,13 @@ class issues_controller extends base_controller {
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 		$client_files = Array(
 			"/js/usermap.js",
-			"/css/cloropleth.css",
-			"/css/MarkerCluster.css",
-			"/css/MarkerCluster.Default.css",
-			"/css/MarkerCluster.Default.ie.css",
-			"/js/leaflet.markercluster.js",
-			"/js/zipcode_ca.js",
 			"/js/cambridge_02138.js",
 			"/js/cambridge_02139.js",
 			"/js/cambridge_02140.js",
 			"/js/cambridge_02141.js",
-			"/js/cambridge_02142.js",
-			"/js/jquery.form.js"
+			"/js/cambridge_02142.js"
+
+		
 	   
 	    );
 	    

@@ -1,6 +1,6 @@
 
 <section id="typography">
-  <h1>Welcome the P4 e-75 311!</h1> 
+  <h2>Welcome the P4 e-75 311!</h2> 
   <br>
   <p>Please <a href='/users/signup'>Sign up</a> to report an issue. If you an existing user, please <a href='/users/login'>Login</a>                      
   <div class="row">
@@ -18,7 +18,7 @@
     </div> 
     <div class="span8">  
       <!-- cloudmade leaftjs map -->
-      <div id="map"></div>
+      <div id="map" ></div>
       <script src="/js/leaflet.js"></script> 
       <br>
     </div>  

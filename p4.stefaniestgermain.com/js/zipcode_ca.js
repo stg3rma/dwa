@@ -293,7 +293,7 @@ var cambridgeData = {
         [-71.156936,42.381893],
         [-71.157792,42.382211]
         ]]}},
-{"type":"Feature","id":"2","properties":{"name":"02139","density":31 },"geometry":{"type":"Polygon","coordinates":[[
+{"type":"Feature","id":"2","properties":{"name":"02139","density":2 },"geometry":{"type":"Polygon","coordinates":[[
         [-71.1099,42.370391],
         [-71.109736,42.370627],
         [-71.109156,42.371517],
@@ -399,7 +399,7 @@ var cambridgeData = {
         [-71.110746,42.368306],
         [-71.110264,42.369003],
         [-71.110182, 42.369982]]]}},
- {"type":"Feature","id":"3","properties":{"name":"02140","density":100 },"geometry":{"type":"Polygon","coordinates":[[
+ {"type":"Feature","id":"3","properties":{"name":"02140","density":2 },"geometry":{"type":"Polygon","coordinates":[[
         [-71.122987,42.392377],
         [-71.122283,42.392845],
         [-71.121504,42.3934],
@@ -555,7 +555,7 @@ var cambridgeData = {
         [-71.125433,42.394874],
         [-71.124368,42.393653],
         [-71.123737,42.393056]]]}},       
-{"type":"Feature","id":"4","properties":{"name":"02141","density":42 },"geometry":{"type":"Polygon","coordinates":[[
+{"type":"Feature","id":"4","properties":{"name":"02141","density":2 },"geometry":{"type":"Polygon","coordinates":[[
         [-71.085316,42.367531],
         [-71.085926,42.366904],
         [-71.088033,42.367191],
@@ -696,7 +696,7 @@ var cambridgeData = {
         [-71.081651,42.367066],
         [-71.082403,42.367178],
         [-71.084096,42.367365]]]}},
- {"type":"Feature","id":"5","properties":{"name":"02142","density":222 },"geometry":{"type":"Polygon","coordinates":[[
+ {"type":"Feature","id":"5","properties":{"name":"02142","density":2 },"geometry":{"type":"Polygon","coordinates":[[
         [-71.083255,42.367277],
         [-71.081651,42.367066],
         [-71.081434,42.367339],

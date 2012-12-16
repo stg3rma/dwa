@@ -2,7 +2,7 @@
 <div class="row">
   <div class="span12">
         <h3>Report an Issue</h3>
-        <p>Click within the Cambridge boundaries outlined in blue on the map to report an E-75 311 issue to the map. If this were a live 311 system city officials would respond to your report. Admin fucntion enables city admin to flag issues as assigned or resolved at which point they will drop off the map.</p>
+        <p>Click 'Map Edit Mode' then click within the Cambridge boundaries outlined in blue on the map to report an E-75 311 issue to the map. If this were a live 311 system city officials would respond to your report. Admin fucntion enables city admin to flag issues as assigned or resolved at which point they will drop off the map.</p>
           <!-- button to toggle map edit -->
           <p><div class="btn-group" data-toggle="buttons-radio">                 
             <button type="button" class="btn btn-primary" id="mapediton">Map Edit Mode</button>                 
@@ -13,7 +13,7 @@
           <div id="modalAddIssue" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalAddIssueLabel" aria-hidden="true">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h3 id="modalAddIssueLabel">Modal Heading</h3>
+              <h3 id="modalAddIssueLabel">Report an Issue</h3>
           </div>
           <div class="modal-body">
     
@@ -72,7 +72,7 @@
      <br> 
   <div class="span8">
       <!-- map -->
-      <div id="map"></div>
+      <div id="map"  class="map"></div>
       <script src="/js/leaflet.js"></script>
   </div>
 

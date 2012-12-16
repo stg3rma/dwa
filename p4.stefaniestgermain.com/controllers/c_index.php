@@ -21,8 +21,8 @@ class index_controller extends base_controller {
 		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 		$client_files = Array(
 
-  			"/js/cloropleth.js",
-			"/css/cloropleth.css"
+  			"/js/map1.js",
+  			"/js/zipcode_ca.js"
 		);
 			
 	   

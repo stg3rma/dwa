@@ -20,12 +20,7 @@ class usermap_controller extends base_controller {
 		
 		# Specify what JS/CSS files we need to load in the view
 		$client_files = Array(
-			"/js/usermap.js",
-			"/css/cloropleth.css",
-			"/css/MarkerCluster.css",
-			"/css/MarkerCluster.Default.css",
-			"/css/MarkerCluster.Default.ie.css",
-			"/js/leaflet.markercluster.js",
+	
 			"/js/zipcode_ca.js",
 			"/js/cambridge_02138.js",
 			"/js/cambridge_02139.js",

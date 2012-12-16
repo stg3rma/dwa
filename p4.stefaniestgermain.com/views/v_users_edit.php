@@ -1,5 +1,5 @@
 
-<h1>Please edit your profile</h1>
+<h3>Please edit your profile</h3>
 <br>
 
 <form method='POST' id='user_edit' action='/users/p_edit'>
