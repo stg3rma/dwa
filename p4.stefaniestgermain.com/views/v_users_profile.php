@@ -1,4 +1,4 @@
-<h1>This is the profile of <strong><?=$user_arr['first_name']?> <?=$user_arr['last_name']?></p><br></strong></h1>
+<h3>This is the profile of <strong><?=$user_arr['first_name']?> <?=$user_arr['last_name']?></p><br></strong></h3>
 
 <? if(!$profile_arr ): ?>
   <div class='error'>
@@ -7,7 +7,7 @@
 <? endif; ?>
 
 <h2>Account Information</h2>
-<section id="comment-body">
+<section >
  <div id="text">
 	<ul>
 		<li>First Name: <?=$user_arr['first_name']?></li>
@@ -21,16 +21,15 @@
 <br>
 <br>
 
-<h2>P2 Stats</h2>
-<section id="text">
- <div id="text">
+<h2>User Stats</h2>
+<section>
+ <div>
    <ul>
  	<li>Member for: <?=$profile_arr['membership_duration']?></li>
-	<li>Last post: <?=$profile_arr['last_post']?></li>
+	<li>Last issue: <?=$profile_arr['last_issue']?></li>
 	<li>Number of followers: <?=$profile_arr['count_followed']?></li>
 	<li>Following <?=$profile_arr['followers']?> number of user</li>
 	<li>Profile image path: <img src="<?=$profile_arr['image_path']?>"></li>
    </ul>
  <div>
 </section>
-

@@ -82,7 +82,7 @@ class Helper {
 
     #max created for most recent issue creation
     $q = "SELECT date_format(FROM_unixtime(unix_timestamp(now()) - max(created)),
-    'Last post: %e days, %k hours, %i minutes, %s seconds ago.') FROM issues WHERE user_id = ".$user_id;
+    'Last issue: %e days, %k hours, %i minutes, %s seconds ago.') FROM issues WHERE user_id = ".$user_id;
 
     $date_of_last_issue = DB::instance(DB_NAME)->SELECT_field($q);
     return htmlspecialchars($date_of_last_issue);
@@ -128,6 +128,18 @@ class Helper {
     $count_followed = DB::instance(DB_NAME)->SELECT_field($q);
     return htmlspecialchars($count_followed);
   }
+
+ 
+  #Get date of last posts as string
+  public static function get_issues_by_days_old($days){
+
+    $q = "SELECT * FROM issues WHERE (to_days(now()) - to_days(FROM_unixtime(created))) < $days )";
+    $count_followed = DB::instance(DB_NAME)->SELECT_field($q);
+    return htmlspecialchars($count_followed);
+  }
+
+
+
 
 }
 ?>

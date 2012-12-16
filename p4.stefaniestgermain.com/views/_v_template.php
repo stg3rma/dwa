@@ -43,13 +43,15 @@
 
           <? if(!$user): ?>
             <li><a href='/users/signup'>Sign up</a></li> 
-            <li><a href='/users/login'>Login</a></li>                      
+            <li><a href='/users/login'>Login</a></li>
           <? else: ?>
             <li><a href='/issues/'title="Welcome Back">Welcome back  <strong><?=$user->first_name?></strong></a></li>
             <li><a href='/users/logout' title="P4 E-75 311 Signup">Logout</a></li> 
-            <li><a href='/users/profile/$user' title="P4 E-75 311 Login">Profile</a></li>
-          <? endif; ?>
-
+          <? endif; ?> 
+          <? if($user && $user.admin == 1): ?>
+            <li><a href='/admin/dashboard/' title="P4 E-75 311 Login">Dashboard</a></li>   
+          <? else: ?>                    
+          <? endif; ?> 
         </ul>
        </div>
      </div>

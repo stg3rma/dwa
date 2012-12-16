@@ -2,12 +2,13 @@
 <div class="row">
   <div class="span12">
         <h3>Report an Issue</h3>
-        <p>Click 'Map Edit Mode' then click within the Cambridge boundaries outlined in blue on the map to report an E-75 311 issue to the map. If this were a live 311 system city officials would respond to your report. Admin fucntion enables city admin to flag issues as assigned or resolved at which point they will drop off the map.</p>
+        Click 'Map Edit Mode' then click within the Cambridge boundaries outlined in blue on the map to report an E-75 311 issue to the map. If this were a live 311 system city officials would respond to your report. Admin fucntion enables city admin to flag issues as assigned or resolved at which point they will drop off the map.
+         <br><br>
           <!-- button to toggle map edit -->
-          <p><div class="btn-group" data-toggle="buttons-radio">                 
-            <button type="button" class="btn btn-primary" id="mapediton">Map Edit Mode</button>                 
-            <button type="button" class="btn btn-primary" id="mapeditoff">Map View Mode</button>      
-          </div></p>  
+          <div class="btn-group" data-toggle="buttons-radio">                 
+            <div><button type="button" class="btn btn-primary" id="mapediton">Map Edit Mode</button></div>&nbsp;                
+            <div><button type="button" class="btn btn-primary" id="mapeditoff">Map View Mode</button></div>     
+          </div> 
 
           <!-- modalAddIssue content -->
           <div id="modalAddIssue" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalAddIssueLabel" aria-hidden="true">
@@ -22,22 +23,32 @@
         Description:<br>
         <input type='text' name='description'><br>
         Category<br>
-        <input type='text' name='category_id'><br>
+        <select name='category_id'><br>
+          <option value="1" selected>utility</option>
+          <option value="2">transportation</option>
+          <option value="3">sanitation/recyling</option>
+          <option value="4">animal control</option>
+          <option value="5">health & safety</option>
+          <option value="6">vandalism</option>
+          <option value="7">parks & recreation</option>
+        </select><br>
         Lat<br>
         <input type='text' name='lat' id='lat'><br>
         Lng<br>
         <input type='text' name='lng' id='lng'><br>
         Zip<br>
-        <input type='text' name='zipcode_id'><br>
-        <br><br>
-        <input type='submit'>
-      </form>
-
-
+        <select name='zipcode_id'><br>
+          <option value="1" selected>02138</option>
+          <option value="2">02139</option>
+          <option value="3">02140</option>
+          <option value="4">02141</option>
+          <option value="5">02142</option>
+        </select>
+      <br>
           <div class="modal-footer">
               <button class="btn" data-dismiss="modal">Close</button>
-              <button class="btn btn-primary">Save changes</button>
-          </div>
+              <button class="btn btn-primary" type="submit">Save changes</button>
+          </div></form>
         </div>
   
   </div>
@@ -50,7 +61,7 @@
     <? endif; ?>
 
     <? if($show_issues): ?>
-    <h3><?= $user->first_name ?>'s Issues:</h3>
+    <h2><?= $user->first_name ?>'s Issues:</h2>
     <section>
       <table>
       <? foreach($issues as $post): ?>

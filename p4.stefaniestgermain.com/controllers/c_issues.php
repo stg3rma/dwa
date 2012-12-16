@@ -76,8 +76,8 @@ class issues_controller extends base_controller {
 		$this->template->title = "Issues";
 		
 		#Build a query of the issues this user reported 
-		$q = "SELECT * FROM issues WHERE user_id = ".$this->user->user_id;
-		
+		$q = 'SELECT * FROM issues WHERE user_id = '.$this->user->user_id .' ORDER BY issue_id ASC';
+
 
 		#Execute our query storing the results in a variable $user_issues
 		$user_issues = DB::instance(DB_NAME)->select_rows($q);

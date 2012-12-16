@@ -6,7 +6,7 @@
 				Description:<br>
 				<input type='text' name='description'><br>
 				Category<br>
-				<input type='text' name='category'><br>
+				<input type='text' name='category_id'><br>
 				Lat<br>
 				<input type='text' name='lat'><br>
 				Lng<br>

@@ -19,17 +19,17 @@
 
 	Zip Code<br>
 	<select id='zipcode' name='zipcode'>
-		<option value="02138">02138</option>
-		<option value="02139">02139</option>
-		<option value="02140">02140</option>
-		<option value="02141">02141</option>
-		<option value="02142">02142</option>          
+		<option value="1">02138</option>
+		<option value="2">02139</option>
+		<option value="3">02140</option>
+		<option value="4">02141</option>
+		<option value="5">02142</option>          
     </select>
     <br>
     Access?<br>
     <select id ='admin' name='admin'>
-    	<option value="user">user</option>
-    	<option value="admin">admin</option>
+    	<option value="0">user</option>
+    	<option value="1">admin</option>
 	</select>      
 	       
     <br>

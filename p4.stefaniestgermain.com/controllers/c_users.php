@@ -176,13 +176,7 @@ public function profile_by_id($user_id_passed) {
 
 	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 	$client_files = Array(
-	"/stylesheets/screen.css",
-	"/stylesheets/print.css",
-	   "/stylesheets/ie.css",
-	   "/stylesheets/validationEngine.jquery.css",
-	"/stylesheet/template.css",
-	"/js/languages/jquery.validationEngine-en.js",
-	"/js/jquery.validationEngine.js",
+	
 	);
 
 	$this->template->client_files = Utils::load_client_files($client_files);
@@ -191,16 +185,16 @@ public function profile_by_id($user_id_passed) {
 	   
 	    #profile info via Helper
 	$membership_duration = Helper::get_user_membership_length($user_id_passed);
-	$last_post = Helper::get_date_of_last_post($user_id_passed);
+	$last_issue = Helper::get_date_of_last_issue($user_id_passed);
 
 	$count_followed = Helper::get_count_followed($user_id_passed);
 	$followers = Helper::get_count_following($user_id_passed);
-	$image_path = Helper::get_image_path($user_id_passed);
+	
 
 
 	$profile_arr = "";
 	$profile_arr["membership_duration"] = $membership_duration;
-	$profile_arr["last_post"] = $last_post;
+	$profile_arr["last_issue"] = $last_issue;
 	$profile_arr["count_followed"] = $count_followed;
 	$profile_arr["followers"] = $followers;
 	$profile_arr["image_path"] = $image_path;
@@ -219,33 +213,6 @@ public function profile_by_id($user_id_passed) {
 	}
 }
 
-public function profile() {
-	# If user is blank, they're not logged in, show message and don't do anything else
-	# Not logged in
-	if(!$this->user) {
-	echo "Members only. <a href='/users/login'>Please Login</a>";
-
-	# Return will force this method to exit here so the rest of
-	# the code won't be executed and the profile view won't be displayed.
-	return;
-
-	}
-	else
-
-	$this->template->content = View::instance("v_users_profile");
-	$this->template->title = "Profile of ".$this->user->first_name;
-
-	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
-	$client_files = Array(
-
-	);
-
-	$this->template->client_files = Utils::load_client_files($client_files);
-
-
-	# Render template
-	echo $this->template;
-}
 
 
 
