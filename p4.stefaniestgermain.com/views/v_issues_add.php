@@ -12,7 +12,7 @@
 				Lng<br>
 				<input type='text' name='lng'><br>
 				Zip<br>
-				<input type='text' name='zipcode'><br>
+				<input type='text' name='zipcode_id'><br>
 			<br><br>
 			<input type='submit'>
 		</form>

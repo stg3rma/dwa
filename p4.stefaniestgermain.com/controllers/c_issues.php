@@ -171,7 +171,7 @@ class issues_controller extends base_controller {
 
 	}
 
-	public function get_issue_markers(){
+	public function p_get_issue_markers(){
 
 		#Set up view
 		$this->template->content = View::instance('v_issues_get_issue_markers');

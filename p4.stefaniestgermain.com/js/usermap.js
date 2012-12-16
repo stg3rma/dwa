@@ -68,9 +68,10 @@ $(document).ready(function() {
 
     //get user markers & add to map
 
-        function updateUserMap() { alert('INSIDE updateUserMap()');
-        $.getJSON("/issues/get_issue_markers", function(data){ 
-            var mdata = $.parseJSON(data);
+        function updateUserMap() {
+        map.on;
+        $.getJSON("/issues/p_get_issue_markers", function(data){ 
+            var mdata = JQuery.parseJSON(data);
             console.log("this is data" + mdata);
             for (var i = 0; i < mdata.length; i++) {
             var title = "descr:";
@@ -160,33 +161,6 @@ $(document).ready(function() {
   cambridge_02141.bindPopup("02141").addTo(map);
   cambridge_02142.bindPopup("02142").addTo(map);
 
-  $('#refresh_stats_button').click(function() {
-
-     $.ajax({
-      type: 'POST',
-      url: '/admin/p_dashboard',
-      success: function(response){
-        //debug console
-        console.log(response);
-        var data = JQuery.parseJSON(response);
-        $('#open_issues_02138').html(data['open_issues_02138']);
-        $('#open_issues_02139').html(data['open_issues_02139']);
-        $('#open_issues_02140').html(data['open_issues_02140']);
-        $('#open_issues_02141').html(data['open_issues_02141']);
-        $('#open_issues_02142').html(data['open_issues_02142']);
-        $('#open_issues').html(data['open_issues']);
-        $('#closed_issues').html(data['closed_issues']);
-        $('#all_issues').html(data['all_issues']);
-        $('#category1').html(data['category1']);
-        $('#category2').html(data['category2']);
-        $('#category3').html(data['category3']);
-        $('#category4').html(data['category4']);
-        $('#category5').html(data['category5']);
-        $('#category6').html(data['category6']);
-        $('#category7').html(data['category7']);
-     },
-  });
-});
 
  }); 
 
