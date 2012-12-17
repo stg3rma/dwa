@@ -8,7 +8,8 @@ class admin_controller extends base_controller {
 		#Make sure user is loggined in if they want to use anything in this controller
 		if(!$this->user){
 			die("Members only. <a href='/users/login'>Please Login</a>");
-		} 
+		}
+
 	}
 
 	public function dashboard() {
@@ -18,17 +19,32 @@ class admin_controller extends base_controller {
 
 	# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
 	$client_files = Array(
-			 
 			"/js/adminusermap.js",
 			"/js/cambridge_02138.js",
 			"/js/cambridge_02139.js",
 			"/js/cambridge_02140.js",
 			"/js/cambridge_02141.js",
-			"/js/cambridge_02142.js"
+			"/js/cambridge_02142.js",
+			"/js/map_cloropleth.js",
+			"/js/cloropleth_zipcode_ca.js"
 	);
+
+	$this->template->client_files = Utils::load_client_files($client_files); 		
+
+
+ 
+
+	#check if user is admin in the system
+	$q = "SELECT admin from users WHERE user_id = ".$this->user->user_id;
+	$admin = DB::instance(DB_NAME)->select_field($q);
+	if($admin == '0'){	
+		Router::redirect("/issues/");
+	}
 
 
 	# Render template
+	$this->template->content->admin = $admin;
+	
 	echo $this->template;
 
 	}
@@ -38,12 +54,11 @@ class admin_controller extends base_controller {
 	$data = Array();
 
 		#$q = "SELECT * FROM issues WHERE user_id = ".$this->user->user_id;
-		#This is where we use string of user_ids we created
-
-		#Run our query and store results in the variable $issues
-	
+		
+		#issues by zip for cloropleth map
+	 	$data['open_issues_02138'] = Helper::get_open_issues_by_zipid(1);
 	 	$data['open_issues_02139'] = Helper::get_open_issues_by_zipid(2);
-	    $data['open_issues_02140'] = Helper::get_open_issues_by_zipid(3);
+	    $data['open_issues_02140'] = Helper::get_open_issues_by_zipid(3); 
 	    $data['open_issues_02141'] = Helper::get_open_issues_by_zipid(4);
 	    $data['open_issues_02142'] = Helper::get_open_issues_by_zipid(5);
 	    #issues old & new totals
@@ -60,7 +75,7 @@ class admin_controller extends base_controller {
 	    $data['category7'] = Helper::get_open_issues_by_catid(7); 
 
 	
-	#issues by zip for cloropleth map
+
 	
 	#send json results to the js
 	echo json_encode($data);

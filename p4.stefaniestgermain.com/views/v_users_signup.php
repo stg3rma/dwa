@@ -1,5 +1,6 @@
 
 <form method='POST' id='users_signup' action='/users/p_signup'>
+	<h3>Welcome to P4 E-75 311! Please signup.</h3>
 	<br>
 	First Name<br>
 	<input type='text' name='first_name'>
@@ -36,9 +37,9 @@
 	<input type='submit' value='Submit'>
 	<br>
 	<br>
-	<div class="alert alert-info">
+	<div>
     <? if($error): ?>
-		<div class='error'>
+		<div>
 			<?	 echo $error ?>
 		</div>
 	<? endif; ?>

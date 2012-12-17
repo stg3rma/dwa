@@ -11,7 +11,9 @@
 	<script src="/js/bootstrap.js"></script>	
   <script src="/js/jquery.validationEngine.js"></script>
   <script src="/js/jquery.form.js"></script>
-  <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+  <script src="/js/leaflet.js"></script>
+  <!--<script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>-->
+  <script src="/js/jquery.sparkline.js"></script>
 	<!-- Controller Specific JS/CSS -->
 	<?=@$client_files; ?>   
 	

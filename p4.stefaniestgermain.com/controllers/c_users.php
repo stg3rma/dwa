@@ -69,8 +69,8 @@ public function p_signup() {
 
 
 		# For now, just confirm they've signed up - we can make this fancier later
-		echo "You're registered! Now go <a href='/issues/add'>add issue</a>";
-		Router::redirect("/issues/add");
+		echo "You're registered! Now go <a href='/users/login'>add issue</a>";
+		Router::redirect("/users/login");
 	}	
 }
 

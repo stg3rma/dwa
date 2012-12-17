@@ -13,6 +13,17 @@ body {
 			height: 700px;
 		}
 
+		#map400{
+			width: 375px;
+			height: 375px;
+			
+		}
+		#mapc{
+			width: 375px;
+			height: 375px;
+		
+		}
+
 
 		.info {
 			padding: 6px 8px;

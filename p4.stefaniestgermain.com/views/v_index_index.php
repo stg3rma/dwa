@@ -2,10 +2,10 @@
 <section id="typography">
   <h2>Welcome the P4 e-75 311!</h2> 
   <br>
-  <p>Please <a href='/users/signup'>Sign up</a> to report an issue. If you an existing user, please <a href='/users/login'>Login</a>                      
   <div class="row">
     <div class="span4">
-      <p>This scaled-down version of a 311 application, uses a map of the City of Cambridge. 311 call centers handle non-emergency/information (street lights out, pothole, graffiti, noise, odors, etc.) request type calls providing a single point of contact for their users. This application will enable users to create 311 reports by filling out a form and if the report is tied to a geographical area enter the location by clicking the spot on a map. </p>
+      <p>Please <a href='/users/signup'>Sign up</a> to report an issue. If you an existing user, please <a href='/users/login'>Login</a>                      
+  <p>This scaled-down version of a 311 application, uses a map of the City of Cambridge. 311 call centers handle non-emergency/information (street lights out, pothole, graffiti, noise, odors, etc.) request type calls providing a single point of contact for their users. This application will enable users to create 311 reports by filling out a form and if the report is tied to a geographical area enter the location by clicking the spot on a map. </p>
       <p>Once you login you will see the map with existing markers and have the ability to add new 311 reports List of users 311 report tickets and their status (open/assigned/resolved) will appear below the map. User will have the option of marking the report resolved.</p>
       <br>
       <h3>Faux Contact Info</h3>

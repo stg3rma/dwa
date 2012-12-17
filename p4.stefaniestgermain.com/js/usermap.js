@@ -67,10 +67,12 @@ $(document).ready(function() {
     });
     $('#mapeditoff').on('click', function (e) {
       map.off('click', onMapClick);
-    });  
+    });      
+
+
 
     //get user markers & add to map
-
+/*
       function updateUserMap(){ 
         $.getJSON("/issues/get_markers.php", function(data){ 
             //var mdata = JQuery.parseJSON(data);
@@ -89,7 +91,7 @@ $(document).ready(function() {
           }
         }); 
       }
- /* 
+ 
        updateUserMap(){
           $.Ajax({
         type: 'POST',

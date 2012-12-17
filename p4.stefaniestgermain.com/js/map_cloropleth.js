@@ -2,31 +2,32 @@
 maps views created with custom map API key at www.cloudmade.com
 jquery selectors used to interact with Leaflet javascript map API 
 & cloropleth map example featuring population density in US 
+http://leafletjs.com/examples/choropleth-example.html
 */
 $(document).ready(function() {
 
-		var map  = L.map('map').setView([42.373, -71.107], 7);
+		var mapc = L.map('mapc').setView([42.373, -71.107], 7);
 
 		var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
 			attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
 			key: '0302235d29684d8eae0be1f5149a05b6',
 			styleId: 79642
-		}).addTo(map );
+		}).addTo(mapc);
 
 
     	//setting boundary to not allow panning outside Cambridge, MA
     	var southWest = new L.LatLng(42.34078, -71.04755),
         northEast = new L.LatLng(42.39811, -71.16222), 
         boundsmax = new L.LatLngBounds(southWest, northEast);
-        map .setZoom(13);
-        map .setMaxBounds([boundsmax]);
+        mapc.setZoom(13);
+        mapc.setMaxBounds([boundsmax]);
 
      
 
 		// control that shows state info on hover
 		var info = L.control();
 
-		info.onAdd = function (map ) {
+		info.onAdd = function (mapc) {
 			this._div = L.DomUtil.create('div', 'info');
 			this.update();
 			return this._div;
@@ -38,20 +39,20 @@ $(document).ready(function() {
 				: 'Hover over area');
 		};
 
-		info.addTo(map );
+		info.addTo(mapc);
 
 
 		// color based on issue volume per zip code
 		// colors from ColorBrewer
-
+		//permalink for color scheme 0xEFF3FF; 0xC6DBEF; 0x9ECAE1; 0x6BAED6; 0x3182BD; 0x08519C; 
 
 		function getColor(d) {
-			return d > 50  ? '#253494' :
-			       d > 40  ? '#2C7FB8' :
-			       d > 30  ? '#41B6C4' :
-			       d > 20  ? '#A1DAB4' :
-			       d > 10  ? '#FFFFCC' :
-			                 '#FFEDA0' ;
+			return d > 50  ? '#08519C' :
+			       d > 40  ? '#3182BD' :
+			       d > 30  ? '#6BAED6' :
+			       d > 20  ? '#9ECAE1' :
+			       d > 10  ? '#C6DBEF' :
+			                 '#EFF3FF' ;
 		}
 
 		function style(feature) {
@@ -90,7 +91,7 @@ $(document).ready(function() {
 		}
 
 		function zoomToFeature(e) {
-			map .fitBounds(e.target.getBounds());
+			mapc.fitBounds(e.target.getBounds());
 		}
 
 		function onEachFeature(feature, layer) {
@@ -105,27 +106,27 @@ $(document).ready(function() {
 	    geojson = L.geoJson(cambridgeData, {
 			style: style,
 			onEachFeature: onEachFeature
-		}).addTo(map );
+		}).addTo(mapc);
 		
 
-		map .attributionControl.addAttribution('cloudmade leaflet map ');
+		mapc.attributionControl.addAttribution('cloudmade leaflet mapc');
 
 		//add marker
-		//L.marker([42.373, -71.107]).addTo(map );
+		//L.marker([42.373, -71.107]).addTo(mapc);
 
 
 		var legend = L.control({position: 'bottomright'});
 
-		legend.onAdd = function (map ) {
+		legend.onAdd = function (mapc) {
 
 			var div = L.DomUtil.create('div', 'info legend'),
-				grades =  [0, 10, 20, 30, 40, 50]
+				density =  [0, 10, 20, 30, 40, 50]
 				labels = [],
 				from, to;
 
-			for (var i = 0; i < grades.length; i++) {
-				from = grades[i];
-				to = grades[i + 1];
+			for (var i = 0; i < density.length; i++) {
+				from = density[i];
+				to = density[i + 1];
 
 				labels.push(
 					'<i style="background:' + getColor(from + 1) + '"></i> ' +
@@ -136,7 +137,7 @@ $(document).ready(function() {
 			return div;
 		};
 
-		legend.addTo(map );
+		legend.addTo(mapc);
 
 
 
