@@ -82,13 +82,13 @@
 
   $('#refresh_stats_button').click(function() {
 
-     $.Ajax({
+     $.ajax({
       type: 'POST',
       url: '/admin/p_dashboard',
       success: function(response){
         //debug console
         console.log(response);
-        var data = JQuery.parseJSON(response);
+        var data = jQuery.parseJSON(response);
         $('#open_issues_02138').html(data['open_issues_02138']);
         $('#open_issues_02139').html(data['open_issues_02139']);
         $('#open_issues_02140').html(data['open_issues_02140']);
