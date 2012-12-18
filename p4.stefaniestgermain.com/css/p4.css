@@ -1,11 +1,13 @@
 		body {
-		  			padding-top: 75px;
-				}
-				@media (max-width: 979px) {
-		  			body {
-		   			 	padding-top: 0px;
-		  			 }	
+		  	padding-top: 75px;
 		}
+		@media (max-width: 979px) {
+		body {
+		   		padding-top: 0px;
+		  	}	
+		}
+
+		td{width: 120px;}
 
 		p{padding:0;}
 
@@ -16,13 +18,13 @@
 		}
 
 		#map400{
-			width: 375px;
-			height: 375px;
+			width: 700px;
+			height: 300px;
 			
 		}
 		#mapc{
-			width: 375px;
-			height: 375px;
+			width: 700px;
+			height: 200px;
 		
 		}
 

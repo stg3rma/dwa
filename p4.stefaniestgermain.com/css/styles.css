@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+
+
+.graphLabel, .graphValue { text-align: center; }
+
+
+#graphHolder3 { padding: 10px; border: 1px solid #f3f3f3; overflow: auto; float: left; }
+#graph3 { background-color: #f3f3f3; padding: 10px 0 10px 10px; }
+
+#graph { clear: both; }
+
+.graphValuegraph5 { }
+
+
+.subBarsgraph6 { padding-left: 5px; }
+
+
+.graphResolutionByYearTitle { font-weight: bold; padding: 15px; font-size: 14px; text-align: center; }
+.graphResolutionByYearHolder { border: 1px solid #ccc; padding: 10px; width: 600px; margin: 30px 0px; float: left; }
+
+
+code { color: #0101C8; }
+
+h1, h2, h3 { padding: 0; margin: 0; font-family: Georgia; }
+h3 { font-size: 16px; }
+
+.graphBargraph5 { background: url(web-ruler-600-vertical.gif); }
+
+
+.subMenu { clear: both; }
+.subMenu a { padding: 5px; background-color: #ccc; color: #3D0017; text-decoration: none; float: left; }
+.subMenu a:hover { background-color: #333; }
+
+.dyn { background-color: yellow; }
+
+#graphHolder5simpleGraph, #graphHolder2multiGraph, #graphHolder3stackedGraph { float: left; margin-top: 30px; font-family: tahoma; font-size: 12px; }
+

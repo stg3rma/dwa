@@ -26,8 +26,11 @@ class admin_controller extends base_controller {
 			"/js/cambridge_02141.js",
 			"/js/cambridge_02142.js",
 			"/js/map_cloropleth.js",
-			"/js/cloropleth_zipcode_ca.js"
-	);
+			"/js/cloropleth_zipcode_ca.js",
+    		"/js/jqBarGraph.1.1.min.js",
+    		"/css/styles.css"
+
+	);	
 
 	$this->template->client_files = Utils::load_client_files($client_files); 		
 

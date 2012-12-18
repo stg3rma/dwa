@@ -13,13 +13,19 @@ Re-worked by Susan Buck
 
   var initialView = true;
   var map = L.map('map').setView([42.373, -71.107], 7);
+  var adminmap = L.map('map').setView([42.373, -71.107], 7);
+
   var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
       key: '0302235d29684d8eae0be1f5149a05b6',
       styleId: 998
   }).addTo(map);
-
-
+    var cloudmade2 = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+      key: '0302235d29684d8eae0be1f5149a05b6',
+      styleId: 998
+  }).addTo(adminmap);
+  
   // Setting boundary to not allow panning outside Cambridge, MA
   var southWest = new L.LatLng(42.34078, -71.04755),
       northEast = new L.LatLng(42.39811, -71.16222),
