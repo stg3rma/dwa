@@ -19,7 +19,7 @@
           <div class="modal-body">
 
     
-      <form name='new-post' method='POST' action='/issues/p_add'>
+      <form name='new-post' method='POST' action='/issues/p_add' onclick="updateUserMap()">
       <strong>New Issue:</strong><br>
         Description:<br>
         <input type='text' name='description'><br>
@@ -93,6 +93,7 @@
 $('.delete').click(function() {
 
 var issue_id = $(this).attr('data-issue-id');
+
 
     $.ajax({
         type: 'POST',

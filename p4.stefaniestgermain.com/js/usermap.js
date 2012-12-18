@@ -8,6 +8,7 @@ $(document).ready(function() {
 
     var initialView
     intialView = true;
+    
 
     var map = L.map('map').setView([42.373, -71.107], 7);
 
@@ -76,7 +77,7 @@ $(document).ready(function() {
       function updateUserMap(){ 
         $.getJSON('/issues/p_get_issue_markers', function(response){ 
             console.log(response);
-            var mdata = jQuery.parseJSON(data);
+            var data = jQuery.parseJSON(response);
             for (var i = 0; i < data.length; i++) {
             var title = "descr:";
             var location = new L.LatLng(data[i].lat, data[i].lng);

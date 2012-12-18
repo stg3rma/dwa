@@ -76,7 +76,8 @@ class issues_controller extends base_controller {
 		$this->template->title = "Issues";
 		
 		#Build a query of the issues this user reported 
-		$q = 'SELECT * FROM issues WHERE user_id = '.$this->user->user_id .' ORDER BY issue_id ASC';
+		#$q = "SELECT * FROM issues WHERE active = 1 and user_id = ".$this->user->user_id ." ORDER BY issue_id DESC"';
+		$q = "SELECT * FROM issues WHERE active = 1 and user_id = ".$this->user->user_id;
 
 
 		#Execute our query storing the results in a variable $user_issues
@@ -165,7 +166,8 @@ class issues_controller extends base_controller {
 
 	public function delete(){
 
-		DB::instance(DB_NAME)->delete('issues', 'WHERE issue_id = '.$_POST['issue_id']);
+		//DB::instance(DB_NAME)->delete('issues', 'WHERE issue_id = '.$_POST['issue_id']);	
+		DB::instance(DB_NAME)->update('issues', 'active = 0', 'WHERE issue_id = '.$_POST['issue_id']);	
 	}
 
 
