@@ -56,7 +56,8 @@
 
 </section>
 
-<script type="text/javascript">
+<script>
+ //update stats on admin dashboard
 
   $('#refresh_stats_button').click(function() {
 
@@ -85,10 +86,12 @@
      },
   });
 });
-
-
-
-   
+    
 </script>
+
+
+
+
+
 
 
