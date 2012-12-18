@@ -74,6 +74,7 @@ $(document).ready(function() {
 				color: '#666',
 				dashArray: '',
 				fillOpacity: 0.7
+				
 			});
 
 			if (!L.Browser.ie && !L.Browser.opera) {
@@ -118,15 +119,16 @@ $(document).ready(function() {
 		var legend = L.control({position: 'bottomright'});
 
 		legend.onAdd = function (mapc) {
-
+			
 			var div = L.DomUtil.create('div', 'info legend'),
-				density =  [0, 10, 20, 30, 40, 50]
+				grades = [0, 10, 20, 30, 40, 50, 60],
 				labels = [],
 				from, to;
 
-			for (var i = 0; i < density.length; i++) {
-				from = density[i];
-				to = density[i + 1];
+			for (var i = 0; i < grades.length; i++) {
+				from = grades[i];
+				to = grades[i + 1];
+
 
 				labels.push(
 					'<i style="background:' + getColor(from + 1) + '"></i> ' +
@@ -137,7 +139,7 @@ $(document).ready(function() {
 			return div;
 		};
 
-		legend.addTo(mapc);
+		//legend.addTo(mapc);
 
 
 

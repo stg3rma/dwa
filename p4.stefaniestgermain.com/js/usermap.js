@@ -72,11 +72,11 @@ $(document).ready(function() {
 
 
     //get user markers & add to map
-/*
+
       function updateUserMap(){ 
-        $.getJSON("/issues/get_markers.php", function(data){ 
-            //var mdata = JQuery.parseJSON(data);
-            console.log(data);
+        $.getJSON('/issues/p_get_issue_markers', function(response){ 
+            console.log(response);
+            var mdata = jQuery.parseJSON(data);
             for (var i = 0; i < data.length; i++) {
             var title = "descr:";
             var location = new L.LatLng(data[i].lat, data[i].lng);
@@ -91,27 +91,28 @@ $(document).ready(function() {
           }
         }); 
       }
- 
+
+/*
        updateUserMap(){
-          $.Ajax({
-        type: 'POST',
-        url: '/issues/p_get_issue_markers', 
-        success: function(data) {
-        //debug
-        console.log(response);
-        JQuery.parseJSON(data);
-      for(var i = 0; i < data.length, i++){
-        var location = new L.LatLng(data[i].lat, data[i].lng);
-        var id = data[i].issue_id;
-        var description = data[i].description;
-        echo var marker = new L.Marker(location, {title: description });
-        marker.bindPopup("Please work!");
-        userLayer.addLayer(marker);
+          $.ajax({
+          type: 'POST',
+          url: '/issues/p_get_issue_markers', 
+          success: function(response){
+          //debug
+          console.log(response);
+          var data = jQuery.parseJSON(response);
+          for(var i = 0; i < data.length, i++){
+          var location = new L.LatLng(data[i].lat, data[i].lng);
+          var id = data[i].issue_id;
+          var description = data[i].description;
+          echo var marker = new L.Marker(location, {title: description });
+          marker.bindPopup("Please work!");
+          userLayer.addLayer(marker);
+        }
       }
-    };
- });
-}*/
-      
+    });
+ } */
+   
 
     //<button type="button" class="btn" data-complete-text="finished!" >...</button>
     //<script>

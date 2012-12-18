@@ -136,45 +136,17 @@ class issues_controller extends base_controller {
 
 	public function p_get_issue_markers(){
 
-		#Set up view
-		$this->template->content = View::instance('v_issues_get_issue_markers');
-		$this->template->title = "Issues";
 		
-
-		#Now let's build our query to grab the issues
+		$data = Array();
+		
 		$q = "SELECT lat, lng, description FROM issues WHERE user_id = ".$this->user->user_id;
-		#This is where we use string of user_ids we created
-
-		#Run our query and store results in the variable $issues
-		
 		$data = DB::instance(DB_NAME)->select_rows($q);
+
+
 	    echo json_encode($data);
 
-		#Pass markers to the view
-		$this->template->content->issue_markers = print json_encode($data);
-		#send back json results to js as json
-		
 
 
-		# If this view needs any JS or CSS files, add their paths to this array so they will get loaded in the head
-		$client_files = Array(
-			"/js/usermap.js",
-			"/js/cambridge_02138.js",
-			"/js/cambridge_02139.js",
-			"/js/cambridge_02140.js",
-			"/js/cambridge_02141.js",
-			"/js/cambridge_02142.js"
-
-		
-	   
-	    );
-	    
-	    $this->template->client_files = Utils::load_client_files($client_files); 		
-
-
- 		#Render the view
-		echo $this->template;
-		
 	}
 	
 	public function get_markers(){

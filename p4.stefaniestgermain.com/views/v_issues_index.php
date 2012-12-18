@@ -19,7 +19,7 @@
           <div class="modal-body">
 
     
-      <form name='new-post' method='POST' action='/issues/p_add' onsubmit='updateUserMap()'>
+      <form name='new-post' method='POST' action='/issues/p_add'>
       <strong>New Issue:</strong><br>
         Description:<br>
         <input type='text' name='description'><br>
@@ -95,7 +95,6 @@ $('.delete').click(function() {
 var issue_id = $(this).attr('data-issue-id');
 
     $.ajax({
-
         type: 'POST',
         url: '/issues/delete',
         success: function(response) {
@@ -105,7 +104,7 @@ var issue_id = $(this).attr('data-issue-id');
         data: {
 
         // Make sure we tell our method what issue is
-        issue_id: issue_id;
+        issue_id: issue_id
         },
   });
 

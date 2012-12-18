@@ -2,9 +2,9 @@
 
 class Helper {
 
-  public static function get_open_issues_by_zipid(zipid){
+  public static function get_open_issues_by_zipid($zipid){
 
-      $q = "SELECT count(issue_id) FROM issues WHERE zipcode_id = $zipid and active = 1";
+      $q = "SELECT count(issue_id) FROM issues WHERE active = 1 and zipcode_id = ".$zipid;
       $open_issues_by_zipid = DB::instance(DB_NAME)->SELECT_field($q);
       return htmlspecialchars($open_issues_by_zipid);
   }
@@ -19,7 +19,7 @@ class Helper {
 
   public static function get_closed_issues(){
 
-      $q = "SELECT count(issue_id) FROM issues WHERE active = 0 ";
+      $q = "SELECT count(issue_id) FROM issues WHERE active = 0";
       $closed_issues = DB::instance(DB_NAME)->SELECT_field($q);
       return htmlspecialchars($closed_issues);
 
@@ -34,9 +34,9 @@ class Helper {
   }
 
   #active issues by type
-  public static function get_open_issues_by_catid(catid){
+  public static function get_open_issues_by_catid($catid){
 
-      $q = "SELECT count(category_id) FROM issues WHERE category_id = $catid and active = 1";
+      $q = "SELECT count(category_id) FROM issues WHERE active = 1 and category_id = ".$catid;
       $open_issues_by_catid = DB::instance(DB_NAME)->SELECT_field($q);
       return htmlspecialchars($open_issues_by_catid);
   }
@@ -100,7 +100,7 @@ class Helper {
   #Get count of admins in the system
   public static function get_users_count(){
 
-      $q = "SELECT count(user_id) FROM users WHERE role = 'admin'";
+      $q = "SELECT count(user_id) FROM users WHERE admin = 'admin'";
       $user_count = DB::instance(DB_NAME)->SELECT_field($q);
       return htmlspecialchars($count_following);
   }
@@ -108,7 +108,7 @@ class Helper {
   #Get count of usersin the system
   public static function get_admin_count(){
 
-      $q = "SELECT count(user_id) FROM users WHERE role = 'user'";
+      $q = "SELECT count(user_id) FROM users WHERE admin = 'user'";
       $user_count = DB::instance(DB_NAME)->SELECT_field($q);
       return htmlspecialchars($count_following);
   }
@@ -116,18 +116,10 @@ class Helper {
   #Get count of issues
   public static function get_count_issues($user_id){
 
-    $q = "SELECT count(issues_id) FROM issues WHERE user_id = ".$user_id;
+    $q = "SELECT count(issue_id) FROM issues WHERE user_id = ".$user_id;
     $issues_count = DB::instance(DB_NAME)->SELECT_field($q);
     return htmlspecialchars($issues_count);
   } 
-
-  #Get date of last issues as string
-  public static function get_issues_by_days_old($days){
-
-    $q = "SELECT * FROM issue WHERE (to_days(now()) - to_days(FROM_unixtime(created))) < $days )";
-    $count_followed = DB::instance(DB_NAME)->SELECT_field($q);
-    return htmlspecialchars($count_followed);
-  }
 
  
   #Get date of last posts as string
@@ -137,8 +129,6 @@ class Helper {
     $count_followed = DB::instance(DB_NAME)->SELECT_field($q);
     return htmlspecialchars($count_followed);
   }
-
-
 
 
 }
