@@ -54,13 +54,19 @@
       </table>
     </div>
 </div>
+<div class="row">&nbsp;</div>
 <div class="row">
   <div class="span12">
-    <p>The top map showing Cambridge zip code with polylines was supposed to be a map similar to the one on the users page. To declare a Leaflet map it needs an L.map object in the js with baselayer, center, zoom, dimensions for css for #map and a div on the page with id=#map.
-       You can have multiple maps but need to have separate entries in css, div and js so all operations
-        would be map2.on, etc. Did not have time to adapt the js to handle this and rather than duplicate code in usersmap.js I just let all admins see all 
-        issues on the users page.</p>
-    <p>The cloropleth map of Cambridge above, based on Leaflet tutorial, is setup to change shade based on the density of calls per zipcode. The file zipcode_ca.js has data for each zip code in JSON format like this: “type”:”FeatureCollection”, “feature”:[{“type”: “Feature”, “id”: “1”, “properties”:{“name” : “02138”, “density”: “33”}]. I was not able to figure out how to update “density” so the map will not change shade as various call types are added. On searching how to open/edit a json file I found threads suggesting json decode be used then loop through with a for each.</p>
+    The top map showing Cambridge zip code with polylines was supposed to be a map similar to the one on the users page. To declare a Leaflet map it needs an L.map object in the js with baselayer, center, zoom, dimensions for css for #map and a div on the page with id=#map.
+    You can have multiple maps but need to have separate entries in css, div and js so all operations
+    would be map2.on, etc. Did not have time to adapt the js to handle this and rather than duplicate code in usersmap.js I just let all admins see all 
+    issues on the users page.
+  </div>
+</div>
+<div class="row">&nbsp;<br></div>
+<div class="row">
+  <div class="span12">
+    The cloropleth map of Cambridge above, based on Leaflet tutorial, is setup to change shade based on the density of calls per zipcode. The file zipcode_ca.js has data for each zip code in JSON format like this: “type”:”FeatureCollection”, “feature”:[{“type”: “Feature”, “id”: “1”, “properties”:{“name” : “02138”, “density”: “33”}]. I was not able to figure out how to update “density” so the map will not change shade as various call types are added. On searching how to open/edit a json file I found threads suggesting json decode be used then loop through with a for each.
   </div>
 </div>  
 
