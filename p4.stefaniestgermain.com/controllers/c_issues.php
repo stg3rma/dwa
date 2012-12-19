@@ -29,11 +29,23 @@ class issues_controller extends base_controller {
 	$this->template->content = View::instance('v_issues_index');
 	$this->template->title = "Issues";
 
-	# Build a query of the issues this user reported
-	$q = 'SELECT * FROM issues WHERE user_id = '.$this->user->user_id .' ORDER BY issue_id DESC';
+
+	#check if user is app admin
+	$q = "SELECT admin from users WHERE user_id = ".$this->user->user_id;
+	$admin = DB::instance(DB_NAME)->select_field($q);
+	
+	#return all active issues if admin
+	if($admin == '1'){	
+		$q = 'SELECT * FROM issues WHERE active = 1'; 
+	}
+	else{
+		# Build a query of the issues this user reported
+		$q = 'SELECT * FROM issues WHERE active = 1 and user_id = '.$this->user->user_id .' ORDER BY issue_id DESC';
+	}
 
 	# Execute our query storing the results in a variable $user_issues
 	$user_issues = DB::instance(DB_NAME)->select_rows($q);
+
 
 	if(empty($user_issues)) {
 
@@ -41,7 +53,7 @@ class issues_controller extends base_controller {
 		$show_no_issues_message = "There are no issues.";
 		$this->template->content->show_no_issues_message = TRUE;
 		$this->template->content->show_issues = FALSE;
-
+		
 	}
 
 	else{
@@ -100,6 +112,7 @@ class issues_controller extends base_controller {
 		# Unix timestamp of when this issue was created/modified
 		$_POST['created'] = Time::now();
 		$_POST['modified'] = Time::now();
+		$_POST['active'] = 1;
 
 		# Insert this issue into the database
 		DB::instance(DB_NAME)->insert("issues", $_POST);
@@ -118,6 +131,7 @@ class issues_controller extends base_controller {
 
 	public function get_markers(){
 
+
 		# Build our query to grab the issues
 		$q = "SELECT issue_id, lat, lng, description FROM issues WHERE user_id = ".$this->user->user_id;
 
@@ -133,9 +147,12 @@ class issues_controller extends base_controller {
 	-------------------------------------------------------------------------------------------------*/
 
 	public function delete(){
+	
+		//rather than delete when issues are closed mark an inactive
+		$q = 'UPDATE issues SET active = "0" WHERE issue_id = '. $_POST['issue_id'];
+		DB::instance(DB_NAME)->update_row($q);
 
-		DB::instance(DB_NAME)->delete('issues', 'WHERE issue_id = '.$_POST['issue_id']);
-
+		//DB::instance(DB_NAME)->delete('issues', 'WHERE issue_id = '.$_POST['issue_id']);
 	}
 
 	/*-------------------------------------------------------------------------------------------------
