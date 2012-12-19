@@ -1,8 +1,9 @@
 /*
 maps views created with custom map API key at www.cloudmade.com
 jquery selectors used to interact with Leaflet javascript map API
-& cloropleth map example featuring population density in US
-Re-worked by Susan Buck 
+& cloropleth map example based on Leaflet example featuring population density in US,
+Referenced Brian McBride's Leaflet User Map to figure out map marker add/update 
+layout & refactor usermap.js with help from Susan Buck
 */
 
   $(document).ready(function() {
@@ -73,6 +74,11 @@ Re-worked by Susan Buck
     reload_markers()('click', onMapClick);
   });
 
+  $('#updatelistmarkers').on('click', function (e) {
+    document.location.reload(true);
+  });
+
+  
 
   // Ajaxify the "add new issue form"
   var options = {

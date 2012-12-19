@@ -3,7 +3,7 @@
 <div class="row">
   <div class="span12">
     <h2>Report an Issue</h2>
-    <p>If you setup your account with 'Admin' access check out the <a href="/admin/dashboard">Admin Dashboard</a> which lists some issue stats. Otherwise click 'Map Edit Mode' then click within the Cambridge boundaries outlined in blue on the map to report an E-75 311 issue to the map. If this were a live 311 system city officials would respond to your report. Admin fucntion enables city admin to flag issues as assigned or resolved at which point they will drop off the map.
+    <p>If you setup your account with 'Admin' access check out the <a href="/admin/dashboard">Admin Dashboard</a> which lists some issue stats. Otherwise click 'Map Edit Mode' then click within the Cambridge boundaries outlined in blue on the map to report an E-75 311 issue to the map. If this were a live 311 system city officials would respond to your report. Admins have access to view and close all issues on the map.
     </p>
     <p>
   </div>
@@ -19,6 +19,10 @@
       <!-- button to toggle markers show/hide -->
       <div class="btn-group" data-toggle="buttons-radio">
         <div><button type="button" class="btn btn-primary" id="hidemarkers">Hide Map Markers</button><button type="button" class="btn btn-primary" id="showmarkers">Show Map Markers</button></div>
+      </div>
+      <!-- button to update list & markers -->
+      <div class="btn-group">
+       <div><button type="button" class="btn btn-primary" id="updatelistmarkers">Update List/Map</button></div>
       </div>
     </div>
   </div>
@@ -55,6 +59,7 @@
           </table>
         </section>
     <? endif; ?>
+
     </div>
   </div>
 </div>

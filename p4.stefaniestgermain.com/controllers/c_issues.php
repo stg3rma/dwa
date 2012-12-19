@@ -156,9 +156,9 @@ class issues_controller extends base_controller {
 	public function delete(){
 	
 		//rather than delete when issues are closed mark an inactive
-		$q = 'UPDATE issues SET active = "0" WHERE issue_id = '. $_POST['issue_id'];
-		DB::instance(DB_NAME)->update_row($q);
 
+		$data = Array("active" => "0");
+		DB::instance(DB_NAME)->update_row('issues', $data,'WHERE issue_id = '.$_POST['issue_id']);
 		//DB::instance(DB_NAME)->delete('issues', 'WHERE issue_id = '.$_POST['issue_id']);
 	}
 
