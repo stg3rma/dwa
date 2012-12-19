@@ -14,11 +14,11 @@
 				311 User Login Form
 			</legend>
 			<label>
-				<span>Email: </span>
+				<span>Email: </span><br>
 				<input value="" class="validate[required,custom[email]] text-input" type="text" name="email" id="email" />
 			</label>
 			<label>
-				<span>Password: </span>
+				<span>Password: </span><br>
 				<input value="" class="validate[required,equals[password]] " type="password" name="password" id="password" />
 			</label>
 		</fieldset>

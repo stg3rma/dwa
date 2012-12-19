@@ -84,29 +84,11 @@
         $('#category4').html(data['category4']);
         $('#category5').html(data['category5']);
         $('#category6').html(data['category6']);
-        mdata[i].open_issues_02139;
+        
      },
   });
 });
 
-  function get_stats(json_data) {
-      // Parse the json we get back
-      var mdata = jQuery.parseJSON(json_data);
-          // Loop through the results
-          for (var i = 0; i < mdata.length; i++) {
-                //var title;
-                var issue_id = mdata[i].issue_id;
-                var location = new L.LatLng(mdata[i].lat, mdata[i].lng);
-                var lat = mdata[i].lat;
-                var lng = mdata[i].lng;
-                var desc = mdata[i].description;
-                var coords = new L.LatLng(mdata[i].lat, mdata[i].lng);
-                var marker = new L.Marker(coords, {title:desc}).addTo(map);
-                marker.bindPopup("#"+issue_id+": "+ desc + "");
-                userLayer.addLayer(marker);
-
-          }
-  }
 
 //could not get values above into data array below
 //http://code.google.com/p/jqbargraph/

@@ -12,23 +12,23 @@
 		311 User Signup Form
 	</legend>
 		<label>
-			<span>First Name: </span>
+			<span>First Name: </span><br>
 			<input value="" class="validate[required] text-input" type="text" name="first_name" id="first_name" />
 		</label>
 		<label>
-			<span>Last Name: </span>
+			<span>Last Name: </span><br>
 			<input value="" class="validate[required] text-input" type="text" name="last_name" id="last_name" />
 		</label>
 		<label>
-		<span>Email: </span>
+		<span>Email: </span><br>
 			<input value="" class="validate[required,custom[email]] text-input" type="text" name="email" id="email" />
 		</label>
 		<label>
-			<span>Password: </span>
+			<span>Password: </span><br>
 			<input value="" class="validate[required,equals[password]] " type="password" name="password" id="password" />
 		</label>
 
-	Zip Code<br>
+	Zip Code<br><br>
 	<select id='zipcode_id' name='zipcode_id'>
 		<option value="1" selected>02138</option>
 		<option value="2">02139</option>

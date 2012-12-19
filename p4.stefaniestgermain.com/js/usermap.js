@@ -141,17 +141,6 @@ Re-worked by Susan Buck
         $('#modalAddIssue').modal('show');
   }
 
-  function reload_markers(){
-    $.ajax({
-            type: 'POST',
-            url: '/issues/p_load_issues/',  
-            success: function(response) {
-              show_markers(response);
-             
-            },
-    });
-
-  }
 
 
   /**

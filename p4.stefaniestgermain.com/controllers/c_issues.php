@@ -37,14 +37,16 @@ class issues_controller extends base_controller {
 	#return all active issues if admin
 	if($admin == '1'){	
 		$q = 'SELECT * FROM issues WHERE active = 1'; 
+		$user_issues = DB::instance(DB_NAME)->select_rows($q);
 	}
 	else{
 		# Build a query of the issues this user reported
 		$q = 'SELECT * FROM issues WHERE active = 1 and user_id = '.$this->user->user_id .' ORDER BY issue_id DESC';
+		$user_issues = DB::instance(DB_NAME)->select_rows($q);
 	}
 
 	# Execute our query storing the results in a variable $user_issues
-	$user_issues = DB::instance(DB_NAME)->select_rows($q);
+	#$user_issues = DB::instance(DB_NAME)->select_rows($q);
 
 
 	if(empty($user_issues)) {
@@ -58,11 +60,16 @@ class issues_controller extends base_controller {
 
 	else{
 
-		# Build query to grab the issues
-		$q = "SELECT * FROM issues WHERE user_id = ".$this->user->user_id;
-
-		#Run our query and store results in the variable $issues
-		$issues = DB::instance(DB_NAME)->select_rows($q);
+		#return all active issues if admin
+		if($admin == '1'){	
+			$q = 'SELECT * FROM issues WHERE active = 1'; 
+			$issues = DB::instance(DB_NAME)->select_rows($q);
+		}
+		else{
+			# Build a query of the issues this user reported
+			$q = 'SELECT * FROM issues WHERE active = 1 and user_id = '.$this->user->user_id .' ORDER BY issue_id DESC';
+			$issues = DB::instance(DB_NAME)->select_rows($q);
+		}
 
 		$this->template->content->show_no_issues_message = FALSE;
 		$this->template->content->show_issues = TRUE;
