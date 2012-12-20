@@ -21,10 +21,9 @@
         <div><button type="button" class="btn btn-primary" id="hidemarkers">Hide Map Markers</button><button type="button" class="btn btn-primary" id="showmarkers">Show Map Markers</button></div>
       </div>
       <!-- button to update list & markers -->
-      <div class="btn-group">
-       <div><button type="button" class="btn btn-primary" id="updatelistmarkers">Update List/Map</button></div>
-      </div>
-    </div>
+        <button type="button" class="btn btn-primary" data-toggle="button"  id="updatelistmarkers">Update List|Map</button></div>
+    
+
   </div>
 </div> 
 <div class="row">&nbsp;</div>  

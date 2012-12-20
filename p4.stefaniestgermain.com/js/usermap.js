@@ -71,11 +71,18 @@ layout & refactor usermap.js with help from Susan Buck
   });
 
   $('#showmarkers').on('click', function (e) {
-    reload_markers()('click', onMapClick);
+    //reload_markers()('click', onMapClick);
+      $.ajax({
+          type: 'POST',
+          url: '/issues/p_load_issues/',  
+          success: function(response) {
+            show_markers(response);
+          },
+      });
   });
 
   $('#updatelistmarkers').on('click', function (e) {
-    document.location.reload(true);
+    document.location.reload(true)('click', onMapClick);
   });
 
   
