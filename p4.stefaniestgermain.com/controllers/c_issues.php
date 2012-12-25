@@ -31,8 +31,15 @@ class issues_controller extends base_controller {
 
 
 	#check if user is app admin
-	$q = "SELECT admin from users WHERE user_id = ".$this->user->user_id;
-	$admin = DB::instance(DB_NAME)->select_field($q);
+	# SB: We already know this field because we loaded the $user in the base controller.
+	# Pull data from there instead of making another trip to the DB.
+	
+	# So instead of this:
+	#$q = "SELECT admin from users WHERE user_id = ".$this->user->user_id;
+	#$admin = DB::instance(DB_NAME)->select_field($q);
+	
+	# This...
+	$admin = $this->user->admin;
 	
 	#return all active issues if admin
 	if($admin == '1'){	
